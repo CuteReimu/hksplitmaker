@@ -41,7 +41,7 @@ type xmlSegments struct {
 
 type xmlSegment struct {
 	Name            string
-	Icon            string
+	Icon            string `xml:",innerxml"`
 	SplitTimes      xmlSplitTimes
 	BestSegmentTime string
 	SegmentHistory  string
@@ -89,11 +89,13 @@ func saveSplitsFile() {
 			},
 		}
 		for _, line := range lines {
+			splitId := splitsDict[line.splitId.Text()].id
 			run.Segments.Segment = append(run.Segments.Segment, &xmlSegment{
 				Name:       line.name.Text(),
+				Icon:       getIcon(splitId),
 				SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
 			})
-			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitsDict[line.splitId.Text()].id)
+			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
 		}
 		run.Segments.Segment = append(run.Segments.Segment, &xmlSegment{
 			Name:       finalLine.name.Text(),
