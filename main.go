@@ -13,17 +13,20 @@ func getSystemMetrics(nIndex int) int {
 }
 
 var mainWindow *walk.MainWindow
-var splitLines *walk.ScrollView
+var splitLinesView *walk.Composite
 
 func main() {
-	initSplitsFile(true)
+	if err := initSplitsFile(true); err != nil {
+		walk.MsgBox(nil, "错误", "内部错误", walk.MsgBoxIconError)
+		return
+	}
 	screenX, screenY := getSystemMetrics(0), getSystemMetrics(1)
 	width, height := 550, 480
 	err := MainWindow{
 		AssignTo: &mainWindow,
 		Title:    "hksplitmaker",
 		Bounds:   Rectangle{X: (screenX - width) / 2, Y: (screenY - height) / 2, Width: width, Height: height},
-		Layout:   VBox{Alignment: AlignHCenterVNear},
+		Layout:   VBox{},
 		Children: []Widget{
 			//Composite{
 			//	MaxSize: Size{Width: 0, Height: 20},
@@ -41,17 +44,29 @@ func main() {
 			//	},
 			//},
 			ScrollView{
-				AssignTo:        &splitLines,
 				HorizontalFixed: true,
-				Alignment:       AlignHCenterVNear,
 				Layout:          VBox{},
 				Children: []Widget{
 					Composite{
-						Layout:  HBox{},
-						MaxSize: Size{Width: 0, Height: 25},
+						AssignTo:  &splitLinesView,
+						Alignment: AlignHCenterVNear,
+						Layout:    VBox{},
+					},
+					Composite{
+						Layout: HBox{},
+						Children: []Widget{
+							LineEdit{AssignTo: &finalLine.name, Text: "空洞骑士"},
+							ComboBox{AssignTo: &finalLine.splitId, Enabled: false, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}},
+							CheckBox{AssignTo: &endTriggerCheckBox, Checked: true, Text: "游戏结束",
+								OnCheckedChanged: func() {
+									finalLine.splitId.SetEnabled(!endTriggerCheckBox.Checked())
+								},
+							},
+						},
 					},
 				},
 			},
+			PushButton{Text: "另存为", OnClicked: saveSplitsFile},
 		},
 	}.Create()
 	addLine()

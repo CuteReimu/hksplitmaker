@@ -19,46 +19,43 @@ var splitsFileBuf []byte
 var splitDescriptions []string
 var splitsDict = make(map[string]*splitData)
 
-func initSplitsFile(init bool) {
+func initSplitsFile(init bool) error {
 	var err error
 	splitsFileBuf, err = ioutil.ReadFile("splits.txt")
-	if err != nil {
-		if !init {
-			walk.MsgBox(nil, "错误", "打开splits.txt失败", walk.MsgBoxIconError)
-		}
-		return
+	if err != nil && !init {
+		return err
 	}
 	rd := bufio.NewReader(bytes.NewReader(splitsFileBuf))
 	re, err := regexp.Compile("\\[Description\\(\"(.*?)\"\\)\\s*,\\s*ToolTip\\(\"(.*?)\"\\)]")
 	if err != nil {
-		walk.MsgBox(nil, "错误", "内部错误", walk.MsgBoxIconError)
-		return
+		return err
 	}
 	splitDescriptions = nil
 	splitsDict = make(map[string]*splitData)
 	var isNameLine bool
 	line, isPrefix, err := rd.ReadLine()
-	var result [][]byte
+	var result []string
 	for ; err == nil; line, isPrefix, err = rd.ReadLine() {
 		if isPrefix {
 			err = errors.New("尚未支持这种文件，尽情期待更新")
 			break
 		}
-		line = bytes.TrimSpace(line)
+		line = bytes.Trim(bytes.TrimSpace(line), ",")
 		if len(line) == 0 {
 			continue
 		}
 		if isNameLine {
 			if len(result) == 3 {
-				splitDescriptions = append(splitDescriptions, string(result[1]))
-				splitsDict[string(result[1])] = &splitData{description: string(result[1]), tooltip: string(result[2]), id: string(line)}
+				description := translate(result[1])
+				splitDescriptions = append(splitDescriptions, description)
+				splitsDict[description] = &splitData{description: description, tooltip: result[2], id: string(line)}
 				isNameLine = false
 			} else {
 				err = errors.New("splits.txt文件格式错误")
 				break
 			}
 		} else {
-			result = re.FindSubmatch(line)
+			result = re.FindStringSubmatch(string(line))
 			if result == nil {
 				err = errors.New("splits.txt文件格式错误")
 				break
@@ -66,9 +63,10 @@ func initSplitsFile(init bool) {
 			isNameLine = true
 		}
 	}
-	if err != io.EOF {
-		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+	if err == io.EOF {
+		return nil
 	}
+	return err
 }
 
 type lineData struct {
@@ -78,6 +76,8 @@ type lineData struct {
 }
 
 var lines []*lineData
+var finalLine lineData
+var endTriggerCheckBox *walk.CheckBox
 
 func addLine() {
 	line := new(lineData)
@@ -90,12 +90,12 @@ func addLine() {
 			ComboBox{AssignTo: &line.splitId, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}, Value: splitDescriptions[0]},
 			PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
 				if len(lines) > 1 {
-					idx := splitLines.Children().Index(line.line)
+					idx := splitLinesView.Children().Index(line.line)
 					if idx < 0 {
 						walk.MsgBox(mainWindow, "错误", "无法删除这一行", walk.MsgBoxIconError)
 						return
 					}
-					err := splitLines.Children().RemoveAt(idx)
+					err := splitLinesView.Children().RemoveAt(idx)
 					if err != nil {
 						walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 						return
@@ -116,7 +116,7 @@ func addLine() {
 			},
 		},
 	}
-	err := c.Create(NewBuilder(splitLines))
+	err := c.Create(NewBuilder(splitLinesView))
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 	}
