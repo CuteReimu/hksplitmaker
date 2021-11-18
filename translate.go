@@ -38,6 +38,7 @@ func translate(s string) string {
 	}
 	return s
 }
+
 func doTranslate(s string) string {
 	if val, ok := translateDict[s]; ok {
 		return val

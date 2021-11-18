@@ -26,7 +26,7 @@ func initSplitsFile(init bool) error {
 		return err
 	}
 	rd := bufio.NewReader(bytes.NewReader(splitsFileBuf))
-	re, err := regexp.Compile("\\[Description\\(\"(.*?)\"\\)\\s*,\\s*ToolTip\\(\"(.*?)\"\\)]")
+	re, err := regexp.Compile(`\[Description\("(.*?)"\)\s*,\s*ToolTip\("(.*?)"\)]`)
 	if err != nil {
 		return err
 	}
