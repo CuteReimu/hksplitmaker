@@ -106,12 +106,16 @@ func addLine() {
 			}},
 			PushButton{Text: "↑+", MaxSize: Size{Width: 25},
 				OnClicked: func() {
+					idx := splitLinesView.Children().Index(line.line)
 					addLine()
+					moveLine(idx)
 				},
 			},
 			PushButton{Text: "↓+", MaxSize: Size{Width: 25},
 				OnClicked: func() {
+					idx := splitLinesView.Children().Index(line.line)
 					addLine()
+					moveLine(idx + 1)
 				},
 			},
 		},
@@ -121,4 +125,29 @@ func addLine() {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 	}
 	lines = append(lines, line)
+}
+
+func moveLine(index int) {
+	last := lines[len(lines)-1]
+	if len(last.name.Text()) != 0 {
+		walk.MsgBox(nil, "错误", "内部错误", walk.MsgBoxIconError)
+		return
+	}
+	for i := len(lines) - 2; i >= index; i-- {
+		err := lines[i+1].splitId.SetText(lines[i].splitId.Text())
+		if err != nil {
+			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+			return
+		}
+		err = lines[i+1].name.SetText(lines[i].name.Text())
+		if err != nil {
+			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+			return
+		}
+	}
+	err := lines[index].name.SetText("")
+	if err != nil {
+		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+		return
+	}
 }

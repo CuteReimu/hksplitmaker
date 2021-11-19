@@ -4,7 +4,9 @@ import (
 	"encoding/xml"
 	"errors"
 	"github.com/lxn/walk"
+	"github.com/lxn/win"
 	"io/ioutil"
+	"path/filepath"
 )
 
 type xmlRun struct {
@@ -73,10 +75,16 @@ func saveSplitsFile() {
 	dlg := new(walk.FileDialog)
 	dlg.Title = "保存Splits文件"
 	dlg.Filter = "Splits文件（*.lss）|*.lss"
+	dlg.ShowReadOnlyCB = true
+	dlg.Flags = win.OFN_OVERWRITEPROMPT | win.OFN_NOREADONLYRETURN
 	if ok, err := dlg.ShowSave(mainWindow); err != nil {
 		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
 		return
 	} else if ok {
+		filePath := dlg.FilePath
+		if filepath.Ext(filePath) != ".lss" {
+			filePath += ".lss"
+		}
 		run := &xmlRun{
 			Version:  "1.7.0",
 			GameName: "Hollow Knight",
@@ -110,7 +118,7 @@ func saveSplitsFile() {
 			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
 		}
-		err = ioutil.WriteFile(dlg.FilePath, append([]byte(xml.Header), buf...), 0644)
+		err = ioutil.WriteFile(filePath, append([]byte(xml.Header), buf...), 0644)
 		if err != nil {
 			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
