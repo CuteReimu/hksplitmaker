@@ -18,6 +18,21 @@ type splitData struct {
 var splitsFileBuf []byte
 var splitDescriptions []string
 var splitsDict = make(map[string]*splitData)
+var splitsSearchDict = make(map[string][]string)
+
+func initSplitsSearchDict(content string) {
+	rs := ([]rune)(content)
+	for i := 0; i < len(rs); i++ {
+		for j := i + 1; j <= len(rs); j++ {
+			s := string(rs[i:j])
+			v, ok := splitsSearchDict[s]
+			if !ok {
+				v = nil
+			}
+			splitsSearchDict[s] = append(v, content)
+		}
+	}
+}
 
 func initSplitsFile(init bool) error {
 	var err error
@@ -49,6 +64,7 @@ func initSplitsFile(init bool) error {
 				description := translate(result[1])
 				splitDescriptions = append(splitDescriptions, description)
 				splitsDict[description] = &splitData{description: description, tooltip: result[2], id: string(line)}
+				initSplitsSearchDict(description)
 				isNameLine = false
 			} else {
 				err = errors.New("splits.txt文件格式错误")
@@ -67,6 +83,19 @@ func initSplitsFile(init bool) error {
 		return nil
 	}
 	return err
+}
+
+type splitIdModel struct {
+	walk.ListModelBase
+	items []string
+}
+
+func (s *splitIdModel) Value(index int) interface{} {
+	return s.items[index]
+}
+
+func (s *splitIdModel) ItemCount() int {
+	return len(s.items)
 }
 
 type lineData struct {
@@ -92,7 +121,10 @@ func addLine() {
 		MaxSize:  Size{Width: 0, Height: 25},
 		Children: []Widget{
 			LineEdit{AssignTo: &line.name, MinSize: Size{Width: 200}},
-			ComboBox{AssignTo: &line.splitId, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}, Value: splitDescriptions[0]},
+			ComboBox{AssignTo: &line.splitId, Editable: true, MinSize: Size{Width: 200},
+				Model: &splitIdModel{}, Value: splitDescriptions[0],
+				OnTextChanged: func() { onSearchSplitId(line.splitId) },
+			},
 			PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
 				if len(lines) > 1 {
 					idx := splitLinesView.Children().Index(line.line)
@@ -154,5 +186,32 @@ func moveLine(index int) {
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		return
+	}
+}
+
+func onSearchSplitId(splitIdComboBox *walk.ComboBox) {
+	s := splitIdComboBox.Text()
+	model := splitIdComboBox.Model().(*splitIdModel)
+	if len(model.items) == 0 {
+		model.items = splitDescriptions
+		model.PublishItemsReset()
+		return
+	}
+	if len(s) > 0 {
+		for _, text := range model.items {
+			if text == s {
+				return
+			}
+		}
+		v, ok := splitsSearchDict[s]
+		if ok && len(v) > 0 {
+			if len(model.items) > 0 {
+				model.PublishItemsRemoved(0, len(model.items)-1)
+			}
+			model.items = v
+			if len(v) > 0 {
+				model.PublishItemsInserted(0, len(v)-1)
+			}
+		}
 	}
 }

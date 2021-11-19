@@ -18,7 +18,7 @@ func init() {
 	f, err := os.Open("icons/icons.ts")
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
-		os.Exit(-1)
+		panic(err)
 	}
 	defer func() {
 		if err := f.Close(); err != nil {
@@ -28,14 +28,14 @@ func init() {
 	re, err := regexp.Compile(`import\s+(\w+)\s+from\s+"(.*?)"\s*;`)
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
-		os.Exit(-1)
+		panic(err)
 	}
 	rd := bufio.NewReader(f)
 	line, isPrefix, err := rd.ReadLine()
 	for ; err == nil; line, isPrefix, err = rd.ReadLine() {
 		if isPrefix {
 			walk.MsgBox(nil, "错误", "暂不支持这样的文件", walk.MsgBoxIconError)
-			os.Exit(-1)
+			panic(err)
 		}
 		lineStr := strings.TrimSpace(string(line))
 		if len(lineStr) < 2 || lineStr[:2] == "//" {
@@ -51,7 +51,7 @@ func init() {
 	}
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
-		os.Exit(-1)
+		panic(err)
 	}
 }
 
