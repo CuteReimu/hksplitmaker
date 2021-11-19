@@ -75,8 +75,13 @@ type lineData struct {
 	splitId *walk.ComboBox
 }
 
+type finalLineData struct {
+	lineData
+	splitId2 *walk.ComboBox
+}
+
 var lines []*lineData
-var finalLine lineData
+var finalLine finalLineData
 var endTriggerCheckBox *walk.CheckBox
 
 func addLine() {

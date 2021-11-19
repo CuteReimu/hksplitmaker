@@ -109,9 +109,20 @@ func saveSplitsFile() {
 			Name:       finalLine.name.Text(),
 			SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
 		})
-		if !endTriggerCheckBox.Checked() {
+		if endTriggerCheckBox.Checked() {
+			switch finalLine.splitId2.Text() {
+			case "空洞骑士":
+				run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon("HollowKnightBoss")
+			case "辐光":
+				fallthrough
+			case "无上辐光":
+				run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon("RadianceBoss")
+			}
+		} else {
+			splitId := splitsDict[finalLine.splitId.Text()].id
 			run.AutoSplitterSettings.AutosplitEndRuns = "True"
-			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitsDict[finalLine.splitId.Text()].id)
+			run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon(splitId)
+			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
 		}
 		buf, err := xml.MarshalIndent(run, "", "  ")
 		if err != nil {

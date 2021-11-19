@@ -56,10 +56,12 @@ func main() {
 						Layout: HBox{},
 						Children: []Widget{
 							LineEdit{AssignTo: &finalLine.name, Text: "空洞骑士"},
-							ComboBox{AssignTo: &finalLine.splitId, Enabled: false, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}},
-							CheckBox{AssignTo: &endTriggerCheckBox, Checked: true, Text: "游戏结束",
+							ComboBox{AssignTo: &finalLine.splitId, Visible: false, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}, Value: splitDescriptions[0]},
+							ComboBox{AssignTo: &finalLine.splitId2, Editable: true, Model: []string{"空洞骑士", "辐光", "无上辐光"}, MaxSize: Size{Width: 200}, Value: "空洞骑士"},
+							CheckBox{AssignTo: &endTriggerCheckBox, Checked: true, Text: "以游戏结束停止计时",
 								OnCheckedChanged: func() {
-									finalLine.splitId.SetEnabled(!endTriggerCheckBox.Checked())
+									finalLine.splitId.SetVisible(!endTriggerCheckBox.Checked())
+									finalLine.splitId2.SetVisible(endTriggerCheckBox.Checked())
 								},
 							},
 						},
