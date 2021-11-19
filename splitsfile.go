@@ -109,7 +109,7 @@ func saveSplitsFile() {
 			Name:       finalLine.name.Text(),
 			SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
 		})
-		if endTriggerCheckBox.Checked() {
+		if finalLine.endTrigger.Checked() {
 			switch finalLine.splitId2.Text() {
 			case "空洞骑士":
 				run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon("HollowKnightBoss")
@@ -145,10 +145,15 @@ func checkSplitsFile() error {
 			return errors.New(`自动分割配置"` + text + `"不存在，请检查`)
 		}
 	}
-	if !endTriggerCheckBox.Checked() {
+	if !finalLine.endTrigger.Checked() {
 		text := finalLine.splitId.Text()
 		if _, ok := splitsDict[text]; !ok {
 			return errors.New(`自动分割配置"` + text + `"不存在，请检查`)
+		}
+	} else {
+		text := finalLine.splitId2.Text()
+		if text != "无上辐光" && text != "辐光" && text != "空洞骑士" {
+			return errors.New(`最后一个片段设置有误`)
 		}
 	}
 	return nil

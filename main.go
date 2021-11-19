@@ -4,6 +4,7 @@ import (
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 	"github.com/lxn/win"
+	"sort"
 	"syscall"
 )
 
@@ -13,7 +14,9 @@ func getSystemMetrics(nIndex int) int {
 }
 
 var mainWindow *walk.MainWindow
+var splitLinesViewContainer *walk.Composite
 var splitLinesView *walk.Composite
+var categoriesComboBox *walk.ComboBox
 
 func main() {
 	initCategories()
@@ -25,7 +28,7 @@ func main() {
 	width, height := 550, 750
 	err := MainWindow{
 		AssignTo: &mainWindow,
-		Title:    "hksplitmaker",
+		Title:    "计时器生成器",
 		Bounds:   Rectangle{X: (screenX - width) / 2, Y: (screenY - height) / 2, Width: width, Height: height},
 		Layout:   VBox{},
 		Children: []Widget{
@@ -36,22 +39,43 @@ func main() {
 					Composite{
 						Layout: HBox{},
 						Children: []Widget{
-							TextLabel{Text: "你可以创建新的Splits文件，也可以使用现有的预置"},
-							ComboBox{},
+							TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以创建新的Splits文件，也可以使用现有的模板"},
+							ComboBox{
+								AssignTo: &categoriesComboBox,
+								Model: func() []string {
+									var keys []string
+									for key := range categoriesCache {
+										keys = append(keys, key)
+									}
+									sort.Strings(keys)
+									return keys
+								}(),
+								OnCurrentIndexChanged: onSelectCategory,
+							},
 						},
 					},
 					//HSeparator{},
 					//PushButton{AssignTo: &updateBtn, Text: "已是最新", Enabled: false},
 				},
 			},
+			TextLabel{
+				TextAlignment: AlignHFarVCenter,
+				Text:          "Auto Splitter Version: 3.0.9.0",
+			},
 			ScrollView{
 				HorizontalFixed: true,
 				Layout:          VBox{},
 				Children: []Widget{
 					Composite{
-						AssignTo:  &splitLinesView,
-						Alignment: AlignHCenterVNear,
-						Layout:    VBox{},
+						AssignTo: &splitLinesViewContainer,
+						Layout:   Flow{},
+						Children: []Widget{
+							Composite{
+								AssignTo:  &splitLinesView,
+								Alignment: AlignHCenterVNear,
+								Layout:    VBox{},
+							},
+						},
 					},
 					Composite{
 						Layout: HBox{},
@@ -59,10 +83,10 @@ func main() {
 							LineEdit{AssignTo: &finalLine.name, Text: "空洞骑士"},
 							ComboBox{AssignTo: &finalLine.splitId, Visible: false, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}, Value: splitDescriptions[0]},
 							ComboBox{AssignTo: &finalLine.splitId2, Editable: true, Model: []string{"空洞骑士", "辐光", "无上辐光"}, MaxSize: Size{Width: 200}, Value: "空洞骑士"},
-							CheckBox{AssignTo: &endTriggerCheckBox, Checked: true, Text: "以游戏结束停止计时",
+							CheckBox{AssignTo: &finalLine.endTrigger, Checked: true, Text: "以游戏结束停止计时",
 								OnCheckedChanged: func() {
-									finalLine.splitId.SetVisible(!endTriggerCheckBox.Checked())
-									finalLine.splitId2.SetVisible(endTriggerCheckBox.Checked())
+									finalLine.splitId.SetVisible(!finalLine.endTrigger.Checked())
+									finalLine.splitId2.SetVisible(finalLine.endTrigger.Checked())
 								},
 							},
 						},
@@ -72,7 +96,7 @@ func main() {
 			PushButton{Text: "另存为", OnClicked: saveSplitsFile},
 		},
 	}.Create()
-	addLine()
+	addLine(true)
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		return

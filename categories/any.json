@@ -1,0 +1,26 @@
+{
+    "categoryName": "Any%",
+    "splitIds": [
+        "VengefulSpirit",
+        "Greenpath",
+        "MothwingCloak",
+        "MantisClaw",
+        "GruzMother",
+        "DreamNail",
+        "WatcherChandelier",
+        "BlackKnight",
+        "LumaflyLantern",
+        "CrystalHeart",
+        "Uumuu",
+        "QueensGardens",
+        "BeastsDenTrapBench",
+        "Hegemol"
+    ],
+    "ordered": true,
+    "endTriggeringAutosplit": false,
+    "endingSplit": {
+        "name": "Hollow Knight",
+        "icon": "HollowKnightBoss"
+    },
+    "gameName": "Hollow Knight"
+}

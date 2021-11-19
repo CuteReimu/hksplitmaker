@@ -1,0 +1,12 @@
+{
+    "categoryName": "Path of Pain",
+    "splitIds": [
+        "PathOfPainTransition1",
+        "PathOfPainTransition2",
+        "PathOfPainTransition3",
+        "PathOfPain"
+    ],
+    "ordered": true,
+    "endTriggeringAutosplit": true,
+    "gameName": "Hollow Knight"
+}

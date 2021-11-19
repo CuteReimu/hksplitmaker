@@ -17,6 +17,7 @@ type splitData struct {
 
 var splitsFileBuf []byte
 var splitDescriptions []string
+var splitsDictIdToDescriptions = make(map[string]string)
 var splitsDict = make(map[string]*splitData)
 var splitsSearchDict = make(map[string][]string)
 
@@ -64,6 +65,7 @@ func initSplitsFile(init bool) error {
 				description := translate(result[1])
 				splitDescriptions = append(splitDescriptions, description)
 				splitsDict[description] = &splitData{description: description, tooltip: result[2], id: string(line)}
+				splitsDictIdToDescriptions[string(line)] = description
 				initSplitsSearchDict(description)
 				isNameLine = false
 			} else {
@@ -106,14 +108,14 @@ type lineData struct {
 
 type finalLineData struct {
 	lineData
-	splitId2 *walk.ComboBox
+	splitId2   *walk.ComboBox
+	endTrigger *walk.CheckBox
 }
 
 var lines []*lineData
 var finalLine finalLineData
-var endTriggerCheckBox *walk.CheckBox
 
-func addLine() {
+func addLine(initAll bool) {
 	line := new(lineData)
 	c := Composite{
 		AssignTo: &line.line,
@@ -123,35 +125,26 @@ func addLine() {
 			LineEdit{AssignTo: &line.name, MinSize: Size{Width: 200}},
 			ComboBox{AssignTo: &line.splitId, Editable: true, MinSize: Size{Width: 200},
 				Model: &splitIdModel{}, Value: splitDescriptions[0],
-				OnTextChanged: func() { onSearchSplitId(line.splitId) },
+				OnTextChanged: func() {
+					onSearchSplitId(initAll, line.splitId)
+				},
 			},
 			PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
 				if len(lines) > 1 {
-					idx := splitLinesView.Children().Index(line.line)
-					if idx < 0 {
-						walk.MsgBox(mainWindow, "错误", "无法删除这一行", walk.MsgBoxIconError)
-						return
-					}
-					err := splitLinesView.Children().RemoveAt(idx)
-					if err != nil {
-						walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
-						return
-					}
-					line.line.Dispose()
-					lines = append(lines[:idx], lines[:idx+1]...)
+					removeLine(line)
 				}
 			}},
 			PushButton{Text: "↑+", MaxSize: Size{Width: 25},
 				OnClicked: func() {
 					idx := splitLinesView.Children().Index(line.line)
-					addLine()
+					addLine(true)
 					moveLine(idx)
 				},
 			},
 			PushButton{Text: "↓+", MaxSize: Size{Width: 25},
 				OnClicked: func() {
 					idx := splitLinesView.Children().Index(line.line)
-					addLine()
+					addLine(true)
 					moveLine(idx + 1)
 				},
 			},
@@ -162,6 +155,40 @@ func addLine() {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 	}
 	lines = append(lines, line)
+}
+
+func removeLine(line *lineData) {
+	idx := splitLinesView.Children().Index(line.line)
+	if idx < 0 {
+		walk.MsgBox(mainWindow, "错误", "无法删除这一行", walk.MsgBoxIconError)
+		return
+	}
+	err := splitLinesView.Children().RemoveAt(idx)
+	if err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		return
+	}
+	line.line.Dispose()
+	lines = append(lines[:idx], lines[idx+1:]...)
+}
+
+func cleanAllLines() {
+	err := splitLinesViewContainer.Children().RemoveAt(0)
+	if err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		return
+	}
+	splitLinesView.Dispose()
+	err = Composite{
+		AssignTo:  &splitLinesView,
+		Alignment: AlignHCenterVNear,
+		Layout:    VBox{},
+	}.Create(NewBuilder(splitLinesViewContainer))
+	if err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		panic(err)
+	}
+	lines = nil
 }
 
 func moveLine(index int) {
@@ -189,11 +216,15 @@ func moveLine(index int) {
 	}
 }
 
-func onSearchSplitId(splitIdComboBox *walk.ComboBox) {
+func onSearchSplitId(initAll bool, splitIdComboBox *walk.ComboBox) {
 	s := splitIdComboBox.Text()
 	model := splitIdComboBox.Model().(*splitIdModel)
 	if len(model.items) == 0 {
-		model.items = splitDescriptions
+		if initAll {
+			model.items = splitDescriptions
+		} else {
+			model.items = []string{s}
+		}
 		model.PublishItemsReset()
 		return
 	}
