@@ -1,0 +1,40 @@
+{
+    "categoryName": "All Skills",
+    "splitIds": [
+        "VengefulSpirit",
+        "Greenpath",
+        "MothwingCloak",
+        "MantisClaw",
+        "BlueLake",
+        "GorgeousHusk",
+        "DesolateDive",
+        "KingsStationStation",
+        "CrystalHeart",
+        "DescendingDark",
+        "DreamNail",
+        "CycloneSlash",
+        "ShadeSoul",
+        "Lurien",
+        "TollBenchBasin",
+        "MonarchWings",
+        "Monomon",
+        "GreatSlash",
+        "HowlingWraiths",
+        "Hegemol",
+        "DashSlash",
+        "KingsBrand",
+        "ShadeCloak",
+        "AbyssShriek",
+        "UnchainedHollowKnight"
+    ],
+    "ordered": true,
+    "endTriggeringAutosplit": false,
+    "endingSplit": {
+        "name": "Hollow Knight",
+        "icon": "HollowKnightBoss"
+    },
+    "gameName": "Hollow Knight",
+    "variables": {
+        "glitch": "Current Patch NMG"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "categoryName": "Al2ba%",
+    "splitIds": [
+        "VengefulSpirit",
+        "EnterGreenpath",
+        "MothwingCloak",
+        "Aluba",
+        "MantisClaw",
+        "SporeShroom",
+        "DeepnestSpa",
+        "QueensGardens",
+        "ManualSplit"
+    ],
+    "names": {
+        "Aluba": "A1uba",
+        "ManualSplit": "Al2ba (Manual Split)"
+    },
+    "icons": {
+        "ManualSplit": "Aluba"
+    },
+    "ordered": true,
+    "endTriggeringAutosplit": true,
+    "gameName": "Hollow Knight Category Extensions"
+}

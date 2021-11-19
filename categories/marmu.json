@@ -1,0 +1,17 @@
+{
+    "categoryName": "Marmu%",
+    "splitIds": [
+        "VengefulSpirit",
+        "EnterGreenpath",
+        "MothwingCloak",
+        "MantisClaw",
+        "DeepnestSpa",
+        "QueensGardens",
+        "QueensGardensStation",
+        "DreamNail",
+        "Marmu"
+    ],
+    "ordered": true,
+    "endTriggeringAutosplit": true,
+    "gameName": "Hollow Knight Category Extensions"
+}
