@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/lxn/walk"
 	"github.com/xuri/excelize/v2"
-	"os"
 	"strings"
 )
 
@@ -19,7 +18,7 @@ func init() {
 	rows, err := xlsx.GetRows("Sheet1")
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
-		os.Exit(-1)
+		panic(err)
 	}
 	for i, row := range rows {
 		key, val := strings.TrimSpace(row[0]), strings.TrimSpace(row[1])
