@@ -70,7 +70,7 @@ func initCategories() {
 			}
 			foundPer := false
 			for _, splitId := range j.SplitIds {
-				if strings.Contains(splitId, "%") {
+				if strings.Contains(splitId, "%") || strings.Contains(splitId, "{") {
 					foundPer = true
 					break
 				}
@@ -122,6 +122,7 @@ func onSelectCategory() {
 	}
 	if j.EndTriggeringAutosplit {
 		for i, splitId := range j.SplitIds {
+			splitId := strings.Trim(splitId, "-")
 			if i < len(j.SplitIds)-1 {
 				description := splitsDictIdToDescriptions[splitId]
 				err := lines[i].splitId.SetText(description)
@@ -151,6 +152,7 @@ func onSelectCategory() {
 		}
 	} else {
 		for i, splitId := range j.SplitIds {
+			splitId := strings.Trim(splitId, "-")
 			description := splitsDictIdToDescriptions[splitId]
 			err := lines[i].splitId.SetText(description)
 			if err != nil {
