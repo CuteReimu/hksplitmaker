@@ -1,1 +1,1 @@
-*.ts linguist-language=Go
+*.ts linguist-detectable=false
