@@ -5,6 +5,7 @@ import (
 	"github.com/lxn/walk"
 	"io/ioutil"
 	"path/filepath"
+	"regexp"
 	"strings"
 )
 
@@ -14,6 +15,7 @@ type jsonCategory struct {
 	Ordered                bool                     `json:"ordered"`
 	EndTriggeringAutosplit bool                     `json:"endTriggeringAutosplit"`
 	Names                  map[string]interface{}   `json:"names"`
+	Icons                  map[string]interface{}   `json:"icons"`
 	EndingSplit            *jsonCategoryEndingSplit `json:"endingSplit"`
 	GameName               string                   `json:"gameName"`
 }
@@ -70,7 +72,7 @@ func initCategories() {
 			}
 			foundPer := false
 			for _, splitId := range j.SplitIds {
-				if strings.Contains(splitId, "%") || strings.Contains(splitId, "{") {
+				if strings.Contains(splitId, "%") {
 					foundPer = true
 					break
 				}
@@ -78,7 +80,7 @@ func initCategories() {
 			if foundPer {
 				continue
 			}
-			if count >= 2 && j.Ordered && len(j.SplitIds) <= 50 {
+			if count >= 2 && j.Ordered /*&& len(j.SplitIds) <= 50*/ {
 				categoriesCache[translate(info.DisplayName)] = j
 			}
 		}
@@ -98,9 +100,18 @@ func onSelectCategory() {
 	if !j.EndTriggeringAutosplit {
 		count++
 	}
+	if count > 50 {
+		if walk.MsgBox(mainWindow, "确认", "这个类别所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo) != walk.DlgCmdYes {
+			return
+		}
+	}
 	cleanAllLines()
 	for i := len(lines); i < count-1; i++ {
 		addLine(false)
+	}
+	reg, err := regexp.Compile(`{.*?}|\[[0-9DU, ]*]`)
+	if err != nil {
+		panic(err)
 	}
 	nameIndexCache := make(map[string]int)
 	getNameFunc := func(splitId, description string) string {
@@ -108,31 +119,31 @@ func onSelectCategory() {
 		if names, ok := j.Names[splitId]; ok {
 			if namestr, ok := names.(string); ok {
 				name = strings.ReplaceAll(namestr, "%s", dropBrackets(description))
-			} else if namearr, ok := names.([]string); ok {
+			} else if namearr, ok := names.([]interface{}); ok {
 				if _, ok := nameIndexCache[splitId]; !ok {
 					nameIndexCache[splitId] = 0
 				}
-				name = strings.ReplaceAll(namearr[nameIndexCache[splitId]], "%s", dropBrackets(description))
+				name = strings.ReplaceAll(namearr[nameIndexCache[splitId]].(string), "%s", dropBrackets(description))
 				nameIndexCache[splitId]++
 			}
 		} else {
 			name = dropBrackets(description)
 		}
-		return translate(name)
+		return translate(strings.TrimSpace(reg.ReplaceAllString(name, "")))
 	}
 	if j.EndTriggeringAutosplit {
 		for i, splitId := range j.SplitIds {
-			splitId := strings.Trim(splitId, "-")
+			splitId = strings.Trim(splitId, "-")
 			if i < len(j.SplitIds)-1 {
 				description := splitsDictIdToDescriptions[splitId]
 				err := lines[i].splitId.SetText(description)
 				if err != nil {
-					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 					return
 				}
 				err = lines[i].name.SetText(getNameFunc(splitId, description))
 				if err != nil {
-					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 					return
 				}
 			} else {
@@ -140,28 +151,28 @@ func onSelectCategory() {
 				finalLine.endTrigger.SetChecked(false)
 				err := finalLine.splitId.SetText(description)
 				if err != nil {
-					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 					return
 				}
 				err = finalLine.name.SetText(getNameFunc(splitId, description))
 				if err != nil {
-					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 					return
 				}
 			}
 		}
 	} else {
 		for i, splitId := range j.SplitIds {
-			splitId := strings.Trim(splitId, "-")
+			splitId = strings.Trim(splitId, "-")
 			description := splitsDictIdToDescriptions[splitId]
 			err := lines[i].splitId.SetText(description)
 			if err != nil {
-				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+				walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 				return
 			}
 			err = lines[i].name.SetText(getNameFunc(splitId, description))
 			if err != nil {
-				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+				walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 				return
 			}
 		}
@@ -176,12 +187,12 @@ func onSelectCategory() {
 		}
 		err := finalLine.splitId2.SetText(text)
 		if err != nil {
-			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
 		}
 		err = finalLine.name.SetText(getNameFunc(j.EndingSplit.Icon, j.EndingSplit.Name))
 		if err != nil {
-			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
 		}
 	}

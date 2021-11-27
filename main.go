@@ -27,6 +27,11 @@ func main() {
 	screenX, screenY := getSystemMetrics(0), getSystemMetrics(1)
 	width, height := 550, 750
 	err := MainWindow{
+		OnDropFiles: func(f []string) {
+			if len(f) > 0 {
+				loadSplitFile(f[0])
+			}
+		},
 		AssignTo: &mainWindow,
 		Title:    "计时器生成器",
 		Bounds:   Rectangle{X: (screenX - width) / 2, Y: (screenY - height) / 2, Width: width, Height: height},
@@ -39,7 +44,9 @@ func main() {
 					Composite{
 						Layout: HBox{},
 						Children: []Widget{
-							TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以创建新的Splits文件，也可以使用现有的模板"},
+							TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以"},
+							PushButton{Text: "打开已有的Splits文件", OnClicked: onClickLoadSplitFile},
+							TextLabel{TextAlignment: AlignHFarVCenter, Text: "，也可以使用现有的模板"},
 							ComboBox{
 								AssignTo: &categoriesComboBox,
 								Model: func() []string {

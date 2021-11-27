@@ -7,12 +7,17 @@ import (
 	"github.com/lxn/win"
 	"io/ioutil"
 	"path/filepath"
+	"strings"
 )
+
+type xmlIcon struct {
+	Icon string `xml:",cdata"`
+}
 
 type xmlRun struct {
 	XMLName              xml.Name `xml:"Run"`
 	Version              string   `xml:"version,attr"`
-	GameIcon             string
+	GameIcon             xmlIcon
 	GameName             string
 	CategoryName         string
 	Metadata             xmlMetadata
@@ -26,7 +31,16 @@ type xmlRun struct {
 type xmlMetadata struct {
 	Run       xmlMetadataRun
 	Platform  xmlMetadataPlatform
-	Variables string
+	Variables xmlVariables
+}
+
+type xmlVariables struct {
+	Variable []xmlVariable
+}
+
+type xmlVariable struct {
+	Name  string `xml:"name,attr"`
+	Value string `xml:",chardata"`
 }
 
 type xmlMetadataRun struct {
@@ -35,6 +49,7 @@ type xmlMetadataRun struct {
 
 type xmlMetadataPlatform struct {
 	UsesEmulator string `xml:"usesEmulator,attr"`
+	Platform     string `xml:",chardata"`
 }
 
 type xmlSegments struct {
@@ -43,10 +58,14 @@ type xmlSegments struct {
 
 type xmlSegment struct {
 	Name            string
-	Icon            string `xml:",innerxml"`
+	Icon            xmlIcon
 	SplitTimes      xmlSplitTimes
-	BestSegmentTime string
-	SegmentHistory  string
+	BestSegmentTime xmlSplitTime
+	SegmentHistory  xmlSegmentHistory
+}
+
+type xmlSegmentHistory struct {
+	Time []xmlSplitTime
 }
 
 type xmlSplitTimes struct {
@@ -54,17 +73,137 @@ type xmlSplitTimes struct {
 }
 
 type xmlSplitTime struct {
-	Name string `xml:"name,attr"`
+	Id       string `xml:"id,attr,omitempty"`
+	Name     string `xml:"name,attr,omitempty"`
+	RealTime string `xml:"RealTime,omitempty"`
+	GameTime string `xml:"GameTime,omitempty"`
 }
 
 type xmlAutoSplitterSettings struct {
-	Ordered          string
-	AutosplitEndRuns string
-	Splits           xmlSplits
+	Ordered            string
+	AutosplitEndRuns   string
+	AutosplitStartRuns string
+	Splits             xmlSplits
 }
 
 type xmlSplits struct {
 	Split []string
+}
+
+func onClickLoadSplitFile() {
+	dlg := new(walk.FileDialog)
+	dlg.Title = "打开Splits文件"
+	dlg.Filter = "Splits文件（*.lss）|*.lss"
+	dlg.Flags = win.OFN_FILEMUSTEXIST
+	if ok, err := dlg.ShowOpen(mainWindow); err != nil {
+		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
+	} else if ok {
+		loadSplitFile(dlg.FilePath)
+	}
+}
+
+func loadSplitFile(file string) {
+	if filepath.Ext(file) != ".lss" {
+		return
+	}
+	buf, err := ioutil.ReadFile(file)
+	if err != nil {
+		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
+		return
+	}
+	run := &xmlRun{}
+	err = xml.Unmarshal(buf, run)
+	if err != nil {
+		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
+		return
+	}
+	count := len(run.AutoSplitterSettings.Splits.Split)
+	if run.AutoSplitterSettings.AutosplitEndRuns != "True" {
+		count++
+	}
+	if count <= 1 {
+		walk.MsgBox(mainWindow, "错误", "暂不支持只有一个片段或者无片段的文件", walk.MsgBoxIconError)
+		return
+	} else if count > 35 {
+		if walk.MsgBox(mainWindow, "确认", "这个类别所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo) != walk.DlgCmdYes {
+			return
+		}
+	}
+	cleanAllLines()
+	for i := len(lines); i < count-1; i++ {
+		addLine(false)
+	}
+	if run.AutoSplitterSettings.AutosplitEndRuns == "True" {
+		for i, splitId := range run.AutoSplitterSettings.Splits.Split {
+			if i < len(run.AutoSplitterSettings.Splits.Split)-1 {
+				description := splitsDictIdToDescriptions[splitId]
+				err := lines[i].splitId.SetText(description)
+				if err != nil {
+					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					return
+				}
+				if i < len(run.Segments.Segment) {
+					err = lines[i].name.SetText(run.Segments.Segment[i].Name)
+					if err != nil {
+						walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+						return
+					}
+				}
+			} else {
+				description := splitsDictIdToDescriptions[splitId]
+				finalLine.endTrigger.SetChecked(false)
+				err := finalLine.splitId.SetText(description)
+				if err != nil {
+					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					return
+				}
+				if i < len(run.Segments.Segment) {
+					err = finalLine.name.SetText(run.Segments.Segment[i].Name)
+					if err != nil {
+						walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+						return
+					}
+				}
+			}
+		}
+	} else {
+		for i, splitId := range run.AutoSplitterSettings.Splits.Split {
+			description := splitsDictIdToDescriptions[splitId]
+			err := lines[i].splitId.SetText(description)
+			if err != nil {
+				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+				return
+			}
+			if i < len(run.Segments.Segment) {
+				err = lines[i].name.SetText(run.Segments.Segment[i].Name)
+				if err != nil {
+					walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+					return
+				}
+			}
+		}
+		finalLine.endTrigger.SetChecked(true)
+		i := len(run.AutoSplitterSettings.Splits.Split)
+		if i < len(run.Segments.Segment) {
+			text := "空洞骑士"
+			name := run.Segments.Segment[i].Name
+			if strings.Contains(name, "无上辐光") || strings.Contains(name, "Absolute Radiance") {
+				text = "无上辐光"
+			} else if strings.Contains(name, "辐光") || strings.Contains(name, "Radiance") || strings.Contains(name, "radiance") {
+				text = "辐光"
+			}
+			err := finalLine.splitId2.SetText(text)
+			if err != nil {
+				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+				return
+			}
+			err = finalLine.name.SetText(run.Segments.Segment[i].Name)
+			if err != nil {
+				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
+				return
+			}
+		}
+	}
 }
 
 func saveSplitsFile() {
@@ -100,7 +239,7 @@ func saveSplitsFile() {
 			splitId := splitsDict[line.splitId.Text()].id
 			run.Segments.Segment = append(run.Segments.Segment, &xmlSegment{
 				Name:       line.name.Text(),
-				Icon:       getIcon(splitId),
+				Icon:       xmlIcon{getIcon(splitId)},
 				SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
 			})
 			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
@@ -112,16 +251,16 @@ func saveSplitsFile() {
 		if finalLine.endTrigger.Checked() {
 			switch finalLine.splitId2.Text() {
 			case "空洞骑士":
-				run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon("HollowKnightBoss")
+				run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon("HollowKnightBoss")
 			case "辐光":
 				fallthrough
 			case "无上辐光":
-				run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon("RadianceBoss")
+				run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon("RadianceBoss")
 			}
 		} else {
 			splitId := splitsDict[finalLine.splitId.Text()].id
 			run.AutoSplitterSettings.AutosplitEndRuns = "True"
-			run.Segments.Segment[len(run.Segments.Segment)-1].Icon = getIcon(splitId)
+			run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon(splitId)
 			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
 		}
 		buf, err := xml.MarshalIndent(run, "", "  ")
