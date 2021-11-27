@@ -66,7 +66,8 @@ func getIcon(splitId string) string {
 		return ""
 	}
 	s := base64.StdEncoding.EncodeToString(append([]byte{0, 2}, buf...))
-	return "<Icon><![CDATA[" + livesplitFormatHeader + s + "]]></Icon>"
+	return livesplitFormatHeader + s
+	//return "<![CDATA[" + livesplitFormatHeader + s + "]]>"
 }
 
 const livesplitFormatHeader = "AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAOw8A"
