@@ -101,7 +101,7 @@ func onSelectCategory() {
 		count++
 	}
 	if count > 50 {
-		if walk.MsgBox(mainWindow, "确认", "这个类别所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo) != walk.DlgCmdYes {
+		if walk.MsgBox(mainWindow, "确认", "这个类别所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo|walk.MsgBoxIconQuestion) != walk.DlgCmdYes {
 			return
 		}
 	}
