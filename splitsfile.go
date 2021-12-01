@@ -133,6 +133,18 @@ func loadSplitFile(file string) {
 	for i := len(lines); i < count-1; i++ {
 		addLine(false)
 	}
+	if startTrigger, ok := splitsDictIdToDescriptions[run.AutoSplitterSettings.AutosplitStartRuns]; ok {
+		startTriggerCheckBox.SetChecked(true)
+		err := startTriggerComboBox.SetText(startTrigger)
+		if err != nil {
+			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+			return
+		}
+		startTriggerComboBox.SetEnabled(true)
+	} else {
+		startTriggerCheckBox.SetChecked(false)
+		startTriggerComboBox.SetEnabled(false)
+	}
 	if run.AutoSplitterSettings.AutosplitEndRuns == "True" {
 		for i, splitId := range run.AutoSplitterSettings.Splits.Split {
 			if i < len(run.AutoSplitterSettings.Splits.Split)-1 {
@@ -248,6 +260,10 @@ func saveSplitsFile() {
 			Name:       finalLine.name.Text(),
 			SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
 		})
+		if startTriggerCheckBox.Checked() {
+			text := startTriggerComboBox.Text()
+			run.AutoSplitterSettings.AutosplitStartRuns = splitsDict[text].id
+		}
 		if finalLine.endTrigger.Checked() {
 			switch finalLine.splitId2.Text() {
 			case "空洞骑士":
@@ -278,6 +294,12 @@ func saveSplitsFile() {
 }
 
 func checkSplitsFile() error {
+	if startTriggerCheckBox.Checked() {
+		text := startTriggerComboBox.Text()
+		if _, ok := splitsDict[text]; !ok {
+			return errors.New(`自动分割配置"` + text + `"不存在，请检查`)
+		}
+	}
 	for _, line := range lines {
 		text := line.splitId.Text()
 		if _, ok := splitsDict[text]; !ok {

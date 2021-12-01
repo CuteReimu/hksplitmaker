@@ -10,14 +10,15 @@ import (
 )
 
 type jsonCategory struct {
-	CategoryName           string                   `json:"categoryName"`
-	SplitIds               []string                 `json:"splitIds"`
-	Ordered                bool                     `json:"ordered"`
-	EndTriggeringAutosplit bool                     `json:"endTriggeringAutosplit"`
-	Names                  map[string]interface{}   `json:"names"`
-	Icons                  map[string]interface{}   `json:"icons"`
-	EndingSplit            *jsonCategoryEndingSplit `json:"endingSplit"`
-	GameName               string                   `json:"gameName"`
+	CategoryName             string                   `json:"categoryName"`
+	SplitIds                 []string                 `json:"splitIds"`
+	Ordered                  bool                     `json:"ordered"`
+	StartTriggeringAutosplit string                   `json:"startTriggeringAutosplit"`
+	EndTriggeringAutosplit   bool                     `json:"endTriggeringAutosplit"`
+	Names                    map[string]interface{}   `json:"names"`
+	Icons                    map[string]interface{}   `json:"icons"`
+	EndingSplit              *jsonCategoryEndingSplit `json:"endingSplit"`
+	GameName                 string                   `json:"gameName"`
 }
 
 type jsonCategoryEndingSplit struct {
@@ -130,6 +131,18 @@ func onSelectCategory() {
 			name = dropBrackets(description)
 		}
 		return translate(strings.TrimSpace(reg.ReplaceAllString(name, "")))
+	}
+	if startTrigger, ok := splitsDictIdToDescriptions[j.StartTriggeringAutosplit]; ok {
+		startTriggerCheckBox.SetChecked(true)
+		err := startTriggerComboBox.SetText(startTrigger)
+		if err != nil {
+			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+			return
+		}
+		startTriggerComboBox.SetEnabled(true)
+	} else {
+		startTriggerCheckBox.SetChecked(false)
+		startTriggerComboBox.SetEnabled(false)
 	}
 	if j.EndTriggeringAutosplit {
 		for i, splitId := range j.SplitIds {
