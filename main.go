@@ -17,6 +17,8 @@ var mainWindow *walk.MainWindow
 var splitLinesViewContainer *walk.Composite
 var splitLinesView *walk.Composite
 var categoriesComboBox *walk.ComboBox
+var startTriggerCheckBox *walk.CheckBox
+var startTriggerComboBox *walk.ComboBox
 
 func main() {
 	initCategories()
@@ -73,6 +75,26 @@ func main() {
 				HorizontalFixed: true,
 				Layout:          VBox{},
 				Children: []Widget{
+					Composite{
+						MaxSize: Size{Width: 0, Height: 25},
+						Layout:  HBox{},
+						Children: []Widget{
+							CheckBox{
+								AssignTo: &startTriggerCheckBox,
+								Text:     "自动开始",
+								OnClicked: func() {
+									startTriggerComboBox.SetEnabled(startTriggerCheckBox.Checked())
+								},
+							},
+							ComboBox{
+								AssignTo: &startTriggerComboBox,
+								Model:    splitDescriptions,
+								Enabled:  false,
+								Editable: true,
+								Value:    splitDescriptions[0],
+							},
+						},
+					},
 					Composite{
 						AssignTo: &splitLinesViewContainer,
 						Layout:   Flow{},
