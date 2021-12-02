@@ -172,23 +172,61 @@ func removeLine(line *lineData) {
 	lines = append(lines[:idx], lines[idx+1:]...)
 }
 
-func cleanAllLines() {
+func resetLines(count int) {
 	err := splitLinesViewContainer.Children().RemoveAt(0)
 	if err != nil {
 		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 		return
 	}
 	splitLinesView.Dispose()
-	err = Composite{
+	composite := Composite{
 		AssignTo:  &splitLinesView,
 		Alignment: AlignHCenterVNear,
 		Layout:    VBox{},
-	}.Create(NewBuilder(splitLinesViewContainer))
+	}
+	lines = []*lineData{}
+	for i := 0; i < count; i++ {
+		line := new(lineData)
+		composite.Children = append(composite.Children, Composite{
+			AssignTo: &line.line,
+			Layout:   HBox{},
+			MaxSize:  Size{Width: 0, Height: 25},
+			Children: []Widget{
+				LineEdit{AssignTo: &line.name, MinSize: Size{Width: 200}},
+				ComboBox{AssignTo: &line.splitId, Editable: true, MinSize: Size{Width: 200},
+					Model: &splitIdModel{}, Value: splitDescriptions[0],
+					OnTextChanged: func() {
+						onSearchSplitId(false, line.splitId)
+					},
+				},
+				PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
+					if len(lines) > 1 {
+						removeLine(line)
+					}
+				}},
+				PushButton{Text: "↑+", MaxSize: Size{Width: 25},
+					OnClicked: func() {
+						idx := splitLinesView.Children().Index(line.line)
+						addLine(true)
+						moveLine(idx)
+					},
+				},
+				PushButton{Text: "↓+", MaxSize: Size{Width: 25},
+					OnClicked: func() {
+						idx := splitLinesView.Children().Index(line.line)
+						addLine(true)
+						moveLine(idx + 1)
+					},
+				},
+			},
+		})
+		lines = append(lines, line)
+	}
+	err = composite.Create(NewBuilder(splitLinesViewContainer))
 	if err != nil {
 		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
 	}
-	lines = nil
 }
 
 func moveLine(index int) {

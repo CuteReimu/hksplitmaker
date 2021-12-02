@@ -106,10 +106,7 @@ func onSelectCategory() {
 			return
 		}
 	}
-	cleanAllLines()
-	for i := len(lines); i < count-1; i++ {
-		addLine(false)
-	}
+	resetLines(count - 1)
 	reg, err := regexp.Compile(`{.*?}|\[[0-9DU, ]*]`)
 	if err != nil {
 		panic(err)
