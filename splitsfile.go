@@ -124,10 +124,6 @@ func loadSplitFile(file string) {
 	if count <= 1 {
 		walk.MsgBox(mainWindow, "错误", "暂不支持只有一个片段或者无片段的文件", walk.MsgBoxIconError)
 		return
-	} else if count > 35 {
-		if walk.MsgBox(mainWindow, "确认", "所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo|walk.MsgBoxIconQuestion) != walk.DlgCmdYes {
-			return
-		}
 	}
 	resetLines(count - 1)
 	if startTrigger, ok := splitsDictIdToDescriptions[run.AutoSplitterSettings.AutosplitStartRuns]; ok {
