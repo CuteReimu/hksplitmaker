@@ -129,10 +129,7 @@ func loadSplitFile(file string) {
 			return
 		}
 	}
-	cleanAllLines()
-	for i := len(lines); i < count-1; i++ {
-		addLine(false)
-	}
+	resetLines(count - 1)
 	if startTrigger, ok := splitsDictIdToDescriptions[run.AutoSplitterSettings.AutosplitStartRuns]; ok {
 		startTriggerCheckBox.SetChecked(true)
 		err := startTriggerComboBox.SetText(startTrigger)
