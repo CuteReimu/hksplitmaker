@@ -101,11 +101,6 @@ func onSelectCategory() {
 	if !j.EndTriggeringAutosplit {
 		count++
 	}
-	if count > 50 {
-		if walk.MsgBox(mainWindow, "确认", "这个类别所含的片段较多，可能会加载很久，确定继续吗？", walk.MsgBoxYesNo|walk.MsgBoxIconQuestion) != walk.DlgCmdYes {
-			return
-		}
-	}
 	resetLines(count - 1)
 	reg, err := regexp.Compile(`{.*?}|\[[0-9DU, ]*]`)
 	if err != nil {
