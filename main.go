@@ -8,6 +8,8 @@ import (
 	"syscall"
 )
 
+const hkSplitMakerDir = "hk-split-maker/src/asset"
+
 func getSystemMetrics(nIndex int) int {
 	ret, _, _ := syscall.NewLazyDLL(`User32.dll`).NewProc(`GetSystemMetrics`).Call(uintptr(nIndex))
 	return int(ret)
@@ -147,7 +149,7 @@ func main() {
 	//			var a int
 	//			a = updateBtn.Clicked().Attach(func() {
 	//				updateBtn.SetEnabled(false)
-	//				err := ioutil.WriteFile("splits.txt", buf, 0644)
+	//				err := ioutil.WriteFile(filepath.Join(hkSplitMakerDir, "splits.txt"), buf, 0644)
 	//				if err != nil {
 	//					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 	//					return

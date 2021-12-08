@@ -7,7 +7,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
-	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -15,7 +15,7 @@ import (
 var iconDict = make(map[string]string)
 
 func init() {
-	f, err := os.Open("icons/icons.ts")
+	f, err := os.Open(filepath.Join(hkSplitMakerDir, "icons/icons.ts"))
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
@@ -60,7 +60,7 @@ func getIcon(splitId string) string {
 	if !ok {
 		return ""
 	}
-	iconPath = path.Join("icons", iconPath)
+	iconPath = filepath.Join(hkSplitMakerDir, "icons", iconPath)
 	buf, err := ioutil.ReadFile(iconPath)
 	if err != nil {
 		return ""

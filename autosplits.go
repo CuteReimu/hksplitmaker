@@ -8,6 +8,7 @@ import (
 	. "github.com/lxn/walk/declarative"
 	"io"
 	"io/ioutil"
+	"path/filepath"
 	"regexp"
 )
 
@@ -37,7 +38,7 @@ func initSplitsSearchDict(content string) {
 
 func initSplitsFile(init bool) error {
 	var err error
-	splitsFileBuf, err = ioutil.ReadFile("splits.txt")
+	splitsFileBuf, err = ioutil.ReadFile(filepath.Join(hkSplitMakerDir, "splits.txt"))
 	if err != nil && !init {
 		return err
 	}
