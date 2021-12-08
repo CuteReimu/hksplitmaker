@@ -1,0 +1,3 @@
+[submodule "hk-split-maker"]
+	path = hk-split-maker
+	url = https://github.com/slaurent22/hk-split-maker.git
