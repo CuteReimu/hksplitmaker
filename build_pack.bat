@@ -1,5 +1,5 @@
 @echo off
-go build -ldflags -H=windowsgui -o hksplitmaker.exe hksplitmaker || exit
+go build -ldflags -H=windowsgui -o hksplitmaker.exe github.com/CuteReimu/hksplitmaker || exit
 set zipname=计时器生成器.zip
 if exist %zipname% (
     del /F %zipname%
