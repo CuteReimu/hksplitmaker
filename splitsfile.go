@@ -59,9 +59,9 @@ type xmlSegments struct {
 type xmlSegment struct {
 	Name            string
 	Icon            xmlIcon
-	SplitTimes      xmlSplitTimes
-	BestSegmentTime xmlSplitTime
-	SegmentHistory  xmlSegmentHistory
+	SplitTimes      *xmlSplitTimes
+	BestSegmentTime *xmlSplitTime
+	SegmentHistory  *xmlSegmentHistory
 }
 
 type xmlSegmentHistory struct {
@@ -88,6 +88,12 @@ type xmlAutoSplitterSettings struct {
 
 type xmlSplits struct {
 	Split []string
+}
+
+type splitTimeData struct {
+	splitTimes      *xmlSplitTimes
+	bestSegmentTime *xmlSplitTime
+	segmentHistory  *xmlSegmentHistory
 }
 
 func onClickLoadSplitFile() {
@@ -154,6 +160,8 @@ func loadSplitFile(file string) {
 						return
 					}
 				}
+				seg := run.Segments.Segment[i]
+				lines[i].splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 			} else {
 				description := splitsDictIdToDescriptions[splitId]
 				finalLine.endTrigger.SetChecked(false)
@@ -169,6 +177,8 @@ func loadSplitFile(file string) {
 						return
 					}
 				}
+				seg := run.Segments.Segment[i]
+				lines[i].splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 			}
 		}
 	} else {
@@ -186,12 +196,15 @@ func loadSplitFile(file string) {
 					return
 				}
 			}
+			seg := run.Segments.Segment[i]
+			lines[i].splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 		}
 		finalLine.endTrigger.SetChecked(true)
 		i := len(run.AutoSplitterSettings.Splits.Split)
 		if i < len(run.Segments.Segment) {
 			text := "空洞骑士"
-			name := run.Segments.Segment[i].Name
+			seg := run.Segments.Segment[i]
+			name := seg.Name
 			if strings.Contains(name, "无上辐光") || strings.Contains(name, "Absolute Radiance") {
 				text = "无上辐光"
 			} else if strings.Contains(name, "辐光") || strings.Contains(name, "Radiance") || strings.Contains(name, "radiance") {
@@ -202,12 +215,29 @@ func loadSplitFile(file string) {
 				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 				return
 			}
-			err = finalLine.name.SetText(run.Segments.Segment[i].Name)
+			err = finalLine.name.SetText(seg.Name)
 			if err != nil {
 				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 				return
 			}
+			finalLine.splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 		}
+	}
+	saveTimeCheckBox.SetChecked(true)
+	saveTimeCheckBox.SetEnabled(true)
+}
+
+func updateSplitTimeData(seg *xmlSegment, index int) {
+	var data *splitTimeData
+	if index < len(lines) {
+		data = lines[index].splitTime
+	} else {
+		data = finalLine.splitTime
+	}
+	if data != nil {
+		seg.SplitTimes = data.splitTimes
+		seg.BestSegmentTime = data.bestSegmentTime
+		seg.SegmentHistory = data.segmentHistory
 	}
 }
 
@@ -229,6 +259,7 @@ func saveSplitsFile() {
 		if filepath.Ext(filePath) != ".lss" {
 			filePath += ".lss"
 		}
+		saveTime := saveTimeCheckBox.Checked()
 		run := &xmlRun{
 			Version:  "1.7.0",
 			GameName: "Hollow Knight",
@@ -240,37 +271,48 @@ func saveSplitsFile() {
 				Splits:           xmlSplits{},
 			},
 		}
-		for _, line := range lines {
+		for i, line := range lines {
 			splitId := splitsDict[line.splitId.Text()].id
-			run.Segments.Segment = append(run.Segments.Segment, &xmlSegment{
+			seg := &xmlSegment{
 				Name:       line.name.Text(),
 				Icon:       xmlIcon{getIcon(splitId)},
-				SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
-			})
+				SplitTimes: &xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
+			}
+			if saveTime {
+				updateSplitTimeData(seg, i)
+			}
+			run.Segments.Segment = append(run.Segments.Segment, seg)
 			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
 		}
-		run.Segments.Segment = append(run.Segments.Segment, &xmlSegment{
-			Name:       finalLine.name.Text(),
-			SplitTimes: xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
-		})
 		if startTriggerCheckBox.Checked() {
 			text := startTriggerComboBox.Text()
 			run.AutoSplitterSettings.AutosplitStartRuns = splitsDict[text].id
 		}
+		seg := &xmlSegment{
+			Name:       finalLine.name.Text(),
+			SplitTimes: &xmlSplitTimes{SplitTime: []xmlSplitTime{{Name: "Personal Best"}}},
+		}
+		run.Segments.Segment = append(run.Segments.Segment, seg)
 		if finalLine.endTrigger.Checked() {
 			switch finalLine.splitId2.Text() {
 			case "空洞骑士":
-				run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon("HollowKnightBoss")
+				seg.Icon.Icon = getIcon("HollowKnightBoss")
 			case "辐光":
 				fallthrough
 			case "无上辐光":
-				run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon("RadianceBoss")
+				seg.Icon.Icon = getIcon("RadianceBoss")
+			}
+			if saveTime {
+				updateSplitTimeData(seg, len(lines))
 			}
 		} else {
 			splitId := splitsDict[finalLine.splitId.Text()].id
 			run.AutoSplitterSettings.AutosplitEndRuns = "True"
-			run.Segments.Segment[len(run.Segments.Segment)-1].Icon.Icon = getIcon(splitId)
+			seg.Icon.Icon = getIcon(splitId)
 			run.AutoSplitterSettings.Splits.Split = append(run.AutoSplitterSettings.Splits.Split, splitId)
+			if saveTime {
+				updateSplitTimeData(seg, len(lines))
+			}
 		}
 		buf, err := xml.MarshalIndent(run, "", "  ")
 		if err != nil {
