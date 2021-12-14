@@ -21,6 +21,7 @@ var splitLinesView *walk.Composite
 var categoriesComboBox *walk.ComboBox
 var startTriggerCheckBox *walk.CheckBox
 var startTriggerComboBox *walk.ComboBox
+var saveTimeCheckBox *walk.CheckBox
 
 func main() {
 	initCategories()
@@ -124,7 +125,13 @@ func main() {
 					},
 				},
 			},
-			PushButton{Text: "另存为", OnClicked: saveSplitsFile},
+			Composite{
+				Layout: HBox{},
+				Children: []Widget{
+					CheckBox{AssignTo: &saveTimeCheckBox, Text: "保留原lss文件中的时间数据", Enabled: false},
+					PushButton{Text: "另存为", OnClicked: saveSplitsFile},
+				},
+			},
 		},
 	}.Create()
 	addLine(true)

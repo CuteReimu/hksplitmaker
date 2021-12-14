@@ -102,9 +102,10 @@ func (s *splitIdModel) ItemCount() int {
 }
 
 type lineData struct {
-	line    *walk.Composite
-	name    *walk.LineEdit
-	splitId *walk.ComboBox
+	line      *walk.Composite
+	name      *walk.LineEdit
+	splitId   *walk.ComboBox
+	splitTime *splitTimeData
 }
 
 type finalLineData struct {
@@ -247,12 +248,14 @@ func moveLine(index int) {
 			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 			return
 		}
+		lines[i+1].splitTime = lines[i].splitTime
 	}
 	err := lines[index].name.SetText("")
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		return
 	}
+	lines[index].splitTime = nil
 }
 
 func onSearchSplitId(initAll bool, splitIdComboBox *walk.ComboBox) {

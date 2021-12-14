@@ -201,6 +201,8 @@ func onSelectCategory() {
 			return
 		}
 	}
+	saveTimeCheckBox.SetEnabled(false)
+	saveTimeCheckBox.SetChecked(false)
 }
 
 func dropBrackets(s string) string {
