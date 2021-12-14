@@ -96,6 +96,8 @@ type splitTimeData struct {
 	segmentHistory  *xmlSegmentHistory
 }
 
+var fileRunData *xmlRun
+
 func onClickLoadSplitFile() {
 	dlg := new(walk.FileDialog)
 	dlg.Title = "打开Splits文件"
@@ -223,6 +225,7 @@ func loadSplitFile(file string) {
 			finalLine.splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 		}
 	}
+	fileRunData = run
 	saveTimeCheckBox.SetChecked(true)
 	saveTimeCheckBox.SetEnabled(true)
 }
@@ -270,6 +273,16 @@ func saveSplitsFile() {
 				AutosplitEndRuns: "False",
 				Splits:           xmlSplits{},
 			},
+		}
+		if saveTime && fileRunData != nil {
+			run.Version = fileRunData.Version
+			run.GameIcon = fileRunData.GameIcon
+			run.GameName = fileRunData.GameName
+			run.CategoryName = fileRunData.CategoryName
+			run.Metadata = fileRunData.Metadata
+			run.Offset = fileRunData.Offset
+			run.AttemptCount = fileRunData.AttemptCount
+			run.AttemptHistory = fileRunData.AttemptHistory
 		}
 		for i, line := range lines {
 			splitId := splitsDict[line.splitId.Text()].id
