@@ -23,3 +23,6 @@ jobs:
 
     - name: Lint
       run: ./golangci-lint run ./...
+
+    - name: Build
+      run: go build -v ./...
