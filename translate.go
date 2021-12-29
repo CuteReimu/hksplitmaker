@@ -47,7 +47,7 @@ func doTranslate(s string) string {
 		for i := 0; i+n <= len(arr); i++ {
 			key := strings.Join(arr[i:i+n], " ")
 			if val, ok := translateDict[key]; ok {
-				return doTranslate(strings.ReplaceAll(s, key, val))
+				return doTranslate(strings.Replace(s, key, val, 1))
 			}
 		}
 	}
