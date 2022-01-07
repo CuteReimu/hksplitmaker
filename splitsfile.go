@@ -180,7 +180,7 @@ func loadSplitFile(file string) {
 					}
 				}
 				seg := run.Segments.Segment[i]
-				lines[i].splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
+				finalLine.splitTime = &splitTimeData{seg.SplitTimes, seg.BestSegmentTime, seg.SegmentHistory}
 			}
 		}
 	} else {
