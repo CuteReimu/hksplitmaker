@@ -8,7 +8,7 @@ import (
 	"syscall"
 )
 
-const hkSplitMakerDir = "hk-split-maker/src/asset"
+const hkSplitMakerDir = "hk-split-maker/src/asset/hollowknight"
 
 func getSystemMetrics(nIndex int) int {
 	ret, _, _ := syscall.NewLazyDLL(`User32.dll`).NewProc(`GetSystemMetrics`).Call(uintptr(nIndex))
