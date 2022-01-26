@@ -5,4 +5,4 @@ set zipname=计时器生成器.zip
 if exist %zipname% (
     del /F %zipname%
 )
-C:\Progra~1\WinRAR\Rar.exe a -r %zipname% hk-split-maker\src\asset\hollowknight\categories hk-split-maker\src\asset\hollowknight\icons hk-split-maker\src\asset\hollowknight\splits.txt LICENSE README.md hksplitmaker.exe translate.xlsx
+C:\Progra~1\WinRAR\Rar.exe a -r %zipname% hk-split-maker\src\asset\hollowknight\categories hk-split-maker\src\asset\hollowknight\icons hk-split-maker\src\asset\hollowknight\splits.txt LICENSE README.md hksplitmaker.exe translate.tsv

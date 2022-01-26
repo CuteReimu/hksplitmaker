@@ -30,6 +30,10 @@
    
 7. 打开LiveSplit -> 右键 -> OpenSplits -> From File... ，选择刚刚保存的文件即可。
 
+## 如何优化翻译
+
+请不要直接在这个repo修改`translate.tsv`文件，请前往[CuteReimu/hk-split-maker](https://github.com/CuteReimu/hk-split-maker)修改，修改后会自动同步到这里。
+
 ## 特别鸣谢
 
 本程序的所有**非代码部分**（图标和模板）全部都来自：https://hksplitmaker.com/
