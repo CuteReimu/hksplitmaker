@@ -3,8 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/lxn/walk"
-	"io/ioutil"
-	"path/filepath"
+	"path"
 	"regexp"
 	"strings"
 )
@@ -34,7 +33,7 @@ type jsonCategoryInfo struct {
 var categoriesCache = make(map[string]*jsonCategory)
 
 func initCategories() {
-	buf, err := ioutil.ReadFile(filepath.Join(hkSplitMakerDir, "categories", "category-directory.json"))
+	buf, err := assets.ReadFile(path.Join(hkSplitMakerDir, "categories", "category-directory.json"))
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
@@ -50,7 +49,7 @@ func initCategories() {
 			continue
 		}
 		for _, info := range v {
-			buf, err := ioutil.ReadFile(filepath.Join(hkSplitMakerDir, "categories", info.FileName+".json"))
+			buf, err := assets.ReadFile(path.Join(hkSplitMakerDir, "categories", info.FileName+".json"))
 			if err != nil {
 				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 				panic(err)

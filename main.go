@@ -8,7 +8,7 @@ import (
 	"syscall"
 )
 
-const hkSplitMakerDir = "hk-split-maker/src/asset/hollowknight"
+const hkSplitMakerDir = "hk-split-maker/src/asset/hollowknight/"
 
 func getSystemMetrics(nIndex int) int {
 	ret, _, _ := syscall.NewLazyDLL(`User32.dll`).NewProc(`GetSystemMetrics`).Call(uintptr(nIndex))
@@ -43,36 +43,42 @@ func main() {
 		Layout:   VBox{},
 		Children: []Widget{
 			Composite{
-				MaxSize: Size{Width: 0, Height: 20},
+				MaxSize: Size{Height: 20},
 				Layout:  HBox{},
 				Children: []Widget{
-					Composite{
-						Layout: HBox{},
-						Children: []Widget{
-							TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以"},
-							PushButton{Text: "打开已有的Splits文件", OnClicked: onClickLoadSplitFile},
-							TextLabel{TextAlignment: AlignHFarVCenter, Text: "，也可以使用现有的模板"},
-							ComboBox{
-								AssignTo: &categoriesComboBox,
-								Model: func() []string {
-									var keys []string
-									for key := range categoriesCache {
-										keys = append(keys, key)
-									}
-									sort.Strings(keys)
-									return keys
-								}(),
-								OnCurrentIndexChanged: onSelectCategory,
-							},
-						},
+					TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以"},
+					PushButton{Text: "打开已有的Splits文件", OnClicked: onClickLoadSplitFile},
+					TextLabel{TextAlignment: AlignHFarVCenter, Text: "，也可以使用现有的模板"},
+					ComboBox{
+						AssignTo: &categoriesComboBox,
+						Model: func() []string {
+							var keys []string
+							for key := range categoriesCache {
+								keys = append(keys, key)
+							}
+							sort.Strings(keys)
+							return keys
+						}(),
+						OnCurrentIndexChanged: onSelectCategory,
 					},
-					//HSeparator{},
-					//PushButton{AssignTo: &updateBtn, Text: "已是最新", Enabled: false},
 				},
 			},
-			TextLabel{
-				TextAlignment: AlignHFarVCenter,
-				Text:          "Auto Splitter Version: 3.1.1.0",
+			Composite{
+				Layout: HBox{},
+				Children: []Widget{
+					TextLabel{
+						TextAlignment: AlignHFarVCenter,
+						Text:          "Auto Splitter Version: 3.1.1.0",
+					},
+					PushButton{
+						MaxSize:   Size{Width: 100},
+						Alignment: AlignHFarVCenter,
+						Text:      "帮助",
+						OnClicked: func() {
+							walk.MsgBox(mainWindow, "帮助", readme, walk.MsgBoxIconInformation)
+						},
+					},
+				},
 			},
 			ScrollView{
 				HorizontalFixed: true,

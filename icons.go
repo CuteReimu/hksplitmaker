@@ -5,9 +5,7 @@ import (
 	"encoding/base64"
 	"github.com/lxn/walk"
 	"io"
-	"io/ioutil"
-	"os"
-	"path/filepath"
+	"path"
 	"regexp"
 	"strings"
 )
@@ -15,7 +13,7 @@ import (
 var iconDict = make(map[string]string)
 
 func init() {
-	f, err := os.Open(filepath.Join(hkSplitMakerDir, "icons/icons.ts"))
+	f, err := assets.Open(path.Join(hkSplitMakerDir, "icons", "icons.ts"))
 	if err != nil {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
@@ -60,8 +58,8 @@ func getIcon(splitId string) string {
 	if !ok {
 		return ""
 	}
-	iconPath = filepath.Join(hkSplitMakerDir, "icons", iconPath)
-	buf, err := ioutil.ReadFile(iconPath)
+	iconPath = path.Join(hkSplitMakerDir, "icons", iconPath)
+	buf, err := assets.ReadFile(iconPath)
 	if err != nil {
 		return ""
 	}

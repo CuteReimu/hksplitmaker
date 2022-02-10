@@ -2,11 +2,11 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	regexp "github.com/dlclark/regexp2"
 	"github.com/lxn/walk"
 	"io"
-	"os"
 	"strings"
 )
 
@@ -14,13 +14,7 @@ var translateDict = &Trie{}
 var regexpSpace = regexp.MustCompile(`(?<![()\[\]{}%'"A-Za-z]) (?![()\[\]{}%'"A-Za-z])`, regexp.None)
 
 func init() {
-	f, err := os.Open("translate.tsv")
-	if err != nil {
-		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
-		panic(err)
-	}
-	defer func() { _ = f.Close() }()
-	reader := bufio.NewReader(f)
+	reader := bufio.NewReader(bytes.NewReader(transLateData))
 	for {
 		line, _, err := reader.ReadLine()
 		if err != nil && err != io.EOF {
