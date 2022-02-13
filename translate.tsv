@@ -70,7 +70,7 @@ Collector	收藏家
 Guardian	守卫
 Dung	粪虫
 Defender	防御者
-Dung Defender Idol	粪虫防御者国王神像
+Dung Defender Idol	粪虫防御者神像
 Trinket	装饰品
 Elder Hu	胡长老
 Essence	精华
@@ -205,16 +205,16 @@ White Palace	白色宫殿
 Overcharmed	过载
 w/	和
 QGA/Mound Entry	酸冲
-Frogs	雾谷
+Frogs	雾之峡谷
 Post-Upper Arena	左上遭遇战
 has been obtained	被获得
 King's Pass	国王山道
-King's Pass From Town	国王山道和德特茅斯
+King's Pass From Town	从德特茅斯进入国王山道
 Enter Any Dream	进入任意梦境
 Blue Lake	蓝湖
 Overcharm	过载
-Has Claw	拥有螳螂爪
-Waterways Manhole	皇家水道井
+Has Claw	获得螳螂爪后
+Waterways Manhole	皇家水道井口
 Entry	入口
 Baldur Shell	巴德尔之壳
 Dashmaster	冲刺大师
@@ -357,7 +357,7 @@ Godhome Bench	万神殿椅子
 Godhome Lore Room	万神殿寻神者房间
 Pantheon	万神殿
 Main Menu	回主菜单
-Main Menu w/ Claw	回主菜单有螳螂爪
+Main Menu w/ Claw	回主菜单获得螳螂爪后
 Main Menu w/ Ghusk	回主菜单击杀华丽躯壳后
 Menu	菜单
 Cornifer at Home	柯尼法在家
@@ -384,7 +384,7 @@ Arcane Egg	神秘蛋
 Rancid Egg	腐臭蛋
 Mask Shard	面具碎片
 Use Simple Key	使用简单钥匙
-Any Transition	任意切换场景
+Any Transition	切换任意场景
 Manual Split	手动分段
 Misc	其它
 Round	奥波路波
@@ -501,7 +501,7 @@ Willoh Seal	维洛印章
 Sporg Seal	核弹菇印章
 Mantis Lords Seal	螳螂领主印章
 Deepnest Seal	深邃巢穴印章
-Frogs Seal	野兽巢穴印章
+Frogs Seal	王后花园青蛙房间印章
 Grubfather Seal	虫爷爷印章
 Salubra Charms	萨鲁巴护符槽
 Journal outside Greenpath Stag	苍绿鹿角站外日记
@@ -546,8 +546,8 @@ Trial of the Fool	愚人的试炼
 Trial of the Conqueror	征服者的试炼
 Trial of the Warrior	勇士的试炼
 Aspid Arena	阿司匹德遭遇战
-Queen Fragment	王后的碎片
-King Fragment	国王的碎片
+Queen Fragment	王后白色碎片
+King Fragment	国王白色碎片
 THK Scream	空洞骑士战吼
 Stag	鹿角虫
 Enemy	敌人
@@ -658,3 +658,18 @@ Marissa	玛丽莎
 Caelif	凯利福
 Gravedigger	掘墓者
 while	当
+King’s Brand	王之印记
+Glade Idol	灵魂沼地神像
+Old Dreamer Timing	旧守梦者计时
+Herrah	赫拉
+Lurien	卢瑞恩
+Monomon	莫诺蒙
+Abyss Door	深渊大门
+Abyss Lighthouse	深渊灯塔点亮
+City Gate w/ Mantis Lords defeated	击败螳螂领主后进入泪城大门
+Credits Roll	滚动开发者名单
+Lift Opened	电梯解锁
+Entrance	进入
+Has Fireball	获得复仇之魂后
+Has Descending Dark	获得黑暗降临后
+excluding Save State	但不包括SaveState切换场景
