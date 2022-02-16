@@ -200,6 +200,7 @@ func onSelectCategory() {
 			return
 		}
 	}
+	categoryName = j.CategoryName
 	saveTimeCheckBox.SetEnabled(false)
 	saveTimeCheckBox.SetChecked(false)
 }
