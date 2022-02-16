@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+var categoryName string
+
 type xmlIcon struct {
 	Icon string `xml:",cdata"`
 }
@@ -226,6 +228,7 @@ func loadSplitFile(file string) {
 		}
 	}
 	fileRunData = run
+	categoryName = run.CategoryName
 	saveTimeCheckBox.SetChecked(true)
 	saveTimeCheckBox.SetEnabled(true)
 }
@@ -273,6 +276,9 @@ func saveSplitsFile() {
 				AutosplitEndRuns: "False",
 				Splits:           xmlSplits{},
 			},
+		}
+		if len(categoryName) != 0 {
+			run.CategoryName = categoryName
 		}
 		if saveTime && fileRunData != nil {
 			run.Version = fileRunData.Version
