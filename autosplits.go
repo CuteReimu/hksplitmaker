@@ -123,26 +123,26 @@ func addLine(initAll bool) {
 		Layout:   HBox{},
 		MaxSize:  Size{Width: 0, Height: 25},
 		Children: []Widget{
-			LineEdit{AssignTo: &line.name, MinSize: Size{Width: 200}},
+			LineEdit{AssignTo: &line.name, MinSize: Size{Width: 200}, ToolTipText: "片段名"},
 			ComboBox{AssignTo: &line.splitId, Editable: true, MinSize: Size{Width: 200},
 				Model: &splitIdModel{}, Value: splitDescriptions[0],
 				OnTextChanged: func() {
-					onSearchSplitId(initAll, line.splitId)
+					onSearchSplitId(initAll, line)
 				},
 			},
-			PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
+			PushButton{Text: "✘", MaxSize: Size{Width: 25}, ToolTipText: "删除", OnClicked: func() {
 				if len(lines) > 1 {
 					removeLine(line)
 				}
 			}},
-			PushButton{Text: "↑+", MaxSize: Size{Width: 25},
+			PushButton{Text: "↑+", MaxSize: Size{Width: 25}, ToolTipText: "在上方增加一行",
 				OnClicked: func() {
 					idx := splitLinesView.Children().Index(line.line)
 					addLine(true)
 					moveLine(idx)
 				},
 			},
-			PushButton{Text: "↓+", MaxSize: Size{Width: 25},
+			PushButton{Text: "↓+", MaxSize: Size{Width: 25}, ToolTipText: "在下方增加一行",
 				OnClicked: func() {
 					idx := splitLinesView.Children().Index(line.line)
 					addLine(true)
@@ -197,7 +197,7 @@ func resetLines(count int) {
 				ComboBox{AssignTo: &line.splitId, Editable: true, MinSize: Size{Width: 200},
 					Model: &splitIdModel{}, Value: splitDescriptions[0],
 					OnTextChanged: func() {
-						onSearchSplitId(false, line.splitId)
+						onSearchSplitId(false, line)
 					},
 				},
 				PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
@@ -257,9 +257,9 @@ func moveLine(index int) {
 	lines[index].splitTime = nil
 }
 
-func onSearchSplitId(initAll bool, splitIdComboBox *walk.ComboBox) {
-	s := splitIdComboBox.Text()
-	model := splitIdComboBox.Model().(*splitIdModel)
+func onSearchSplitId(initAll bool, line *lineData) {
+	s := line.splitId.Text()
+	model := line.splitId.Model().(*splitIdModel)
 	if len(model.items) == 0 {
 		if initAll {
 			model.items = splitDescriptions
@@ -272,6 +272,10 @@ func onSearchSplitId(initAll bool, splitIdComboBox *walk.ComboBox) {
 	if len(s) > 0 {
 		for _, text := range model.items {
 			if text == s {
+				err := line.name.SetText(dropBrackets(text))
+				if err != nil {
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+				}
 				return
 			}
 		}

@@ -47,8 +47,8 @@ func main() {
 				Layout:  HBox{},
 				Children: []Widget{
 					TextLabel{TextAlignment: AlignHFarVCenter, Text: "你可以"},
-					PushButton{Text: "打开已有的Splits文件", OnClicked: onClickLoadSplitFile},
-					TextLabel{TextAlignment: AlignHFarVCenter, Text: "，也可以使用现有的模板"},
+					PushButton{Text: "打开已有的lss文件", OnClicked: onClickLoadSplitFile},
+					TextLabel{TextAlignment: AlignHFarVCenter, Text: "或者把文件拖拽进来，也可以使用现有模板"},
 					ComboBox{
 						AssignTo: &categoriesComboBox,
 						Model: func() []string {
@@ -89,8 +89,9 @@ func main() {
 						Layout:  HBox{},
 						Children: []Widget{
 							CheckBox{
-								AssignTo: &startTriggerCheckBox,
-								Text:     "自动开始",
+								AssignTo:    &startTriggerCheckBox,
+								Text:        "自动开始",
+								ToolTipText: "对于全关的速通和万神殿某一门的速通，不要勾选",
 								OnClicked: func() {
 									startTriggerComboBox.SetEnabled(startTriggerCheckBox.Checked())
 								},
@@ -118,10 +119,10 @@ func main() {
 					Composite{
 						Layout: HBox{},
 						Children: []Widget{
-							LineEdit{AssignTo: &finalLine.name, Text: "空洞骑士"},
+							LineEdit{AssignTo: &finalLine.name, Text: "空洞骑士", ToolTipText: "片段名"},
 							ComboBox{AssignTo: &finalLine.splitId, Visible: false, Editable: true, Model: splitDescriptions, MaxSize: Size{Width: 200}, Value: splitDescriptions[0]},
 							ComboBox{AssignTo: &finalLine.splitId2, Editable: true, Model: []string{"空洞骑士", "辐光", "无上辐光"}, MaxSize: Size{Width: 200}, Value: "空洞骑士"},
-							CheckBox{AssignTo: &finalLine.endTrigger, Checked: true, Text: "以游戏结束停止计时",
+							CheckBox{AssignTo: &finalLine.endTrigger, Checked: true, Text: "以游戏结束停止计时", ToolTipText: "如果是以游戏结束或者万神殿某一门结束停止计时，不要勾选",
 								OnCheckedChanged: func() {
 									finalLine.splitId.SetVisible(!finalLine.endTrigger.Checked())
 									finalLine.splitId2.SetVisible(finalLine.endTrigger.Checked())
