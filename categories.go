@@ -44,10 +44,7 @@ func initCategories() {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
 	}
-	for groupName, v := range categoryDirectoryCache {
-		if groupName != "Individual Level" && groupName != "Main" && groupName != "Category Extensions" {
-			continue
-		}
+	for _, v := range categoryDirectoryCache {
 		for _, info := range v {
 			buf, err := assets.ReadFile(path.Join(hkSplitMakerDir, "categories", info.FileName+".json"))
 			if err != nil {
@@ -66,7 +63,7 @@ func initCategories() {
 					continue
 				}
 				if j.EndingSplit.Icon != "HollowKnightBoss" && j.EndingSplit.Icon != "RadianceBoss" {
-					panic(info.FileName)
+					continue
 				}
 				count++
 			}
@@ -80,7 +77,7 @@ func initCategories() {
 			if foundPer {
 				continue
 			}
-			if count >= 2 && j.Ordered /*&& len(j.SplitIds) <= 50*/ {
+			if count >= 2 && j.Ordered {
 				categoriesCache[translate(info.DisplayName)] = j
 			}
 		}
@@ -206,11 +203,9 @@ func onSelectCategory() {
 }
 
 func dropBrackets(s string) string {
-	rs := []rune(s)
-	for i, r := range rs {
-		if r == '（' {
-			return string(rs[:i])
-		}
+	idx := strings.LastIndex(s, "(")
+	if idx > 0 {
+		return s[:idx]
 	}
 	return s
 }

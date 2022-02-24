@@ -9,6 +9,6 @@ require (
 )
 
 require (
-	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
+	golang.org/x/sys v0.0.0-20220224003255-dbe011f71a99 // indirect
 	gopkg.in/Knetic/govaluate.v3 v3.0.0 // indirect
 )
