@@ -23,7 +23,7 @@ jobs:
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:
-        args: --timeout 3m0s
+        args: --timeout 5m0s
         skip-go-installation: true
 
     - name: Build
