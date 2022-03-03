@@ -77,7 +77,7 @@ namespace hksplitmaker
         {
             if (INDEX > 1)
             {
-                this.parent.Controls.RemoveAt(--INDEX + 100);
+                this.parent.Controls["autoSpliterLine" + (--INDEX).ToString()].Dispose();
             }
         }
     }
