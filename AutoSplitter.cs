@@ -10,74 +10,183 @@ using System.Drawing;
 
 namespace hksplitmaker
 {
-    class LineData
+    class FinalLineData
     {
-        private static int INDEX = 0;
-        private Panel line;
-        private TextBox name;
-        private ComboBox splitId;
-        private Button delBtn;
-        private Button addUpBtn;
-        private Button addDownBtn;
-        private Panel parent;
-        public LineData(Panel parent)
+        private static FinalLineData instance;
+        private readonly Panel line;
+        private readonly TextBox name;
+        private readonly ComboBox splitId, splitId2;
+        private readonly CheckBox endTrigger;
+        private readonly Panel parent;
+        private FinalLineData(Panel parent)
         {
-            int i = INDEX++;
             name = new TextBox();
             name.Location = new Point(17, 1);
-            name.Name = "nameBox" + i.ToString();
+            name.Name = "finalLineNameBox";
             name.Size = new Size(200, 23);
             name.TabIndex = 0;
             splitId = new ComboBox();
             splitId.FormattingEnabled = true;
             splitId.Location = new Point(222, 0);
-            splitId.Name = "splitIdComboBox" + i.ToString();
-            splitId.Size = new Size(260, 25);
+            splitId.Name = "finalLineSplitIdComboBox";
+            splitId.Size = new Size(252, 25);
             splitId.TabIndex = 1;
+            splitId.Visible = false;
             AutoSplitter.Instance().InitComboBox(splitId);
-            delBtn = new Button();
-            delBtn.Location = new Point(487, 0);
-            delBtn.Name = "delBtn" + i.ToString();
-            delBtn.Size = new Size(35, 25);
-            delBtn.TabIndex = 2;
-            delBtn.Text = "✘";
-            delBtn.UseVisualStyleBackColor = true;
-            delBtn.Click += DelBtn_Click;
-            addUpBtn = new Button();
-            addUpBtn.Location = new Point(525, 0);
-            addUpBtn.Name = "addUpBtn" + i.ToString();
-            addUpBtn.Size = new Size(35, 25);
-            addUpBtn.TabIndex = 3;
-            addUpBtn.Text = "↑+";
-            addUpBtn.UseVisualStyleBackColor = true;
-            addDownBtn = new Button();
-            addDownBtn.Location = new Point(563, 0);
-            addDownBtn.Name = "addDownBtn" + i.ToString();
-            addDownBtn.Size = new Size(35, 25);
-            addDownBtn.TabIndex = 4;
-            addDownBtn.Text = "↓+";
-            addDownBtn.UseVisualStyleBackColor = true;
+            splitId2 = new ComboBox();
+            splitId2.FormattingEnabled = true;
+            splitId2.Location = new Point(222, 0);
+            splitId2.Name = "finalLineSplitIdComboBox2";
+            splitId2.Size = new Size(252, 25);
+            splitId2.TabIndex = 2;
+            splitId2.Items.AddRange(new object[] { "空洞骑士", "辐光", "无上辐光" });
+            splitId2.SelectedIndex = 0;
+            endTrigger = new CheckBox();
+            endTrigger.Location = new Point(479, 3);
+            endTrigger.Name = "finalLineCheckBox";
+            endTrigger.Size = new Size(106, 21);
+            endTrigger.TabIndex = 0;
+            endTrigger.Text = "游戏结束停止";
+            endTrigger.UseVisualStyleBackColor = true;
+            endTrigger.Checked = true;
+            endTrigger.CheckedChanged += EndTrigger_CheckedChanged;
             line = new Panel();
-            line.TabIndex = i + 100;
+            line.TabIndex = 3;
             line.Controls.Add(name);
             line.Controls.Add(splitId);
-            line.Controls.Add(delBtn);
-            line.Controls.Add(addUpBtn);
-            line.Controls.Add(addDownBtn);
-            line.Location = new Point(0, 45 + i * 32);
-            line.Name = "autoSpliterLine" + i.ToString();
-            line.Size = new Size(parent.Width, 28);
+            line.Controls.Add(endTrigger);
+            line.Controls.Add(splitId2);
+            line.Location = new Point(0, 45 + LineData.Count * 32);
+            line.Name = "finalLineAutoSpliterLine";
+            line.Size = new Size(585, 28);
             this.parent = parent;
             this.parent.Controls.Add(line);
             line.ResumeLayout(false);
             line.PerformLayout();
         }
 
+        private void EndTrigger_CheckedChanged(object sender, EventArgs e)
+        {
+            this.splitId.Visible = !this.endTrigger.Checked;
+            this.splitId2.Visible = this.endTrigger.Checked;
+        }
+
+        public static void Init(Panel parent) { instance = new FinalLineData(parent);}
+
+        public static void UpdateLocation() { instance.line.Location = new Point(0, 45 + LineData.Count * 32); }
+    }
+    class LineData
+    {
+        private static IList<LineData> lineDataList = new List<LineData>();
+        private static int INDEX = 0;
+        private readonly Panel line;
+        private readonly TextBox name;
+        private readonly ComboBox splitId;
+        private readonly Button delBtn;
+        private readonly Button addUpBtn;
+        private readonly Button addDownBtn;
+        private readonly Panel parent;
+        private readonly int index;
+        public static LineData AddLine(Panel parent)
+        {
+            LineData lineData = new LineData(INDEX++, parent);
+            lineDataList.Add(lineData);
+            return lineData;
+        }
+
+        public static int Count { get { return lineDataList.Count; } }
+        private LineData(int index, Panel parent)
+        {
+            this.index = index;
+            name = new TextBox();
+            name.Location = new Point(17, 1);
+            name.Name = "nameBox" + index.ToString();
+            name.Size = new Size(200, 23);
+            name.TabIndex = 0;
+            splitId = new ComboBox();
+            splitId.FormattingEnabled = true;
+            splitId.Location = new Point(222, 0);
+            splitId.Name = "splitIdComboBox" + index.ToString();
+            splitId.Size = new Size(252, 25);
+            splitId.TabIndex = 1;
+            AutoSplitter.Instance().InitComboBox(splitId);
+            delBtn = new Button();
+            delBtn.Location = new Point(478, 0);
+            delBtn.Name = "delBtn" + index.ToString();
+            delBtn.Size = new Size(35, 25);
+            delBtn.TabIndex = 2;
+            delBtn.Text = "✘";
+            delBtn.UseVisualStyleBackColor = true;
+            delBtn.Click += DelBtn_Click;
+            addUpBtn = new Button();
+            addUpBtn.Location = new Point(514, 0);
+            addUpBtn.Name = "addUpBtn" + index.ToString();
+            addUpBtn.Size = new Size(35, 25);
+            addUpBtn.TabIndex = 3;
+            addUpBtn.Text = "↑+";
+            addUpBtn.UseVisualStyleBackColor = true;
+            addUpBtn.Click += AddUpBtn_Click;
+            addDownBtn = new Button();
+            addDownBtn.Location = new Point(550, 0);
+            addDownBtn.Name = "addDownBtn" + index.ToString();
+            addDownBtn.Size = new Size(35, 25);
+            addDownBtn.TabIndex = 4;
+            addDownBtn.Text = "↓+";
+            addDownBtn.UseVisualStyleBackColor = true;
+            addDownBtn.Click += AddDownBtn_Click;
+            line = new Panel();
+            line.TabIndex = index + 100;
+            line.Controls.Add(name);
+            line.Controls.Add(splitId);
+            line.Controls.Add(delBtn);
+            line.Controls.Add(addUpBtn);
+            line.Controls.Add(addDownBtn);
+            line.Location = new Point(0, 45 + index * 32);
+            line.Name = "autoSpliterLine" + index.ToString();
+            line.Size = new Size(585, 28);
+            this.parent = parent;
+            this.parent.Controls.Add(line);
+            line.ResumeLayout(false);
+            line.PerformLayout();
+        }
+
+        private void AddDownBtn_Click(object sender, EventArgs e)
+        {
+            LineData line = AddLine(this.parent);
+            for (int i = lineDataList.Count - 1; i > index + 1; i--)
+            {
+                lineDataList[i].name.Text = lineDataList[i - 1].name.Text;
+                lineDataList[i].splitId.Text = lineDataList[i - 1].splitId.Text;
+            }
+            lineDataList[index + 1].name.Text = "";
+            FinalLineData.UpdateLocation();
+        }
+
+        private void AddUpBtn_Click(object sender, EventArgs e)
+        {
+            LineData line = AddLine(this.parent);
+            for (int i = lineDataList.Count - 1; i >= index + 1; i--)
+            {
+                lineDataList[i].name.Text = lineDataList[i - 1].name.Text;
+                lineDataList[i].splitId.Text = lineDataList[i - 1].splitId.Text;
+            }
+            lineDataList[index].name.Text = "";
+            FinalLineData.UpdateLocation();
+        }
+
         private void DelBtn_Click(object sender, EventArgs e)
         {
-            if (INDEX > 1)
+            if (lineDataList.Count > 1)
             {
-                this.parent.Controls["autoSpliterLine" + (--INDEX).ToString()].Dispose();
+                for (int i = index + 1; i < lineDataList.Count; i++)
+                {
+                    lineDataList[i - 1].name.Text = lineDataList[i].name.Text;
+                    lineDataList[i - 1].splitId.Text = lineDataList[i].splitId.Text;
+                }
+                lineDataList[lineDataList.Count - 1].line.Dispose();
+                lineDataList.RemoveAt(lineDataList.Count - 1);
+                INDEX--;
+                FinalLineData.UpdateLocation();
             }
         }
     }
@@ -176,6 +285,7 @@ namespace hksplitmaker
             {
                 b.Items.Add(s);
             }
+            b.SelectedIndex = 0;
         }
     }
 }

@@ -37,6 +37,8 @@ namespace hksplitmaker
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,17 +71,18 @@ namespace hksplitmaker
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(547, 46);
+            this.button2.Location = new System.Drawing.Point(547, 676);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "帮助";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(373, 49);
+            this.label2.Location = new System.Drawing.Point(451, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(172, 17);
             this.label2.TabIndex = 4;
@@ -92,15 +95,16 @@ namespace hksplitmaker
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Location = new System.Drawing.Point(12, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(610, 596);
+            this.panel1.Size = new System.Drawing.Size(610, 593);
             this.panel1.TabIndex = 6;
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(98, 11);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(499, 25);
+            this.comboBox2.Size = new System.Drawing.Size(486, 25);
             this.comboBox2.TabIndex = 1;
             // 
             // checkBox1
@@ -112,6 +116,27 @@ namespace hksplitmaker
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "自动开始";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(12, 678);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(174, 21);
+            this.checkBox2.TabIndex = 7;
+            this.checkBox2.Text = "保留原lss文件中的时间数据";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(364, 676);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(177, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "另存为";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -119,9 +144,11 @@ namespace hksplitmaker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(634, 711);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -144,6 +171,8 @@ namespace hksplitmaker
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
