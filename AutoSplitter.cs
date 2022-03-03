@@ -12,12 +12,19 @@ namespace hksplitmaker
 {
     class FinalLineData
     {
-        private static FinalLineData instance;
+        public static FinalLineData Instance { get; private set; }
         private readonly Panel line;
         private readonly TextBox name;
         private readonly ComboBox splitId, splitId2;
         private readonly CheckBox endTrigger;
         private readonly Panel parent;
+
+        public string NameValue { get { return name.Text; } }
+
+        public string SplitIdValue { get { return splitId.Text; } }
+
+        public bool EndTrigger { get { return endTrigger.Checked; } }
+
         private FinalLineData(Panel parent)
         {
             name = new TextBox();
@@ -71,9 +78,9 @@ namespace hksplitmaker
             this.splitId2.Visible = this.endTrigger.Checked;
         }
 
-        public static void Init(Panel parent) { instance = new FinalLineData(parent);}
+        public static void Init(Panel parent) { Instance = new FinalLineData(parent);}
 
-        public static void UpdateLocation() { instance.line.Location = new Point(0, 45 + LineData.Count * 32); }
+        public static void UpdateLocation() { Instance.line.Location = new Point(0, 45 + LineData.Count * 32); }
     }
     class LineData
     {
@@ -95,6 +102,11 @@ namespace hksplitmaker
         }
 
         public static int Count { get { return lineDataList.Count; } }
+
+        public string NameValue { get { return name.Text; } }
+
+        public string SplitIdValue { get { return splitId.Text; } }
+
         private LineData(int index, Panel parent)
         {
             this.index = index;
@@ -189,6 +201,8 @@ namespace hksplitmaker
                 FinalLineData.UpdateLocation();
             }
         }
+
+        public static IList<LineData> All { get { return lineDataList; } }
     }
 
     class AutoSplitter
@@ -286,6 +300,16 @@ namespace hksplitmaker
                 b.Items.Add(s);
             }
             b.SelectedIndex = 0;
+        }
+
+        public string DescriptionToId(string description)
+        {
+            SplitData data = descriptionToData[description];
+            if (data == null)
+            {
+                return null;
+            }
+            return data.Id;
         }
     }
 }

@@ -41,5 +41,15 @@ namespace hksplitmaker
         {
             this.comboBox2.Enabled = ((CheckBox)sender).Checked;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            SplitFile.WriteFile(this.saveFileDialog1.FileName);
+        }
     }
 }
