@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace hksplitmaker
@@ -15,11 +11,11 @@ namespace hksplitmaker
         public Form1()
         {
             InitializeComponent();
-            AutoSplitter.Instance().InitComboBox(this.comboBox2);
-            LineData.AddLine(this.panel1);
-            LineData.AddLine(this.panel1);
-            LineData.AddLine(this.panel1);
+            LineData.Parent = this.panel1;
+            AutoSplitter.Instance.InitComboBox(this.comboBox2);
+            LineData.AddLine();
             FinalLineData.Init(this.panel1);
+            Categories.Instance.InitComboBox(this.comboBox1, false);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,6 +46,112 @@ namespace hksplitmaker
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             SplitFile.WriteFile(this.saveFileDialog1.FileName);
+        }
+
+        private string categoryCurrent;
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string category = comboBox1.Text;
+            if (category == null || category.Length == 0 || category == categoryCurrent)
+            {
+                return;
+            }
+            categoryCurrent = category;
+            CategoryData data = Categories.Instance[category];
+            int count = data.SplitIds.Count;
+            if (!data.EndTriggeringAutosplit)
+            {
+                count++;
+            }
+            LineData.ResetLines(count - 1);
+            Regex re = new Regex("{.*?}|\\[[0-9DU, ]*]");
+            IDictionary<string, int> nameIndexCache = new Dictionary<string, int>();
+            Func<string, string> dropBrackets = new Func<string, string>((string s) =>
+            {
+                int idx = s.LastIndexOf('(');
+                if (idx > 0)
+                {
+                    return s.Substring(0, idx);
+                }
+                return s;
+            });
+            Func<string, string, string> getNameFunc = new Func<string, string, string>((string splitId, string description) =>
+            {
+                string name = "";
+                if (data.Names != null && data.Names.ContainsKey(splitId))
+                {
+                    Object names = data.Names[splitId];
+                    if (names is string)
+                    {
+                        name = ((string)names).Replace("%s", dropBrackets(description));
+                    }
+                    else
+                    {
+                        object[] namearr = (object[])names;
+                        if (!nameIndexCache.ContainsKey(splitId))
+                        {
+                            nameIndexCache[splitId] = 0;
+                        }
+                        name = ((string)namearr[nameIndexCache[splitId]]).Replace("%s", dropBrackets(description));
+                        nameIndexCache[splitId]++;
+                    }
+                }
+                else
+                {
+                    name = dropBrackets(description);
+                }
+                return re.Replace(name, "").Trim();
+            });
+            string startTrigger = AutoSplitter.Instance.IdToDescription(data.StartTriggeringAutosplit);
+            if (startTrigger != null)
+            {
+                this.checkBox1.Checked = true;
+                this.comboBox2.Text = startTrigger;
+                this.comboBox2.Enabled = true;
+            }
+            else
+            {
+                this.checkBox1.Checked = false;
+                this.comboBox2.Enabled = false;
+            }
+            if (data.EndTriggeringAutosplit)
+            {
+                for (int i = 0; i < data.SplitIds.Count; i++)
+                {
+                    string splitId = data.SplitIds[i].Trim('-');
+                    string description = AutoSplitter.Instance.IdToDescription(splitId);
+                    if (i < data.SplitIds.Count - 1)
+                    {
+                        LineData.All[i].SplitIdText = description;
+                        LineData.All[i].NameText = getNameFunc(splitId, description);
+                    }
+                    else
+                    {
+                        FinalLineData.Instance.SetEndTrigger(false, description);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < data.SplitIds.Count; i++)
+                {
+                    string splitId = data.SplitIds[i].Trim('-');
+                    string description = AutoSplitter.Instance.IdToDescription(splitId);
+                    LineData.All[i].SplitIdText = description;
+                    LineData.All[i].NameText = getNameFunc(splitId, description);
+                }
+                string text = "空洞骑士";
+                if (data.EndingSplit.Icon == "RadianceBoss")
+                {
+                    text = data.EndingSplit.Name == "Absolute Radiance" ? "无上辐光" : "辐光";
+                }
+                FinalLineData.Instance.SetEndTrigger(true, text);
+                FinalLineData.Instance.NameText = getNameFunc(data.EndingSplit.Icon, data.EndingSplit.Name);
+            }
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Checked = false;
+            FinalLineData.UpdateLocation();
         }
     }
 }

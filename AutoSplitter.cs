@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace hksplitmaker
 {
@@ -17,15 +13,27 @@ namespace hksplitmaker
         private readonly TextBox name;
         private readonly ComboBox splitId, splitId2;
         private readonly CheckBox endTrigger;
-        private readonly Panel parent;
 
-        public string NameValue { get { return name.Text; } }
+        public string NameText { get { return name.Text; } set { name.Text = value; } }
 
-        public string SplitIdValue { get { return splitId.Text; } }
+        public string SplitIdText { get { return splitId.Text; } }
 
         public bool EndTrigger { get { return endTrigger.Checked; } }
 
-        private FinalLineData(Panel parent)
+        public void SetEndTrigger(bool check, string endTrigger)
+        {
+            this.endTrigger.Checked = check;
+            if (check)
+            {
+                splitId2.Text = endTrigger;
+            }
+            else
+            {
+                splitId.Text = endTrigger;
+            }
+        }
+
+        private FinalLineData()
         {
             name = new TextBox();
             name.Location = new Point(17, 1);
@@ -39,7 +47,7 @@ namespace hksplitmaker
             splitId.Size = new Size(252, 25);
             splitId.TabIndex = 1;
             splitId.Visible = false;
-            AutoSplitter.Instance().InitComboBox(splitId);
+            AutoSplitter.Instance.InitComboBox(splitId);
             splitId2 = new ComboBox();
             splitId2.FormattingEnabled = true;
             splitId2.Location = new Point(222, 0);
@@ -66,8 +74,7 @@ namespace hksplitmaker
             line.Location = new Point(0, 45 + LineData.Count * 32);
             line.Name = "finalLineAutoSpliterLine";
             line.Size = new Size(585, 28);
-            this.parent = parent;
-            this.parent.Controls.Add(line);
+            LineData.Parent.Controls.Add(line);
             line.ResumeLayout(false);
             line.PerformLayout();
         }
@@ -78,7 +85,7 @@ namespace hksplitmaker
             this.splitId2.Visible = this.endTrigger.Checked;
         }
 
-        public static void Init(Panel parent) { Instance = new FinalLineData(parent);}
+        public static void Init(Panel parent) { Instance = new FinalLineData(); }
 
         public static void UpdateLocation() { Instance.line.Location = new Point(0, 45 + LineData.Count * 32); }
     }
@@ -92,22 +99,35 @@ namespace hksplitmaker
         private readonly Button delBtn;
         private readonly Button addUpBtn;
         private readonly Button addDownBtn;
-        private readonly Panel parent;
+        public static Panel Parent { set; get; }
         private readonly int index;
-        public static LineData AddLine(Panel parent)
+        public static LineData AddLine()
         {
-            LineData lineData = new LineData(INDEX++, parent);
+            LineData lineData = new LineData(INDEX++);
             lineDataList.Add(lineData);
             return lineData;
         }
 
+        public static void RemoveLine(int index)
+        {
+            for (int i = index + 1; i < lineDataList.Count; i++)
+            {
+                lineDataList[i - 1].name.Text = lineDataList[i].name.Text;
+                lineDataList[i - 1].splitId.Text = lineDataList[i].splitId.Text;
+            }
+            lineDataList[lineDataList.Count - 1].line.Dispose();
+            lineDataList.RemoveAt(lineDataList.Count - 1);
+            INDEX--;
+            FinalLineData.UpdateLocation();
+        }
+
         public static int Count { get { return lineDataList.Count; } }
 
-        public string NameValue { get { return name.Text; } }
+        public string NameText { get { return name.Text; } set { name.Text = value; } }
 
-        public string SplitIdValue { get { return splitId.Text; } }
+        public string SplitIdText { get { return splitId.Text; } set { splitId.Text = value; } }
 
-        private LineData(int index, Panel parent)
+        private LineData(int index)
         {
             this.index = index;
             name = new TextBox();
@@ -121,7 +141,7 @@ namespace hksplitmaker
             splitId.Name = "splitIdComboBox" + index.ToString();
             splitId.Size = new Size(252, 25);
             splitId.TabIndex = 1;
-            AutoSplitter.Instance().InitComboBox(splitId);
+            AutoSplitter.Instance.InitComboBox(splitId);
             delBtn = new Button();
             delBtn.Location = new Point(478, 0);
             delBtn.Name = "delBtn" + index.ToString();
@@ -156,33 +176,34 @@ namespace hksplitmaker
             line.Location = new Point(0, 45 + index * 32);
             line.Name = "autoSpliterLine" + index.ToString();
             line.Size = new Size(585, 28);
-            this.parent = parent;
-            this.parent.Controls.Add(line);
+            Parent.Controls.Add(line);
             line.ResumeLayout(false);
             line.PerformLayout();
         }
 
         private void AddDownBtn_Click(object sender, EventArgs e)
         {
-            LineData line = AddLine(this.parent);
+            LineData line = AddLine();
             for (int i = lineDataList.Count - 1; i > index + 1; i--)
             {
                 lineDataList[i].name.Text = lineDataList[i - 1].name.Text;
                 lineDataList[i].splitId.Text = lineDataList[i - 1].splitId.Text;
             }
             lineDataList[index + 1].name.Text = "";
+            lineDataList[index + 1].splitId.SelectedIndex = 0;
             FinalLineData.UpdateLocation();
         }
 
         private void AddUpBtn_Click(object sender, EventArgs e)
         {
-            LineData line = AddLine(this.parent);
+            LineData line = AddLine();
             for (int i = lineDataList.Count - 1; i >= index + 1; i--)
             {
                 lineDataList[i].name.Text = lineDataList[i - 1].name.Text;
                 lineDataList[i].splitId.Text = lineDataList[i - 1].splitId.Text;
             }
             lineDataList[index].name.Text = "";
+            lineDataList[index].splitId.SelectedIndex = 0;
             FinalLineData.UpdateLocation();
         }
 
@@ -190,19 +211,23 @@ namespace hksplitmaker
         {
             if (lineDataList.Count > 1)
             {
-                for (int i = index + 1; i < lineDataList.Count; i++)
-                {
-                    lineDataList[i - 1].name.Text = lineDataList[i].name.Text;
-                    lineDataList[i - 1].splitId.Text = lineDataList[i].splitId.Text;
-                }
-                lineDataList[lineDataList.Count - 1].line.Dispose();
-                lineDataList.RemoveAt(lineDataList.Count - 1);
-                INDEX--;
-                FinalLineData.UpdateLocation();
+                RemoveLine(index);
             }
         }
 
         public static IList<LineData> All { get { return lineDataList; } }
+
+        public static void ResetLines(int count)
+        {
+            for (int i = LineData.Count; i < count; i++)
+            {
+                LineData.AddLine();
+            }
+            for (int i = LineData.Count - 1; i >= count; i--)
+            {
+                LineData.RemoveLine(i);
+            }
+        }
     }
 
     class AutoSplitter
@@ -224,21 +249,26 @@ namespace hksplitmaker
             }
         }
 
-        public static AutoSplitter Instance()
+        public static AutoSplitter Instance
         {
-            if (instance == null)
+            get
             {
-                instance = new AutoSplitter();
-                instance.Init();
+                if (instance == null)
+                {
+                    instance = new AutoSplitter();
+                    instance.Init();
+                }
+                return instance;
             }
-            return instance;
         }
+
+        private AutoSplitter() { }
 
         private void initSplitsSearchDict(string content)
         {
             for (int i = 0; i < content.Length; i++)
             {
-                for (int j = 1; j <= content.Length-i; j++)
+                for (int j = 1; j <= content.Length - i; j++)
                 {
                     string s = content.Substring(i, j);
                     if (!searchDict.ContainsKey(s))
@@ -252,7 +282,7 @@ namespace hksplitmaker
 
         private void Init()
         {
-            IEnumerable<string> lines = File.ReadLines("../../../splits.txt");
+            string[] lines = Resource.splits_txt.Split("\n");
             bool isNameLine = false;
             string[] result = new string[0];
             Regex re = new Regex("\\[Description\\(\"(.*?)\"\\)\\s*,\\s*ToolTip\\(\"(.*?)\"\\)]");
@@ -272,11 +302,13 @@ namespace hksplitmaker
                         idToDescription[line] = description;
                         initSplitsSearchDict(description);
                         isNameLine = false;
-                    } else
+                    }
+                    else
                     {
                         throw new Exception("splits.txt文件格式错误");
                     }
-                } else
+                }
+                else
                 {
                     Match m = re.Match(line);
                     if (m == null)
@@ -304,12 +336,25 @@ namespace hksplitmaker
 
         public string DescriptionToId(string description)
         {
+            if (description == null)
+            {
+                return null;
+            }
             SplitData data = descriptionToData[description];
             if (data == null)
             {
                 return null;
             }
             return data.Id;
+        }
+
+        public string IdToDescription(string id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
+            return idToDescription[id];
         }
     }
 }
