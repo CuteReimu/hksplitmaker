@@ -4,6 +4,8 @@ import (
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 	"github.com/lxn/win"
+	"io/ioutil"
+	"path/filepath"
 	"sort"
 	"syscall"
 )
@@ -34,7 +36,16 @@ func main() {
 	err := MainWindow{
 		OnDropFiles: func(f []string) {
 			if len(f) > 0 {
-				loadSplitFile(f[0])
+				file := f[0]
+				if filepath.Ext(file) != ".lss" {
+					return
+				}
+				buf, err := ioutil.ReadFile(file)
+				if err != nil {
+					walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
+					return
+				}
+				loadSplitFile(buf)
 			}
 		},
 		AssignTo: &mainWindow,
@@ -68,15 +79,12 @@ func main() {
 				Children: []Widget{
 					TextLabel{
 						TextAlignment: AlignHFarVCenter,
-						Text:          "Auto Splitter Version: 3.1.3.0",
+						Text:          "还有一些其他玩家友情提供的",
 					},
-					PushButton{
-						MaxSize:   Size{Width: 100},
-						Alignment: AlignHFarVCenter,
-						Text:      "帮助",
-						OnClicked: func() {
-							walk.MsgBox(mainWindow, "帮助", readme, walk.MsgBoxIconInformation)
-						},
+					GetUserDefinedComboBox(),
+					TextLabel{
+						TextAlignment: AlignHFarVCenter,
+						Text:          "Auto Splitter Version: 3.1.3.0",
 					},
 				},
 			},
@@ -137,6 +145,14 @@ func main() {
 				Children: []Widget{
 					CheckBox{AssignTo: &saveTimeCheckBox, Text: "保留原lss文件中的时间数据", Enabled: false},
 					PushButton{Text: "另存为", OnClicked: saveSplitsFile},
+					PushButton{
+						MaxSize:   Size{Width: 100},
+						Alignment: AlignHFarVCenter,
+						Text:      "帮助",
+						OnClicked: func() {
+							walk.MsgBox(mainWindow, "帮助", readme, walk.MsgBoxIconInformation)
+						},
+					},
 				},
 			},
 		},

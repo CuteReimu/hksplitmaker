@@ -108,21 +108,22 @@ func onClickLoadSplitFile() {
 	if ok, err := dlg.ShowOpen(mainWindow); err != nil {
 		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
 	} else if ok {
-		loadSplitFile(dlg.FilePath)
+		file := dlg.FilePath
+		if filepath.Ext(file) != ".lss" {
+			return
+		}
+		buf, err := ioutil.ReadFile(file)
+		if err != nil {
+			walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
+			return
+		}
+		loadSplitFile(buf)
 	}
 }
 
-func loadSplitFile(file string) {
-	if filepath.Ext(file) != ".lss" {
-		return
-	}
-	buf, err := ioutil.ReadFile(file)
-	if err != nil {
-		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
-		return
-	}
+func loadSplitFile(buf []byte) {
 	run := &xmlRun{}
-	err = xml.Unmarshal(buf, run)
+	err := xml.Unmarshal(buf, run)
 	if err != nil {
 		walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
 		return
