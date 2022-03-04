@@ -1,64 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -119,333 +60,366 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="0geo.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\0geo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\0geo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="106.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\106.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\106.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="107_early_gpz_comsob.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\107-early-gpz-comsob.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="107-early-gpz-comsob.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\107-early-gpz-comsob.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="107_early_gpz_everything.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\107-early-gpz-everything.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="107-early-gpz-everything.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\107-early-gpz-everything.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="107_late_gpz_comsob.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\107-late-gpz-comsob.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="107-late-gpz-comsob.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\107-late-gpz-comsob.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="107_late_gpz_everything.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\107-late-gpz-everything.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="107-late-gpz-everything.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\107-late-gpz-everything.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="112.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\112.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="112-comsob.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\112-comsob.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="112-everything.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\112-everything.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="112-late-flukes.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\112-late-flukes.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="12ms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\12ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="16ms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\16ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\16ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="3vf.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\3vf.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="3vf-kings-station.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\3vf-kings-station.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="3vf-stag-nest.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\3vf-stag-nest.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="4ms-0geo.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\4ms-0geo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="4ms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\4ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\4ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="4ms_0geo.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\4ms-0geo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="8ms-fc-stag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\8ms-fc-stag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="8ms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\8ms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="a1uba.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\a1uba.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\a1uba.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="acn-1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\acn-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="acn.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\acn.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\acn.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="acnnsc.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\acnnsc.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="acn_1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\acn-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\acnnsc.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="al2ba.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\al2ba.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\al2ba.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_breakable_charms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-breakable-charms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-breakable-charms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-breakable-charms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_geo_chests.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-geo-chests.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-geo-chests.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-geo-chests.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_geo_rocks.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-geo-rocks.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-geo-rocks.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-geo-rocks.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_hallownest_seals.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-hallownest-seals.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-hallownest-seals.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-hallownest-seals.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_keys.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-keys.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-keys.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-keys.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_kings_idols.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-kings-idols.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-kings-idols.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-kings-idols.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_skills.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-skills-ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_skills_ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-skills-cp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-cp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_skills_cp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-cp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-skills-emilitia.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-emilitia.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_skills_emilitia.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills-emilitia.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-skills.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-skills.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_stag_stations.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-stag-stations.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-stag-stations.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-stag-stations.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_unbreakable_charms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-unbreakable-charms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-unbreakable-charms-ss.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-unbreakable-charms-ss.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_unbreakable_charms_ss.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-unbreakable-charms-ss.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-unbreakable-charms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-unbreakable-charms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_wanderers_journals.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-wanderers-journals.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-wanderers-journals.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-wanderers-journals.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="all_whispering_roots.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\all-whispering-roots.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="all-whispering-roots.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\all-whispering-roots.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="any-ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\any-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="any-cp-spore.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\any-cp-spore.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="any-cp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\any-cp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="any-nmms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\any-nmms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="any-ss.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\any-ss.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="any.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\any.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="any_ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\any-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="any_cp_spore.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\any-cp-spore.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="any_nmms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\any-nmms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="any_ss.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\any-ss.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\any.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="cartographer.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\cartographer.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\cartographer.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="category_directory.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\category-directory.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="category-directory.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\category-directory.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="clawless_shade_cloak.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\clawless-shade-cloak.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="clawless-shade-cloak.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\clawless-shade-cloak.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="colo1-waves.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo1-waves.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="colo1.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\colo1.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo1.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="colo2-waves.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo2-waves.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="colo2.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\colo2.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo2.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="colo3-waves.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo3-waves.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="colo3.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\colo3.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\colo3.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="eat_me_too.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\eat-me-too.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="eat-me-too.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\eat-me-too.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="egg-101.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\egg-101.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="egg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\egg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="egg_101.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\egg-101.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\egg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="elderbug.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\elderbug.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\elderbug.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="elegy.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\elegy.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\elegy.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="empty_hall.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\empty-hall.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="empty-hall.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\empty-hall.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="enraged_guardian.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\enraged-guardian.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="enraged-guardian.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\enraged-guardian.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="eternal_ordeal_1mg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\eternal-ordeal-1mg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="eternal-ordeal-1mg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\eternal-ordeal-1mg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="every.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\every.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\every.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="fc_as_te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\fc-as-te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="fc-as-te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\fc-as-te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="florist.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\florist.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\florist.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="fool_1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\fool-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="fool-1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\fool-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ggg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\ggg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\ggg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ghostbusters.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\ghostbusters.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\ghostbusters.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="godhome_ending.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\godhome-ending.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="godhome-ending.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\godhome-ending.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="gpz.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\gpz.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\gpz.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="grass.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\grass.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\grass.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="great_hopper.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\great-hopper.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="great-hopper.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\great-hopper.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="grubsong.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\grubsong.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\grubsong.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="happy_couple.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\happy-couple.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="happy-couple-1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\happy-couple-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="happy_couple_1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\happy-couple-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="happy-couple.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\happy-couple.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="hiveblood.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\hiveblood.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\hiveblood.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="kronk.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\kronk.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\kronk.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="lbc.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\lbc.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\lbc.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="low-ab.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\low-ab.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="low-ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\low-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="low.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\low.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\low.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="low_ab.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\low-ab.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="low_ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\low-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="marissa_audience.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\marissa-audience.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="marissa-audience.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\marissa-audience.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="marmu.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\marmu.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\marmu.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="mr_mushroom_ending.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\mr-mushroom-ending.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="mr-mushroom-ending.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\mr-mushroom-ending.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="myla.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\myla.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\myla.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="mylas_revenge.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\mylas-revenge.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="mylas-revenge.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\mylas-revenge.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="nice-1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\nice-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="nice.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\nice.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="nice_1221.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\nice-1221.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\nice.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="nkg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\nkg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\nkg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="nmg.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\nmg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\nmg.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="nosk.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\nosk.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\nosk.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p1.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p1.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p1.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p2.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p2.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p2.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p3.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p3.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p3.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p4.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p4.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p4.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p5.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p5.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p5.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="p5bo-breaks.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\p5bo-breaks.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="p5bo.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p5bo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\p5bo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="p5bo_breaks.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\p5bo-breaks.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="pop-percent.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\pop-percent.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="pop.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\pop.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\pop.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="pop_percent.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\pop-percent.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="rando-te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\rando-te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="round.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\round.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\round.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="salubras_blessing.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\salubras-blessing.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="salubras-blessing.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\salubras-blessing.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="save_myla.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\save-myla.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="save-myla.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\save-myla.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="sbaco.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\sbaco.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\sbaco.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="sbcmo.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\sbcmo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\sbcmo.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="sbico.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\sbico.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\sbico.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="shriek.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\shriek.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\shriek.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="spelless-dreamshield.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-dreamshield.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="spelless-low.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-low.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="spelless-te-dreamshield.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-te-dreamshield.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="spelless-te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="spelless.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\spelless.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\spelless.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="spelless_dreamshield.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-dreamshield.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="te-ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\te-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="spelless_low.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-low.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="te-cp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\te-cp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="spelless_te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="te-flukamoth.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\te-flukamoth.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="spelless_te_dreamshield.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\spelless-te-dreamshield.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="splits.txt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\splits.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  <data name="te-nmms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\categories\te-nmms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="te.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="te_ag.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\te-ag.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="te_cp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\te-cp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="te_flukamoth.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\te-flukamoth.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
-  </data>
-  <data name="te_nmms.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\te-nmms.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\te.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="witness.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\witness.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\witness.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="worldsoul.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>hk-split-maker\src\asset\hollowknight\categories\worldsoul.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+    <value>hk-split-maker\src\asset\hollowknight\categories\worldsoul.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="wp.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>hk-split-maker\src\asset\hollowknight\categories\wp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="zote.json" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>hk-split-maker\src\asset\hollowknight\categories\zote.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="splits.txt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>hk-split-maker\src\asset\hollowknight\splits.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

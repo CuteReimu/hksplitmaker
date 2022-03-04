@@ -19,7 +19,7 @@ namespace hksplitmaker {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resource {
@@ -143,7 +143,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string _107_early_gpz_comsob_json {
             get {
-                return ResourceManager.GetString("107_early_gpz_comsob.json", resourceCulture);
+                return ResourceManager.GetString("107-early-gpz-comsob.json", resourceCulture);
             }
         }
         
@@ -172,7 +172,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string _107_early_gpz_everything_json {
             get {
-                return ResourceManager.GetString("107_early_gpz_everything.json", resourceCulture);
+                return ResourceManager.GetString("107-early-gpz-everything.json", resourceCulture);
             }
         }
         
@@ -201,7 +201,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string _107_late_gpz_comsob_json {
             get {
-                return ResourceManager.GetString("107_late_gpz_comsob.json", resourceCulture);
+                return ResourceManager.GetString("107-late-gpz-comsob.json", resourceCulture);
             }
         }
         
@@ -230,7 +230,64 @@ namespace hksplitmaker {
         /// </summary>
         internal static string _107_late_gpz_everything_json {
             get {
-                return ResourceManager.GetString("107_late_gpz_everything.json", resourceCulture);
+                return ResourceManager.GetString("107-late-gpz-everything.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;112% APB&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;FuryOfTheFallen&quot;,
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;CityGateOpen&quot;,
+        ///        &quot;EnterSanctum&quot;,
+        ///        &quot;EnterSoulMaster&quot;,
+        ///        &quot;DesolateDive&quot;,
+        ///        &quot;StoreroomsStation&quot;,
+        ///        &quot;CrystalHeart&quot;,
+        ///        &quot;TransDescendingDark&quot;,
+        ///        &quot;RestingGroundsStation&quot;,
+        ///        &quot;ElegantKey&quot;,
+        ///        &quot;ShadeSoul&quot;,
+        ///        &quot;Flukenest&quot;,
+        ///        &quot;DungDefenderIdol&quot;,
+        ///       [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string _112_comsob_json {
+            get {
+                return ResourceManager.GetString("112-comsob.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;112% APB&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;FuryOfTheFallen&quot;,
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;GreenpathStation&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;NotchShrumalOgres&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;GrubFungalBouncy&quot;,
+        ///        &quot;CityGateOpen&quot;,
+        ///        &quot;EnterSanctum&quot;,
+        ///        &quot;SpellTwister&quot;,
+        ///        &quot;DesolateDive&quot;,
+        ///        &quot;GrubCitySanctum&quot;,
+        ///        &quot;OnObtainSimpleKey&quot;,
+        ///        &quot;StoreroomsStation&quot;,
+        ///        &quot;GrubCrossroadsWall&quot;,
+        ///        &quot;GrubCrossr [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string _112_everything_json {
+            get {
+                return ResourceManager.GetString("112-everything.json", resourceCulture);
             }
         }
         
@@ -257,9 +314,38 @@ namespace hksplitmaker {
         ///        &quot;TollBenchBasin&quot;,
         ///        &quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
-        internal static string _112_json {
+        internal static string _112_late_flukes_json {
             get {
-                return ResourceManager.GetString("112.json", resourceCulture);
+                return ResourceManager.GetString("112-late-flukes.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;12 Mask Shards&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;BrettaRescued&quot;,
+        ///        &quot;OnObtainMaskShard&quot;,
+        ///        &quot;MegaMossChargerTrans&quot;,
+        ///        &quot;OnObtainMaskShard&quot;,
+        ///        &quot;DeepnestSpa&quot;,
+        ///        &quot;HiveEntry&quot;,
+        ///        &quot;OnObtainMaskShard&quot;,
+        ///        &quot;OnObtainKingsIdol&quot;,
+        ///        &quot;BlueLake&quot;,
+        ///        &quot;Lemm2&quot;,
+        ///        &quot;OnObtainMaskShard&quot;,
+        ///        &quot;SlyKey&quot;,
+        ///        &quot;MaskFragment9&quot;,
+        ///        &quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string _12ms_json {
+            get {
+                return ResourceManager.GetString("12ms.json", resourceCulture);
             }
         }
         
@@ -310,9 +396,33 @@ namespace hksplitmaker {
         ///}
         /// 的本地化字符串。
         /// </summary>
-        internal static string _3vf_json {
+        internal static string _3vf_kings_station_json {
             get {
-                return ResourceManager.GetString("3vf.json", resourceCulture);
+                return ResourceManager.GetString("3vf-kings-station.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;3 Vessel Fragments&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;VesselFragment1&quot;,
+        ///        &quot;VesselFragment2&quot;,
+        ///        &quot;Vessel1&quot;
+        ///    ],
+        ///    &quot;ordered&quot;: true,
+        ///    &quot;endTriggeringAutosplit&quot;: true,
+        ///    &quot;gameName&quot;: &quot;Hollow Knight Category Extensions&quot;
+        ///}
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string _3vf_stag_nest_json {
+            get {
+                return ResourceManager.GetString("3vf-stag-nest.json", resourceCulture);
             }
         }
         
@@ -339,7 +449,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string _4ms_0geo_json {
             get {
-                return ResourceManager.GetString("4ms_0geo.json", resourceCulture);
+                return ResourceManager.GetString("4ms-0geo.json", resourceCulture);
             }
         }
         
@@ -370,6 +480,62 @@ namespace hksplitmaker {
         internal static string _4ms_json {
             get {
                 return ResourceManager.GetString("4ms.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;8 Mask Shards&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;BrettaRescued&quot;,
+        ///        &quot;MaskFragment1&quot;,
+        ///        &quot;MegaMossChargerTrans&quot;,
+        ///        &quot;MaskFragment2&quot;,
+        ///        &quot;SlyRescued&quot;,
+        ///        &quot;MaskFragment5&quot;,
+        ///        &quot;MaskFragment6&quot;,
+        ///        &quot;Mask2&quot;
+        ///    ],
+        ///    &quot;names&quot;: {
+        ///        &quot;MaskFragment1&quot;: &quot;Stone Sanctuary Shard&quot;,
+        ///        &quot;MegaMossChargerTrans&quot;: &quot;MMC Exit (550)&quot;,
+        ///        &quot;MaskFragmen [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string _8ms_fc_stag_json {
+            get {
+                return ResourceManager.GetString("8ms-fc-stag.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;8 Mask Shards&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;BrettaRescued&quot;,
+        ///        &quot;MaskFragment1&quot;,
+        ///        &quot;MegaMossChargerTrans&quot;,
+        ///        &quot;MaskFragment2&quot;,
+        ///        &quot;SlyRescued&quot;,
+        ///        &quot;Mask1&quot;,
+        ///        &quot;Mask2&quot;
+        ///    ],
+        ///    &quot;names&quot;: {
+        ///        &quot;MaskFragment1&quot;: &quot;Stone Sanctuary Shard&quot;,
+        ///        &quot;MegaMossChargerTrans&quot;: &quot;MMC Exit (500)&quot;,
+        ///        &quot;MaskFragment2&quot;: &quot;Queen&apos;s Station Shard&quot;,
+        ///    [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string _8ms_json {
+            get {
+                return ResourceManager.GetString("8ms.json", resourceCulture);
             }
         }
         
@@ -420,7 +586,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string acn_1221_json {
             get {
-                return ResourceManager.GetString("acn_1221.json", resourceCulture);
+                return ResourceManager.GetString("acn-1221.json", resourceCulture);
             }
         }
         
@@ -533,7 +699,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_breakable_charms_json {
             get {
-                return ResourceManager.GetString("all_breakable_charms.json", resourceCulture);
+                return ResourceManager.GetString("all-breakable-charms.json", resourceCulture);
             }
         }
         
@@ -562,7 +728,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_geo_chests_json {
             get {
-                return ResourceManager.GetString("all_geo_chests.json", resourceCulture);
+                return ResourceManager.GetString("all-geo-chests.json", resourceCulture);
             }
         }
         
@@ -591,7 +757,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_geo_rocks_json {
             get {
-                return ResourceManager.GetString("all_geo_rocks.json", resourceCulture);
+                return ResourceManager.GetString("all-geo-rocks.json", resourceCulture);
             }
         }
         
@@ -618,7 +784,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_hallownest_seals_json {
             get {
-                return ResourceManager.GetString("all_hallownest_seals.json", resourceCulture);
+                return ResourceManager.GetString("all-hallownest-seals.json", resourceCulture);
             }
         }
         
@@ -648,7 +814,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_keys_json {
             get {
-                return ResourceManager.GetString("all_keys.json", resourceCulture);
+                return ResourceManager.GetString("all-keys.json", resourceCulture);
             }
         }
         
@@ -674,7 +840,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_kings_idols_json {
             get {
-                return ResourceManager.GetString("all_kings_idols.json", resourceCulture);
+                return ResourceManager.GetString("all-kings-idols.json", resourceCulture);
             }
         }
         
@@ -705,7 +871,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_skills_ag_json {
             get {
-                return ResourceManager.GetString("all_skills_ag.json", resourceCulture);
+                return ResourceManager.GetString("all-skills-ag.json", resourceCulture);
             }
         }
         
@@ -735,7 +901,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_skills_cp_json {
             get {
-                return ResourceManager.GetString("all_skills_cp.json", resourceCulture);
+                return ResourceManager.GetString("all-skills-cp.json", resourceCulture);
             }
         }
         
@@ -765,7 +931,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_skills_emilitia_json {
             get {
-                return ResourceManager.GetString("all_skills_emilitia.json", resourceCulture);
+                return ResourceManager.GetString("all-skills-emilitia.json", resourceCulture);
             }
         }
         
@@ -776,7 +942,7 @@ namespace hksplitmaker {
         ///        &quot;VengefulSpirit&quot;,
         ///        &quot;EnterGreenpath&quot;,
         ///        &quot;MothwingCloak&quot;,
-        ///        &quot;MantisClaw&quot;,
+        ///        &quot;MenuClaw&quot;,
         ///        &quot;BlueLake&quot;,
         ///        &quot;MenuGorgeousHusk&quot;,
         ///        &quot;DashSlash&quot;,
@@ -791,11 +957,11 @@ namespace hksplitmaker {
         ///        &quot;MonarchWings&quot;,
         ///        &quot;KingsBrand&quot;,
         ///        &quot;CycloneSlash&quot;,
-        ///        &quot;Mon [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;Monom [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string all_skills_json {
             get {
-                return ResourceManager.GetString("all_skills.json", resourceCulture);
+                return ResourceManager.GetString("all-skills.json", resourceCulture);
             }
         }
         
@@ -823,7 +989,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_stag_stations_json {
             get {
-                return ResourceManager.GetString("all_stag_stations.json", resourceCulture);
+                return ResourceManager.GetString("all-stag-stations.json", resourceCulture);
             }
         }
         
@@ -852,7 +1018,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_unbreakable_charms_json {
             get {
-                return ResourceManager.GetString("all_unbreakable_charms.json", resourceCulture);
+                return ResourceManager.GetString("all-unbreakable-charms.json", resourceCulture);
             }
         }
         
@@ -880,7 +1046,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_unbreakable_charms_ss_json {
             get {
-                return ResourceManager.GetString("all_unbreakable_charms_ss.json", resourceCulture);
+                return ResourceManager.GetString("all-unbreakable-charms-ss.json", resourceCulture);
             }
         }
         
@@ -906,7 +1072,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_wanderers_journals_json {
             get {
-                return ResourceManager.GetString("all_wanderers_journals.json", resourceCulture);
+                return ResourceManager.GetString("all-wanderers-journals.json", resourceCulture);
             }
         }
         
@@ -935,7 +1101,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string all_whispering_roots_json {
             get {
-                return ResourceManager.GetString("all_whispering_roots.json", resourceCulture);
+                return ResourceManager.GetString("all-whispering-roots.json", resourceCulture);
             }
         }
         
@@ -966,7 +1132,37 @@ namespace hksplitmaker {
         /// </summary>
         internal static string any_ag_json {
             get {
-                return ResourceManager.GetString("any_ag.json", resourceCulture);
+                return ResourceManager.GetString("any-ag.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;Any%&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;VengefulSpirit&quot;,
+        ///        &quot;EnterGreenpath&quot;,
+        ///        &quot;MothwingCloak&quot;,
+        ///        &quot;MantisClaw&quot;,
+        ///        &quot;GruzMother&quot;,
+        ///        &quot;DreamNail&quot;,
+        ///        &quot;WatcherChandelier&quot;,
+        ///        &quot;BlackKnight&quot;,
+        ///        &quot;LumaflyLantern&quot;,
+        ///        &quot;CrystalHeart&quot;,
+        ///        &quot;Uumuu&quot;,
+        ///        &quot;QueensGardensEntry&quot;,
+        ///        &quot;BeastsDenTrapBench&quot;,
+        ///        &quot;Hegemol&quot;
+        ///    ],
+        ///    &quot;ordered&quot;: true,
+        ///    &quot;endTriggeringAutosplit&quot;: false,
+        ///    &quot;endingSplit&quot;: {
+        ///        &quot;name&quot;: &quot;H [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string any_cp_json {
+            get {
+                return ResourceManager.GetString("any-cp.json", resourceCulture);
             }
         }
         
@@ -996,7 +1192,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string any_cp_spore_json {
             get {
-                return ResourceManager.GetString("any_cp_spore.json", resourceCulture);
+                return ResourceManager.GetString("any-cp-spore.json", resourceCulture);
             }
         }
         
@@ -1007,7 +1203,7 @@ namespace hksplitmaker {
         ///        &quot;VengefulSpirit&quot;,
         ///        &quot;EnterGreenpath&quot;,
         ///        &quot;MothwingCloak&quot;,
-        ///        &quot;MantisClaw&quot;,
+        ///        &quot;MenuClaw&quot;,
         ///        &quot;GruzMother&quot;,
         ///        &quot;DreamNail&quot;,
         ///        &quot;WatcherChandelier&quot;,
@@ -1022,7 +1218,7 @@ namespace hksplitmaker {
         ///    &quot;ordered&quot;: true,
         ///    &quot;endTriggeringAutosplit&quot;: false,
         ///    &quot;endingSplit&quot;: {
-        ///        &quot;name&quot;: &quot;H [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;name&quot;: &quot;Hol [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string any_json {
             get {
@@ -1057,7 +1253,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string any_nmms_json {
             get {
-                return ResourceManager.GetString("any_nmms.json", resourceCulture);
+                return ResourceManager.GetString("any-nmms.json", resourceCulture);
             }
         }
         
@@ -1087,7 +1283,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string any_ss_json {
             get {
-                return ResourceManager.GetString("any_ss.json", resourceCulture);
+                return ResourceManager.GetString("any-ss.json", resourceCulture);
             }
         }
         
@@ -1126,25 +1322,44 @@ namespace hksplitmaker {
         ///   查找类似 {
         ///    &quot;Main&quot;: [
         ///        {
-        ///            &quot;fileName&quot;: &quot;112&quot;,
-        ///            &quot;displayName&quot;: &quot;112% APB&quot;,
+        ///            &quot;fileName&quot;: &quot;112-comsob&quot;,
+        ///            &quot;displayName&quot;: &quot;112% APB (comsob splits)&quot;,
         ///            &quot;data&quot;: {
         ///                &quot;routeNotesURL&quot;: &quot;https://pastebin.com/qznSrku9&quot;
         ///            }
         ///        },
         ///        {
-        ///            &quot;fileName&quot;: &quot;107-early-gpz-comsob&quot;,
-        ///            &quot;displayName&quot;: &quot;107% AB (Early GPZ; comsob splits)&quot;,
+        ///            &quot;fileName&quot;: &quot;112-everything&quot;,
+        ///            &quot;displayName&quot;: &quot;112% APB (all splits)&quot;,
         ///            &quot;data&quot;: {
-        ///                &quot;routeNotesURL&quot;: &quot;https://pastebin.com/2KZrBXik&quot;
+        ///                &quot;routeNotesURL&quot;: &quot;https://pastebin.com/qznSrku9&quot;
         ///            }
         ///        },
         ///        {
-        ///            &quot;fileName&quot;: &quot;107-early-gpz-eve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///            &quot;fileName&quot;: &quot;112-late-fluk [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string category_directory_json {
             get {
-                return ResourceManager.GetString("category_directory.json", resourceCulture);
+                return ResourceManager.GetString("category-directory.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 export interface CategoryDefinition {
+        ///  fileName: string;
+        ///  displayName: string;
+        ///  data?: {
+        ///    routeNotesURL?: string;
+        ///    searchTerms?: Array&lt;string&gt;;
+        ///  };
+        ///}
+        ///declare const splits: Record&lt;string, Array&lt;CategoryDefinition&gt;&gt;;
+        ///export default splits;
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string category_directory_json_d_ts {
+            get {
+                return ResourceManager.GetString("category-directory.json.d.ts", resourceCulture);
             }
         }
         
@@ -1167,13 +1382,14 @@ namespace hksplitmaker {
         /// </summary>
         internal static string clawless_shade_cloak_json {
             get {
-                return ResourceManager.GetString("clawless_shade_cloak.json", resourceCulture);
+                return ResourceManager.GetString("clawless-shade-cloak.json", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Trial of the Warrior&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumBronzeEntry&quot;,
         ///    &quot;splitIds&quot;: [
         ///        &quot;ManualSplit&quot;
         ///    ],
@@ -1197,7 +1413,40 @@ namespace hksplitmaker {
         
         /// <summary>
         ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;Trial of the Warrior&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumBronzeEntry&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;Bronze1a&quot;,
+        ///        &quot;Bronze1b&quot;,
+        ///        &quot;Bronze1c&quot;,
+        ///        &quot;Bronze2&quot;,
+        ///        &quot;Bronze3a&quot;,
+        ///        &quot;Bronze3b&quot;,
+        ///        &quot;Bronze4&quot;,
+        ///        &quot;Bronze5&quot;,
+        ///        &quot;Bronze6&quot;,
+        ///        &quot;Bronze7&quot;,
+        ///        &quot;Bronze8a&quot;,
+        ///        &quot;Bronze8b&quot;,
+        ///        &quot;Bronze9&quot;,
+        ///        &quot;Bronze10&quot;,
+        ///        &quot;Bronze11a&quot;,
+        ///        &quot;Bronze11b&quot;,
+        ///        &quot;BronzeEnd&quot;
+        ///    ],
+        ///    &quot;ordered&quot;: true,
+        ///    &quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string colo1_waves_json {
+            get {
+                return ResourceManager.GetString("colo1-waves.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Trial of the Conqueror&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumSilverEntry&quot;,
         ///    &quot;splitIds&quot;: [
         ///        &quot;ManualSplit&quot;
         ///    ],
@@ -1221,7 +1470,40 @@ namespace hksplitmaker {
         
         /// <summary>
         ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;Trial of the Conqueror&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumSilverEntry&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;Silver1&quot;,
+        ///        &quot;Silver2&quot;,
+        ///        &quot;Silver3&quot;,
+        ///        &quot;Silver4&quot;,
+        ///        &quot;Silver5&quot;,
+        ///        &quot;Silver6&quot;,
+        ///        &quot;Silver7&quot;,
+        ///        &quot;Silver8&quot;,
+        ///        &quot;Silver9&quot;,
+        ///        &quot;Silver10&quot;,
+        ///        &quot;Silver11&quot;,
+        ///        &quot;Silver12&quot;,
+        ///        &quot;Silver13&quot;,
+        ///        &quot;Silver14&quot;,
+        ///        &quot;Silver15&quot;,
+        ///        &quot;Silver16&quot;,
+        ///        &quot;SilverEnd&quot;
+        ///    ],
+        ///    &quot;ordered&quot;: true,
+        ///    &quot;end [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string colo2_waves_json {
+            get {
+                return ResourceManager.GetString("colo2-waves.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Trial of the Fool&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumGoldEntry&quot;,
         ///    &quot;splitIds&quot;: [
         ///        &quot;ManualSplit&quot;
         ///    ],
@@ -1245,6 +1527,39 @@ namespace hksplitmaker {
         
         /// <summary>
         ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;Trial of the Fool&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;ColosseumGoldEntry&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;Gold1&quot;,
+        ///        &quot;Gold3&quot;,
+        ///        &quot;Gold4&quot;,
+        ///        &quot;Gold5&quot;,
+        ///        &quot;Gold6&quot;,
+        ///        &quot;Gold7&quot;,
+        ///        &quot;Gold8&quot;,
+        ///        &quot;Gold9a&quot;,
+        ///        &quot;Gold9b&quot;,
+        ///        &quot;Gold10&quot;,
+        ///        &quot;Gold11&quot;,
+        ///        &quot;Gold12a&quot;,
+        ///        &quot;Gold12b&quot;,
+        ///        &quot;Gold14a&quot;,
+        ///        &quot;Gold14b&quot;,
+        ///        &quot;Gold15&quot;,
+        ///        &quot;Gold16&quot;,
+        ///        &quot;Gold17a&quot;,
+        ///        &quot;Gold17b&quot;,
+        ///        &quot;Gold17c&quot;,
+        ///        &quot;Gold [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string colo3_waves_json {
+            get {
+                return ResourceManager.GetString("colo3-waves.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Eat Me Too&quot;,
         ///    &quot;splitIds&quot;: [
         ///        &quot;VengefulSpirit&quot;,
@@ -1259,7 +1574,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string eat_me_too_json {
             get {
-                return ResourceManager.GetString("eat_me_too.json", resourceCulture);
+                return ResourceManager.GetString("eat-me-too.json", resourceCulture);
             }
         }
         
@@ -1286,7 +1601,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string egg_101_json {
             get {
-                return ResourceManager.GetString("egg_101.json", resourceCulture);
+                return ResourceManager.GetString("egg-101.json", resourceCulture);
             }
         }
         
@@ -1359,11 +1674,11 @@ namespace hksplitmaker {
         ///        &quot;GrubCitySanctum&quot;,
         ///        &quot;GrubCrossroadsGuarded&quot;,
         ///        &quot;GrubCrystalPeaksSpikes&quot;,
+        ///        &quot;GrubCrystalPeaksCrown&quot;,
         ///        &quot;CrystalHeart&quot;,
         ///        &quot;GrubCrystalPeaksCrystalHeart&quot;,
         ///        &quot;GrubCrystalPeaksCrushers&quot;,
-        ///        &quot;GrubCrystalPeaksBottomLever&quot;,
-        ///       [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;Gru [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string elegy_json {
             get {
@@ -1397,7 +1712,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string empty_hall_json {
             get {
-                return ResourceManager.GetString("empty_hall.json", resourceCulture);
+                return ResourceManager.GetString("empty-hall.json", resourceCulture);
             }
         }
         
@@ -1423,7 +1738,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string enraged_guardian_json {
             get {
-                return ResourceManager.GetString("enraged_guardian.json", resourceCulture);
+                return ResourceManager.GetString("enraged-guardian.json", resourceCulture);
             }
         }
         
@@ -1451,7 +1766,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string eternal_ordeal_1mg_json {
             get {
-                return ResourceManager.GetString("eternal_ordeal_1mg.json", resourceCulture);
+                return ResourceManager.GetString("eternal-ordeal-1mg.json", resourceCulture);
             }
         }
         
@@ -1512,7 +1827,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string fc_as_te_json {
             get {
-                return ResourceManager.GetString("fc_as_te.json", resourceCulture);
+                return ResourceManager.GetString("fc-as-te.json", resourceCulture);
             }
         }
         
@@ -1571,7 +1886,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string fool_1221_json {
             get {
-                return ResourceManager.GetString("fool_1221.json", resourceCulture);
+                return ResourceManager.GetString("fool-1221.json", resourceCulture);
             }
         }
         
@@ -1655,7 +1970,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string godhome_ending_json {
             get {
-                return ResourceManager.GetString("godhome_ending.json", resourceCulture);
+                return ResourceManager.GetString("godhome-ending.json", resourceCulture);
             }
         }
         
@@ -1735,7 +2050,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string great_hopper_json {
             get {
-                return ResourceManager.GetString("great_hopper.json", resourceCulture);
+                return ResourceManager.GetString("great-hopper.json", resourceCulture);
             }
         }
         
@@ -1794,7 +2109,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string happy_couple_1221_json {
             get {
-                return ResourceManager.GetString("happy_couple_1221.json", resourceCulture);
+                return ResourceManager.GetString("happy-couple-1221.json", resourceCulture);
             }
         }
         
@@ -1802,6 +2117,7 @@ namespace hksplitmaker {
         ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Happy Couple&quot;,
         ///    &quot;splitIds&quot;: [
+        ///        &quot;GrubCrossroadsWall&quot;,
         ///        &quot;VengefulSpirit&quot;,
         ///        &quot;EnterGreenpath&quot;,
         ///        &quot;GreenpathStation&quot;,
@@ -1813,7 +2129,6 @@ namespace hksplitmaker {
         ///        &quot;EnterSanctum&quot;,
         ///        &quot;DesolateDive&quot;,
         ///        &quot;GrubCitySanctum&quot;,
-        ///        &quot;GrubCrossroadsWall&quot;,
         ///        &quot;GrubCrossroadsGuarded&quot;,
         ///        &quot;GrubCrystalPeaksSpikes&quot;,
         ///        &quot;SlyKey&quot;,
@@ -1822,7 +2137,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string happy_couple_json {
             get {
-                return ResourceManager.GetString("happy_couple.json", resourceCulture);
+                return ResourceManager.GetString("happy-couple.json", resourceCulture);
             }
         }
         
@@ -1932,7 +2247,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string low_ab_json {
             get {
-                return ResourceManager.GetString("low_ab.json", resourceCulture);
+                return ResourceManager.GetString("low-ab.json", resourceCulture);
             }
         }
         
@@ -1962,7 +2277,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string low_ag_json {
             get {
-                return ResourceManager.GetString("low_ag.json", resourceCulture);
+                return ResourceManager.GetString("low-ag.json", resourceCulture);
             }
         }
         
@@ -2022,7 +2337,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string marissa_audience_json {
             get {
-                return ResourceManager.GetString("marissa_audience.json", resourceCulture);
+                return ResourceManager.GetString("marissa-audience.json", resourceCulture);
             }
         }
         
@@ -2078,7 +2393,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string mr_mushroom_ending_json {
             get {
-                return ResourceManager.GetString("mr_mushroom_ending.json", resourceCulture);
+                return ResourceManager.GetString("mr-mushroom-ending.json", resourceCulture);
             }
         }
         
@@ -2133,7 +2448,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string mylas_revenge_json {
             get {
-                return ResourceManager.GetString("mylas_revenge.json", resourceCulture);
+                return ResourceManager.GetString("mylas-revenge.json", resourceCulture);
             }
         }
         
@@ -2164,7 +2479,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string nice_1221_json {
             get {
-                return ResourceManager.GetString("nice_1221.json", resourceCulture);
+                return ResourceManager.GetString("nice-1221.json", resourceCulture);
             }
         }
         
@@ -2441,7 +2756,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string p5bo_breaks_json {
             get {
-                return ResourceManager.GetString("p5bo_breaks.json", resourceCulture);
+                return ResourceManager.GetString("p5bo-breaks.json", resourceCulture);
             }
         }
         
@@ -2509,22 +2824,45 @@ namespace hksplitmaker {
         ///        &quot;DreamNail&quot;,
         ///        &quot;ElderHuEssence&quot;,
         ///        &quot;MantisClaw&quot;,
-        ///        &quot;Lemm2&quot;,
-        ///        &quot;EnterSanctum&quot;,
-        ///        &quot;DesolateDive&quot;,
-        ///        &quot;StoreroomsStation&quot;,
+        ///        &quot;GalienEssence&quot;,
+        ///        &quot;XeroEssence&quot;,
+        ///        &quot;GorgeousHusk&quot;,
+        ///        &quot;LumaflyLantern&quot;,
+        ///        &quot;SlyKey&quot;,
         ///        &quot;CrystalHeart&quot;,
         ///        &quot;ShadeSoul&quot;,
+        ///        &quot;DesolateDive&quot;,
         ///        &quot;SoulTyrantEssence&quot;,
-        ///        &quot;XeroEssence&quot;,
         ///        &quot;TollBenchBasin&quot;,
         ///        &quot;BrokenVessel&quot;,
-        ///        &quot;MonarchWings&quot;,
-        ///        &quot;Fai [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;Mona [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string pop_percent_json {
             get {
-                return ResourceManager.GetString("pop_percent.json", resourceCulture);
+                return ResourceManager.GetString("pop-percent.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {
+        ///    &quot;categoryName&quot;: &quot;Randomizer TE&quot;,
+        ///    &quot;startTriggeringAutosplit&quot;: &quot;RandoWake&quot;,
+        ///    &quot;splitIds&quot;: [
+        ///        &quot;HollowKnightDreamnail&quot;
+        ///    ],
+        ///    &quot;ordered&quot;: true,
+        ///    &quot;endTriggeringAutosplit&quot;: false,
+        ///    &quot;endingSplit&quot;: {
+        ///        &quot;name&quot;: &quot;Radiance&quot;,
+        ///        &quot;icon&quot;: &quot;RadianceBoss&quot;
+        ///    },
+        ///    &quot;gameName&quot;: &quot;Hollow Knight Mods&quot;
+        ///}
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string rando_te_json {
+            get {
+                return ResourceManager.GetString("rando-te.json", resourceCulture);
             }
         }
         
@@ -2583,7 +2921,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string salubras_blessing_json {
             get {
-                return ResourceManager.GetString("salubras_blessing.json", resourceCulture);
+                return ResourceManager.GetString("salubras-blessing.json", resourceCulture);
             }
         }
         
@@ -2614,7 +2952,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string save_myla_json {
             get {
-                return ResourceManager.GetString("save_myla.json", resourceCulture);
+                return ResourceManager.GetString("save-myla.json", resourceCulture);
             }
         }
         
@@ -2762,7 +3100,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string spelless_dreamshield_json {
             get {
-                return ResourceManager.GetString("spelless_dreamshield.json", resourceCulture);
+                return ResourceManager.GetString("spelless-dreamshield.json", resourceCulture);
             }
         }
         
@@ -2824,7 +3162,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string spelless_low_json {
             get {
-                return ResourceManager.GetString("spelless_low.json", resourceCulture);
+                return ResourceManager.GetString("spelless-low.json", resourceCulture);
             }
         }
         
@@ -2853,7 +3191,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string spelless_te_dreamshield_json {
             get {
-                return ResourceManager.GetString("spelless_te_dreamshield.json", resourceCulture);
+                return ResourceManager.GetString("spelless-te-dreamshield.json", resourceCulture);
             }
         }
         
@@ -2883,19 +3221,20 @@ namespace hksplitmaker {
         /// </summary>
         internal static string spelless_te_json {
             get {
-                return ResourceManager.GetString("spelless_te.json", resourceCulture);
+                return ResourceManager.GetString("spelless-te.json", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似         [Description(&quot;Abyss Shriek (Skill)&quot;), ToolTip(&quot;Splits when obtaining Abyss Shriek (Shadow Scream)&quot;)]
+        ///   查找类似         [Description(&quot;Abyss Shriek (Skill)&quot;), ToolTip(&quot;Splits when obtaining Abyss Shriek&quot;)]
         ///        AbyssShriek,
-        ///        [Description(&quot;Crystal Heart (Skill)&quot;), ToolTip(&quot;Splits when obtaining Crystal Heart (Super Dash)&quot;)]
+        ///        [Description(&quot;Crystal Heart (Skill)&quot;), ToolTip(&quot;Splits when obtaining Crystal Heart&quot;)]
         ///        CrystalHeart,
-        ///        [Description(&quot;Cyclone Slash (Skill)&quot;), ToolTip(&quot;Splits when obtaining Cyclone Slash (Nail Art)&quot;)]
+        ///        [Description(&quot;Cyclone Slash (Skill)&quot;), ToolTip(&quot;Splits when obtaining Cyclone Slash&quot;)]
         ///        CycloneSlash,
-        ///        [Description(&quot;Dash Slash (Skill)&quot;), ToolTip(&quot;Splits when obtaining Dash Slash (Nail Art)&quot;)]
-        ///        DashSlash [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        [Description(&quot;Dash Slash (Skill)&quot;), ToolTip(&quot;Splits when obtaining Dash Slash&quot;)]
+        ///        DashSlash,
+        ///        [Description(&quot;Descending Dark (Skill)&quot;), [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string splits_txt {
             get {
@@ -2930,7 +3269,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string te_ag_json {
             get {
-                return ResourceManager.GetString("te_ag.json", resourceCulture);
+                return ResourceManager.GetString("te-ag.json", resourceCulture);
             }
         }
         
@@ -2948,18 +3287,19 @@ namespace hksplitmaker {
         ///        &quot;SpiritGladeOpen&quot;,
         ///        &quot;LumaflyLantern&quot;,
         ///        &quot;CrystalHeart&quot;,
-        ///        &quot;GorbEssence&quot;,
-        ///        &quot;QueensStationStation&quot;,
         ///        &quot;HowlingWraiths&quot;,
         ///        &quot;NoEyesEssence&quot;,
+        ///        &quot;GorbEssence&quot;,
         ///        &quot;BrokenVessel&quot;,
         ///        &quot;LostKinEssence&quot;,
         ///        &quot;DreamGate&quot;,
-        ///        &quot;KingsBra [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;KingsBrand&quot;,
+        ///        &quot;AbyssShriek&quot;,
+        ///    [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string te_cp_json {
             get {
-                return ResourceManager.GetString("te_cp.json", resourceCulture);
+                return ResourceManager.GetString("te-cp.json", resourceCulture);
             }
         }
         
@@ -2988,7 +3328,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string te_flukamoth_json {
             get {
-                return ResourceManager.GetString("te_flukamoth.json", resourceCulture);
+                return ResourceManager.GetString("te-flukamoth.json", resourceCulture);
             }
         }
         
@@ -3008,12 +3348,12 @@ namespace hksplitmaker {
         ///        &quot;LumaflyLantern&quot;,
         ///        &quot;CrystalHeart&quot;,
         ///        &quot;WatcherChandelier&quot;,
-        ///        &quot;Lurien&quot;,
+        ///        &quot;EnterAnyDream&quot;,
         ///        &quot;TollBenchBasin&quot;,
         ///        &quot;LostKinEssence&quot;,
         ///        &quot;FailedChampionEssence&quot;,
         ///        &quot;KingsBrand&quot;,
-        ///        &quot;ShadeCloa [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///        &quot;Sh [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string te_json {
             get {
@@ -3048,7 +3388,7 @@ namespace hksplitmaker {
         /// </summary>
         internal static string te_nmms_json {
             get {
-                return ResourceManager.GetString("te_nmms.json", resourceCulture);
+                return ResourceManager.GetString("te-nmms.json", resourceCulture);
             }
         }
         

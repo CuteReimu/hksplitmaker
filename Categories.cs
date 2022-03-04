@@ -51,16 +51,6 @@ namespace hksplitmaker
         public string Icon;
     }
 
-    [DataContract]
-    class CategoryInfo
-    {
-        [DataMember(Name = "fileName", Order = 0)]
-        public string FileName;
-
-        [DataMember(Name = "displayName", Order = 1)]
-        public string DisplayName;
-    }
-
     class Categories
     {
         private static Categories instance;
@@ -86,13 +76,13 @@ namespace hksplitmaker
 
         private void Init()
         {
-            Dictionary<string, JArray> categoryInfos = JsonConvert.DeserializeObject<Dictionary<string, JArray>>(Resource.category_directory_json);
+            Dictionary<string, JArray> categoryInfos = JsonConvert.DeserializeObject<Dictionary<string, JArray>>(Resource.ResourceManager.GetString("category-directory.json"));
             foreach (JArray infos in categoryInfos.Values)
             {
                 foreach (JToken info in infos)
                 {
                     CategoryData data = null;
-                    string fileName = info["fileName"].ToString().Replace('-', '_') + ".json";
+                    string fileName = info["fileName"].ToString() + ".json";
                     using (MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(Resource.ResourceManager.GetString(fileName))))
                     {
                         DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(CategoryData));

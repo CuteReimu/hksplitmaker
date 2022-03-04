@@ -282,7 +282,7 @@ namespace hksplitmaker
 
         private void Init()
         {
-            string[] lines = Resource.splits_txt.Split("\n");
+            string[] lines = Resource.ResourceManager.GetString("splits.txt").Split("\n");
             bool isNameLine = false;
             string[] result = new string[0];
             Regex re = new Regex("\\[Description\\(\"(.*?)\"\\)\\s*,\\s*ToolTip\\(\"(.*?)\"\\)]");
