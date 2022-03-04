@@ -68,7 +68,7 @@ namespace hksplitmaker
             }
         }
 
-        private Dictionary<string, CategoryData> cache = new Dictionary<string, CategoryData>();
+        private IDictionary<string, CategoryData> cache = new SortedDictionary<string, CategoryData>();
 
         public CategoryData this[string name] { get { return cache[name]; } }
 
@@ -115,7 +115,7 @@ namespace hksplitmaker
                     { // 暂时不支持
                         continue;
                     }
-                    cache[info["displayName"].ToString()] = data;
+                    cache[Translator.Instance.Translate(info["displayName"].ToString())] = data;
                 }
             }
         }

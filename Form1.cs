@@ -81,7 +81,7 @@ namespace hksplitmaker
                 string name = "";
                 if (data.Names != null && data.Names.ContainsKey(splitId))
                 {
-                    Object names = data.Names[splitId];
+                    object names = data.Names[splitId];
                     if (names is string)
                     {
                         name = ((string)names).Replace("%s", dropBrackets(description));
@@ -147,7 +147,7 @@ namespace hksplitmaker
                     text = data.EndingSplit.Name == "Absolute Radiance" ? "无上辐光" : "辐光";
                 }
                 FinalLineData.Instance.SetEndTrigger(true, text);
-                FinalLineData.Instance.NameText = getNameFunc(data.EndingSplit.Icon, data.EndingSplit.Name);
+                FinalLineData.Instance.NameText = getNameFunc(data.EndingSplit.Icon, Translator.Instance.Translate(data.EndingSplit.Name));
             }
             this.checkBox2.Enabled = false;
             this.checkBox2.Checked = false;

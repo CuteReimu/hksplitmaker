@@ -1345,25 +1345,6 @@ namespace hksplitmaker {
         }
         
         /// <summary>
-        ///   查找类似 export interface CategoryDefinition {
-        ///  fileName: string;
-        ///  displayName: string;
-        ///  data?: {
-        ///    routeNotesURL?: string;
-        ///    searchTerms?: Array&lt;string&gt;;
-        ///  };
-        ///}
-        ///declare const splits: Record&lt;string, Array&lt;CategoryDefinition&gt;&gt;;
-        ///export default splits;
-        /// 的本地化字符串。
-        /// </summary>
-        internal static string category_directory_json_d_ts {
-            get {
-                return ResourceManager.GetString("category-directory.json.d.ts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 {
         ///    &quot;categoryName&quot;: &quot;Clawless Shade Cloak&quot;,
         ///    &quot;splitIds&quot;: [
@@ -3389,6 +3370,53 @@ namespace hksplitmaker {
         internal static string te_nmms_json {
             get {
                 return ResourceManager.GetString("te-nmms.json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 EN	CN
+        ///Abyss	深渊
+        ///Shriek	尖啸
+        ///Skill	技能
+        ///Crystal Heart	水晶之心
+        ///Crystal	水晶
+        ///Crystal Peaks	水晶山峰
+        ///Peak	山峰
+        ///Slash	劈砍
+        ///Cyclone	旋风
+        ///Descending Dark	黑暗降临
+        ///Desolate Dive	荒芜俯冲
+        ///Dream Gate	梦之门
+        ///Dream Nail	梦之钉
+        ///Awoken	觉醒的
+        ///Dash	冲刺
+        ///Great Slash	强力劈砍
+        ///Howling Wraiths	嚎叫幽灵
+        ///Tram Pass	电车票
+        ///Item	物品
+        ///Mask	面具
+        ///Fragment	碎片
+        ///Nail	骨钉
+        ///Vessel	容器
+        ///Isma&apos;s	伊思玛的
+        ///Tear	眼泪
+        ///Mantis	螳螂
+        ///Mantis Claw	螳螂爪
+        ///Monarch Wings	帝王之翼
+        ///Mothwing	蛾翼
+        ///Cloak	披风
+        ///Shade	暗影
+        ///Shade Soul	暗影之魂
+        ///Sharp Shadow	锋利之影
+        ///Vengeful Spirit	复仇之魂
+        ///Pale	苍白
+        ///Ore	矿石
+        ///Any	任意
+        ///Any% [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string translate_tsv {
+            get {
+                return ResourceManager.GetString("translate.tsv", resourceCulture);
             }
         }
         

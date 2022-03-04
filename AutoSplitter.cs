@@ -233,6 +233,7 @@ namespace hksplitmaker
     class AutoSplitter
     {
         private static AutoSplitter instance;
+        private IList<string> descriptions = new List<string>();
         private IDictionary<string, string> idToDescription = new Dictionary<string, string>();
         private IDictionary<string, SplitData> descriptionToData = new SortedDictionary<string, SplitData>();
         private IDictionary<string, IList<string>> searchDict = new Dictionary<string, IList<string>>();
@@ -297,8 +298,9 @@ namespace hksplitmaker
                 {
                     if (result.Length == 3)
                     {
-                        string description = result[1];
-                        descriptionToData[description] = new SplitData(description, result[2], line);
+                        string description = Translator.Instance.Translate(result[1]);
+                        descriptions.Add(description);
+                        descriptionToData[description] = new SplitData(description, Translator.Instance.Translate(result[2]), line);
                         idToDescription[line] = description;
                         initSplitsSearchDict(description);
                         isNameLine = false;
@@ -327,7 +329,7 @@ namespace hksplitmaker
 
         public void InitComboBox(ComboBox b)
         {
-            foreach (string s in descriptionToData.Keys)
+            foreach (string s in descriptions)
             {
                 b.Items.Add(s);
             }
