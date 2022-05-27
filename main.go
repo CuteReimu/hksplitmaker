@@ -84,7 +84,7 @@ func main() {
 					GetUserDefinedComboBox(),
 					TextLabel{
 						TextAlignment: AlignHFarVCenter,
-						Text:          "Auto Splitter Version: 3.1.4.0",
+						Text:          "Auto Splitter Version: 3.1.5.0",
 					},
 				},
 			},
