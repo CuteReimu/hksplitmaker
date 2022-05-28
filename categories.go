@@ -115,10 +115,12 @@ func onSelectCategory() {
 				name = strings.ReplaceAll(namearr[nameIndexCache[splitId]].(string), "%s", dropBrackets(description))
 				nameIndexCache[splitId]++
 			}
-		} else {
+			name = strings.TrimSpace(reg.ReplaceAllString(name, ""))
+		}
+		if len(name) == 0 {
 			name = dropBrackets(description)
 		}
-		return translate(strings.TrimSpace(reg.ReplaceAllString(name, "")))
+		return translate(name)
 	}
 	if startTrigger, ok := splitsDictIdToDescriptions[j.StartTriggeringAutosplit]; ok {
 		startTriggerCheckBox.SetChecked(true)
