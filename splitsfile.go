@@ -210,9 +210,9 @@ func loadSplitFile(buf []byte) {
 			text := "空洞骑士"
 			seg := run.Segments.Segment[i]
 			name := seg.Name
-			if strings.Contains(name, "无上辐光") || strings.Contains(name, "Absolute Radiance") {
+			if strings.Contains(name, "无上辐光") || strings.Contains(name, "Absolute Radiance") || strings.Contains(name, "拥抱虚空") || strings.Contains(name, "Embrace the Void") {
 				text = "无上辐光"
-			} else if strings.Contains(name, "辐光") || strings.Contains(name, "Radiance") || strings.Contains(name, "radiance") {
+			} else if strings.Contains(name, "辐光") || strings.Contains(name, "Radiance") || strings.Contains(name, "radiance") || strings.Contains(name, "不再有梦") || strings.Contains(name, "Dream No More") || strings.Contains(name, "No More Dream") {
 				text = "辐光"
 			}
 			err := finalLine.splitId2.SetText(text)
