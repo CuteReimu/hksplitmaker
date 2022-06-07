@@ -149,6 +149,18 @@ func addLine(initAll bool) {
 					moveLine(idx + 1)
 				},
 			},
+			PushButton{Text: "↑", MaxSize: Size{Width: 25}, ToolTipText: "上移一行",
+				OnClicked: func() {
+					idx := splitLinesView.Children().Index(line.line)
+					swapLine(idx-1, idx)
+				},
+			},
+			PushButton{Text: "↓", MaxSize: Size{Width: 25}, ToolTipText: "下移一行",
+				OnClicked: func() {
+					idx := splitLinesView.Children().Index(line.line)
+					swapLine(idx, idx+1)
+				},
+			},
 		},
 	}
 	err := c.Create(NewBuilder(splitLinesView))
@@ -219,12 +231,50 @@ func resetLines(count int) {
 						moveLine(idx + 1)
 					},
 				},
+				PushButton{Text: "↑", MaxSize: Size{Width: 25}, ToolTipText: "上移一行",
+					OnClicked: func() {
+						idx := splitLinesView.Children().Index(line.line)
+						swapLine(idx-1, idx)
+					},
+				},
+				PushButton{Text: "↓", MaxSize: Size{Width: 25}, ToolTipText: "下移一行",
+					OnClicked: func() {
+						idx := splitLinesView.Children().Index(line.line)
+						swapLine(idx, idx+1)
+					},
+				},
 			},
 		})
 		lines = append(lines, line)
 	}
 	err = composite.Create(NewBuilder(splitLinesViewContainer))
 	if err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		panic(err)
+	}
+}
+
+func swapLine(index1, index2 int) {
+	if index1 == index2 || index1 < 0 || index2 < 0 || index1 >= len(lines) || index2 >= len(lines) {
+		return
+	}
+	name1 := lines[index1].name.Text()
+	name2 := lines[index2].name.Text()
+	splitId1 := lines[index1].splitId.Text()
+	splitId2 := lines[index2].splitId.Text()
+	if err := lines[index1].name.SetText(name2); err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		panic(err)
+	}
+	if err := lines[index2].name.SetText(name1); err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		panic(err)
+	}
+	if err := lines[index1].splitId.SetText(splitId2); err != nil {
+		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+		panic(err)
+	}
+	if err := lines[index2].splitId.SetText(splitId1); err != nil {
 		walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 		panic(err)
 	}
