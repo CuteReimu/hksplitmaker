@@ -20,6 +20,11 @@ jobs:
       with:
         go-version: 1.17
 
+    - name: Download LiveSplit Files
+      run: |
+        curl -O https://raw.githubusercontent.com/LiveSplit/LiveSplit.AutoSplitters/master/LiveSplit.AutoSplitters.xml
+        curl -O https://raw.githubusercontent.com/ShootMe/LiveSplit.HollowKnight/master/Components/LiveSplit.HollowKnight.dll
+
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:

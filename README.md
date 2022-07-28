@@ -32,6 +32,12 @@
 
 8. 打开LiveSplit -> 右键 -> Open Splits -> From File... ，选择刚刚保存的文件即可。
 
+## 编译说明
+
+**在Windows下可直接运行`build.bat`编译。**
+
+如果想要自己使用`go build`进行编译，建议参考`build.bat`
+
 ## 如何优化翻译
 
 请不要直接在这个repo修改`translate.tsv`文件，请前往[CuteReimu/hk-split-maker](https://github.com/CuteReimu/hk-split-maker)修改，修改后会自动同步到这里。

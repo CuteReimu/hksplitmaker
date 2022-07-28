@@ -86,6 +86,10 @@ func main() {
 						TextAlignment: AlignHFarVCenter,
 						Text:          "Auto Splitter Version: 3.1.5.0",
 					},
+					PushButton{
+						Text:      "LiveSplit一键修复",
+						OnClicked: fixLiveSplit,
+					},
 				},
 			},
 			ScrollView{
