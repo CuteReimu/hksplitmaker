@@ -322,9 +322,11 @@ func onSearchSplitId(initAll bool, line *lineData) {
 	if len(s) > 0 {
 		for _, text := range model.items {
 			if text == s {
-				err := line.name.SetText(dropBrackets(text))
-				if err != nil {
-					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+				if line.name != nil {
+					err := line.name.SetText(dropBrackets(text))
+					if err != nil {
+						walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+					}
 				}
 				return
 			}

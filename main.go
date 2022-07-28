@@ -106,10 +106,13 @@ func main() {
 							},
 							ComboBox{
 								AssignTo: &startTriggerComboBox,
-								Model:    splitDescriptions,
+								Model:    &splitIdModel{},
 								Enabled:  false,
 								Editable: true,
 								Value:    splitDescriptions[0],
+								OnTextChanged: func() {
+									onSearchSplitId(true, &lineData{splitId: startTriggerComboBox})
+								},
 							},
 						},
 					},
