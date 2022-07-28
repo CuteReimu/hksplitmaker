@@ -287,6 +287,8 @@ func moveLine(index int) {
 		return
 	}
 	for i := len(lines) - 2; i >= index; i-- {
+		lines[i+1].splitId.Model().(*splitIdModel).items = lines[i].splitId.Model().(*splitIdModel).items
+		lines[i+1].splitId.Model().(*splitIdModel).PublishItemsReset()
 		err := lines[i+1].splitId.SetText(lines[i].splitId.Text())
 		if err != nil {
 			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
