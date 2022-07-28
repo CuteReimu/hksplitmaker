@@ -165,40 +165,6 @@ func main() {
 		walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 		return
 	}
-	//go func() {
-	//	resp, err := http.Get("https://raw.githubusercontent.com/slaurent22/hk-split-maker/main/src/asset/splits.txt")
-	//	if err != nil || resp.StatusCode != 200 {
-	//		return
-	//	}
-	//	buf, err := ioutil.ReadAll(resp.Body)
-	//	if err != nil {
-	//		return
-	//	}
-	//	if !bytes.Equal(buf, splitsFileBuf) {
-	//		err := updateBtn.SetText("更新")
-	//		if err != nil {
-	//			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
-	//		} else {
-	//			var a int
-	//			a = updateBtn.Clicked().Attach(func() {
-	//				updateBtn.SetEnabled(false)
-	//				err := ioutil.WriteFile(filepath.Join(hkSplitMakerDir, "splits.txt"), buf, 0644)
-	//				if err != nil {
-	//					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
-	//					return
-	//				}
-	//				initSplitsFile(false)
-	//				updateBtn.Clicked().Detach(a)
-	//				err = updateBtn.SetText("已是最新")
-	//				if err != nil {
-	//					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
-	//					return
-	//				}
-	//			})
-	//			updateBtn.SetEnabled(true)
-	//		}
-	//	}
-	//}()
 	hWnd := mainWindow.Handle()
 	currStyle := win.GetWindowLong(hWnd, win.GWL_STYLE)
 	win.SetWindowLong(hWnd, win.GWL_STYLE, currStyle & ^win.WS_SIZEBOX)
