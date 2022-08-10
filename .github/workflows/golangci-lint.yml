@@ -26,10 +26,10 @@ jobs:
         curl -O https://raw.githubusercontent.com/ShootMe/LiveSplit.HollowKnight/master/Components/LiveSplit.HollowKnight.dll
 
     - name: golangci-lint
-      uses: golangci/golangci-lint-action@v2
+      uses: golangci/golangci-lint-action@v3
       with:
+        version: latest
         args: --timeout 5m0s
-        skip-go-installation: true
 
     - name: Build
       run: go build -v ./...
