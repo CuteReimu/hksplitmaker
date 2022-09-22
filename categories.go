@@ -1,8 +1,10 @@
 package main
 
 import (
+	_ "embed"
 	"encoding/json"
 	"github.com/lxn/walk"
+	"os"
 	"path"
 	"regexp"
 	"strings"
@@ -202,6 +204,7 @@ func onSelectCategory() {
 	categoryName = j.CategoryName
 	saveTimeCheckBox.SetEnabled(false)
 	saveTimeCheckBox.SetChecked(false)
+	coloNotice(j)
 }
 
 func dropBrackets(s string) string {
@@ -210,4 +213,27 @@ func dropBrackets(s string) string {
 		return s[:idx]
 	}
 	return s
+}
+
+//go:embed blank-colo-save.dat
+var blankColoSave []byte
+
+func coloNotice(j *jsonCategory) {
+	if func() bool {
+		for i := range j.SplitIds {
+			splitId := strings.Trim(j.SplitIds[i], "-")
+			if splitId == "BronzeEnd" || splitId == "SilverEnd" || splitId == "GoldEnd" {
+				return true
+			}
+		}
+		return false
+	}() {
+		if walk.DlgCmdOK == walk.MsgBox(mainWindow, "提示", "愚人斗兽场相关的Splits需要专用的存档才能正常使用。是否要生成专用存档？", walk.MsgBoxOKCancel|walk.MsgBoxIconInformation) {
+			if err := os.WriteFile("user4.dat", blankColoSave, 0644); err != nil {
+				walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
+			} else {
+				walk.MsgBox(mainWindow, "提示", `已成功生成 user4.dat ，请自行放入空洞骑士的存档目录`, walk.MsgBoxIconInformation)
+			}
+		}
+	}
 }
