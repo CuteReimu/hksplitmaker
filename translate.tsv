@@ -683,63 +683,83 @@ Has Isma's Tear	获得伊思玛的眼泪后
 Isma's Tear with Grub	伊思玛的眼泪和幼虫
 Tower of Love	爱之塔
 Crystal Peak Mound	水晶山峰结晶山丘
-Colo 1 Wave 1a	竞技场1第1a波
-Colo 1 Wave 1b	竞技场1第1b波
-Colo 1 Wave 1c	竞技场1第1c波
-Colo 1 Wave 2	竞技场1第2波
-Colo 1 Wave 3a	竞技场1第3a波
-Colo 1 Wave 3b	竞技场1第3b波
-Colo 1 Wave 4	竞技场1第4波
-Colo 1 Wave 5	竞技场1第5波
-Colo 1 Wave 6	竞技场1第6波
-Colo 1 Wave 7	竞技场1第7波
-Colo 1 Wave 8a	竞技场1第8a波
-Colo 1 Wave 8b	竞技场1第8b波
-Colo 1 Wave 9	竞技场1第9波
-Colo 1 Wave 10	竞技场1第10波
-Colo 1 Wave 11a	竞技场1第11a波
-Colo 1 Wave 11b	竞技场1第11b波
-Colo 1 End	竞技场1结束
-Colo 2 Wave 1	竞技场2第1波
-Colo 2 Wave 2	竞技场2第2波
-Colo 2 Wave 3	竞技场2第3波
-Colo 2 Wave 4	竞技场2第4波
-Colo 2 Wave 5	竞技场2第5波
-Colo 2 Wave 6	竞技场2第6波
-Colo 2 Wave 7	竞技场2第7波
-Colo 2 Wave 8	竞技场2第8波
-Colo 2 Wave 9	竞技场2第9波
-Colo 2 Wave 10	竞技场2第10波
-Colo 2 Wave 11	竞技场2第11波
-Colo 2 Wave 12	竞技场2第12波
-Colo 2 Wave 13	竞技场2第13波
-Colo 2 Wave 14	竞技场2第14波
-Colo 2 Wave 15	竞技场2第15波
-Colo 2 Wave 16	竞技场2第16波
-Colo 2 End	竞技场2结束
-Colo 3 Wave 1	竞技场3第1波
-Colo 3 Wave 3	竞技场3第3波
-Colo 3 Wave 4	竞技场3第4波
-Colo 3 Wave 5	竞技场3第5波
-Colo 3 Wave 6	竞技场3第6波
-Colo 3 Wave 7	竞技场3第7波
-Colo 3 Wave 8	竞技场3第8波
-Colo 3 Wave 9a	竞技场3第9a波
-Colo 3 Wave 9b	竞技场3第9b波
-Colo 3 Wave 10	竞技场3第10波
-Colo 3 Wave 11	竞技场3第11波
-Colo 3 Wave 12a	竞技场3第12a波
-Colo 3 Wave 12b	竞技场3第12b波
-Colo 3 Wave 14a	竞技场3第14a波
-Colo 3 Wave 14b	竞技场3第14b波
-Colo 3 Wave 15	竞技场3第15波
-Colo 3 Wave 16	竞技场3第16波
-Colo 3 Wave 17a	竞技场3第17a波
-Colo 3 Wave 17b	竞技场3第17b波
-Colo 3 Wave 17c	竞技场3第17c波
-Colo 3 End	竞技场3结束
+Colo 1 Wave 1a	斗兽场1第1a波
+Colo 1 Wave 1b	斗兽场1第1b波
+Colo 1 Wave 1c	斗兽场1第1c波
+Colo 1 Wave 2	斗兽场1第2波
+Colo 1 Wave 3a	斗兽场1第3a波
+Colo 1 Wave 3b	斗兽场1第3b波
+Colo 1 Wave 4	斗兽场1第4波
+Colo 1 Wave 5	斗兽场1第5波
+Colo 1 Wave 6	斗兽场1第6波
+Colo 1 Wave 7	斗兽场1第7波
+Colo 1 Wave 8a	斗兽场1第8a波
+Colo 1 Wave 8b	斗兽场1第8b波
+Colo 1 Wave 9	斗兽场1第9波
+Colo 1 Wave 10	斗兽场1第10波
+Colo 1 Wave 11a	斗兽场1第11a波
+Colo 1 Wave 11b	斗兽场1第11b波
+Colo 1 End	斗兽场1结束
+Colo 2 Wave 1	斗兽场2第1波
+Colo 2 Wave 2	斗兽场2第2波
+Colo 2 Wave 3	斗兽场2第3波
+Colo 2 Wave 4	斗兽场2第4波
+Colo 2 Wave 5	斗兽场2第5波
+Colo 2 Wave 6	斗兽场2第6波
+Colo 2 Wave 7	斗兽场2第7波
+Colo 2 Wave 8	斗兽场2第8波
+Colo 2 Wave 9	斗兽场2第9波
+Colo 2 Wave 10	斗兽场2第10波
+Colo 2 Wave 11	斗兽场2第11波
+Colo 2 Wave 12	斗兽场2第12波
+Colo 2 Wave 13	斗兽场2第13波
+Colo 2 Wave 14	斗兽场2第14波
+Colo 2 Wave 15	斗兽场2第15波
+Colo 2 Wave 16	斗兽场2第16波
+Colo 2 End	斗兽场2结束
+Colo 3 Wave 1	斗兽场3第1波
+Colo 3 Wave 3	斗兽场3第3波
+Colo 3 Wave 4	斗兽场3第4波
+Colo 3 Wave 5	斗兽场3第5波
+Colo 3 Wave 6	斗兽场3第6波
+Colo 3 Wave 7	斗兽场3第7波
+Colo 3 Wave 8	斗兽场3第8波
+Colo 3 Wave 9a	斗兽场3第9a波
+Colo 3 Wave 9b	斗兽场3第9b波
+Colo 3 Wave 10	斗兽场3第10波
+Colo 3 Wave 11	斗兽场3第11波
+Colo 3 Wave 12a	斗兽场3第12a波
+Colo 3 Wave 12b	斗兽场3第12b波
+Colo 3 Wave 14a	斗兽场3第14a波
+Colo 3 Wave 14b	斗兽场3第14b波
+Colo 3 Wave 15	斗兽场3第15波
+Colo 3 Wave 16	斗兽场3第16波
+Colo 3 Wave 17a	斗兽场3第17a波
+Colo 3 Wave 17b	斗兽场3第17b波
+Colo 3 Wave 17c	斗兽场3第17c波
+Colo 3 End	斗兽场3结束
 Rando Wake	随机醒来
 Completion	完成度
 Shape of Unn Synergies	乌恩之形的协同作用
 Pure Snail	纯粹蜗牛
 All Achievements	全成就
+Comfy Route	舒适的路线
+Stag Nest	鹿角虫巢穴
+QGA	王后花园酸水入口
+Godseeker mode	寻神者模式
+Colo 1 w/ Autosplit Waves	愚人斗兽场1
+Colo 2 w/ Autosplit Waves	愚人斗兽场2
+Colo 3 w/ Autosplit Waves	愚人斗兽场3
+Base Game	游戏本体
+Hidden Dreams	隐藏的梦
+Lifeblood	生命血
+Grimm Troupe	格林剧团
+route	路线
+All Geo Rocks	全吉欧堆
+Great Husk Sentry	大型躯壳哨兵
+Watcher's Spire	守望者的尖塔
+Fungal Core	真菌核心
+Stone Sanctuary	石之庇护所
+Goam	戈姆
+Hallownest's Crown	圣巢之巅
+Junk Pit	垃圾坑
