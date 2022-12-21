@@ -1,7 +1,7 @@
 # 空洞骑士计时器生成器（中文版）
 
 ![](https://img.shields.io/github/languages/top/CuteReimu/hksplitmaker "Language")
-[![](https://img.shields.io/github/workflow/status/CuteReimu/hksplitmaker/Go)](https://github.com/CuteReimu/hksplitmaker/actions/workflows/golangci-lint.yml "Analysis")
+[![](https://img.shields.io/github/actions/workflow/status/CuteReimu/hksplitmaker/golangci-lint.yml?branch=master)](https://github.com/CuteReimu/hksplitmaker/actions/workflows/golangci-lint.yml "Analysis")
 [![](https://img.shields.io/github/license/CuteReimu/hksplitmaker)](https://github.com/CuteReimu/hksplitmaker/blob/master/LICENSE "LICENSE")
 
 <img src=".github/hksplitmaker.png" alt=""/>
