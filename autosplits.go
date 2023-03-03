@@ -212,19 +212,19 @@ func resetLines(count int) {
 						onSearchSplitId(false, line)
 					},
 				},
-				PushButton{Text: "✘", MaxSize: Size{Width: 25}, OnClicked: func() {
+				PushButton{Text: "✘", MaxSize: Size{Width: 25}, ToolTipText: "删除", OnClicked: func() {
 					if len(lines) > 1 {
 						removeLine(line)
 					}
 				}},
-				PushButton{Text: "↑+", MaxSize: Size{Width: 25},
+				PushButton{Text: "↑+", MaxSize: Size{Width: 25}, ToolTipText: "在上方增加一行",
 					OnClicked: func() {
 						idx := splitLinesView.Children().Index(line.line)
 						addLine(true)
 						moveLine(idx)
 					},
 				},
-				PushButton{Text: "↓+", MaxSize: Size{Width: 25},
+				PushButton{Text: "↓+", MaxSize: Size{Width: 25}, ToolTipText: "在下方增加一行",
 					OnClicked: func() {
 						idx := splitLinesView.Children().Index(line.line)
 						addLine(true)
