@@ -4,7 +4,7 @@ import (
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 	"github.com/lxn/win"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"sort"
 	"syscall"
@@ -40,7 +40,7 @@ func main() {
 				if filepath.Ext(file) != ".lss" {
 					return
 				}
-				buf, err := ioutil.ReadFile(file)
+				buf, err := os.ReadFile(file)
 				if err != nil {
 					walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
 					return

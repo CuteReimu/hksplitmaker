@@ -5,7 +5,7 @@ import (
 	"errors"
 	"github.com/lxn/walk"
 	"github.com/lxn/win"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -112,7 +112,7 @@ func onClickLoadSplitFile() {
 		if filepath.Ext(file) != ".lss" {
 			return
 		}
-		buf, err := ioutil.ReadFile(file)
+		buf, err := os.ReadFile(file)
 		if err != nil {
 			walk.MsgBox(mainWindow, "内部错误", err.Error(), walk.MsgBoxIconError)
 			return
@@ -339,7 +339,7 @@ func saveSplitsFile() {
 			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
 		}
-		err = ioutil.WriteFile(filePath, append([]byte(xml.Header), buf...), 0644)
+		err = os.WriteFile(filePath, append([]byte(xml.Header), buf...), 0644)
 		if err != nil {
 			walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 			return
