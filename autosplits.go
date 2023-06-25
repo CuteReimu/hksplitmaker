@@ -6,6 +6,7 @@ import (
 	"errors"
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
+	"golang.org/x/exp/slices"
 	"io"
 	"path"
 	"regexp"
@@ -26,11 +27,10 @@ func initSplitsSearchDict(content string) {
 	for i := 0; i < len(rs); i++ {
 		for j := i + 1; j <= len(rs); j++ {
 			s := string(rs[i:j])
-			v, ok := splitsSearchDict[s]
-			if !ok {
-				v = nil
+			v := splitsSearchDict[s]
+			if !slices.Contains(v, content) {
+				splitsSearchDict[s] = append(v, content)
 			}
-			splitsSearchDict[s] = append(v, content)
 		}
 	}
 }
@@ -322,16 +322,14 @@ func onSearchSplitId(initAll bool, line *lineData) {
 		return
 	}
 	if len(s) > 0 {
-		for _, text := range model.items {
-			if text == s {
-				if line.name != nil {
-					err := line.name.SetText(dropBrackets(text))
-					if err != nil {
-						walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
-					}
+		if _, ok := splitsDict[s]; ok {
+			if line.name != nil {
+				err := line.name.SetText(dropBrackets(s))
+				if err != nil {
+					walk.MsgBox(mainWindow, "错误", err.Error(), walk.MsgBoxIconError)
 				}
-				return
 			}
+			return
 		}
 		v, ok := splitsSearchDict[s]
 		if ok && len(v) > 0 {
