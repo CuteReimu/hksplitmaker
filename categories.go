@@ -53,7 +53,7 @@ func initCategories() {
 				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 				panic(err)
 			}
-			j := &jsonCategory{}
+			j := &jsonCategory{Ordered: true}
 			err = json.Unmarshal(buf, j)
 			if err != nil {
 				walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
