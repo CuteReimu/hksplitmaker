@@ -6,10 +6,10 @@ import (
 	"errors"
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
-	"golang.org/x/exp/slices"
 	"io"
 	"path"
 	"regexp"
+	"slices"
 )
 
 type splitData struct {
