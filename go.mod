@@ -1,6 +1,6 @@
 module github.com/CuteReimu/hksplitmaker
 
-go 1.21
+go 1.22
 
 require (
 	github.com/dlclark/regexp2 v1.11.0
@@ -9,6 +9,6 @@ require (
 )
 
 require (
-	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	gopkg.in/Knetic/govaluate.v3 v3.0.0 // indirect
 )
