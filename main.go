@@ -32,7 +32,7 @@ func main() {
 		return
 	}
 	screenX, screenY := getSystemMetrics(0), getSystemMetrics(1)
-	width, height := 550, 750
+	width, height := 720, 960
 	err := MainWindow{
 		OnDropFiles: func(f []string) {
 			if len(f) > 0 {
@@ -84,7 +84,7 @@ func main() {
 					GetUserDefinedComboBox(),
 					TextLabel{
 						TextAlignment: AlignHFarVCenter,
-						Text:          "Auto Splitter Version: 3.1.9.0",
+						Text:          "Auto Splitter Version: 3.1.11.0",
 					},
 					PushButton{
 						Text:      "更新LiveSplit",
@@ -158,6 +158,13 @@ func main() {
 						Text:      "帮助",
 						OnClicked: func() {
 							walk.MsgBox(mainWindow, "帮助", readme, walk.MsgBoxIconInformation)
+						},
+					}, PushButton{
+						MaxSize:   Size{Width: 100},
+						Alignment: AlignHFarVCenter,
+						Text:      "FAQ",
+						OnClicked: func() {
+							walk.MsgBox(mainWindow, "FAQ", faq, walk.MsgBoxIconInformation)
 						},
 					},
 				},
