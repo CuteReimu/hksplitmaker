@@ -22,7 +22,7 @@ func init() {
 			panic(err)
 		}
 		if len(line) > 0 {
-			arr := strings.Split(string(line), "\t")
+			arr := strings.Split(string(line), ",")
 			var key, val string
 			key = arr[0]
 			if len(arr) >= 2 {

@@ -2,7 +2,7 @@ package main
 
 import "embed"
 
-//go:embed translate.tsv
+//go:embed translate.csv
 var transLateData []byte
 
 //go:embed hk-split-maker/src/asset/hollowknight
