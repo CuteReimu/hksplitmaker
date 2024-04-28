@@ -40,7 +40,7 @@
 
 ## 如何优化翻译
 
-请不要直接在这个repo修改`translate.tsv`文件，请前往[CuteReimu/hk-split-maker](https://github.com/CuteReimu/hk-split-maker)修改，修改后会自动同步到这里。
+请不要直接在这个repo修改`translate.csv`文件，请前往[CuteReimu/hk-split-maker](https://github.com/CuteReimu/hk-split-maker)修改，修改后会自动同步到这里。
 
 ## 特别鸣谢
 
