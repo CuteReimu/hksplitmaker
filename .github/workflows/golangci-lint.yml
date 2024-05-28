@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
@@ -25,8 +25,13 @@ jobs:
         touch LiveSplit.AutoSplitters.xml
         touch LiveSplit.HollowKnight.dll
 
+    - name: Set Go Env
+      run: |
+        go env -w GOOS=windows
+        go env -w GOARCH=amd64
+
     - name: golangci-lint
-      uses: golangci/golangci-lint-action@v4
+      uses: golangci/golangci-lint-action@v6
       with:
         version: latest
         args: --timeout 5m0s
