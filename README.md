@@ -10,7 +10,7 @@
 
 使用前打开LiveSplit -> 右键 -> Edit Splits -> Settings，如果在插件设置界面看不到版本号，或者看到的版本号低于本程序的版本号，那么生成出来的文件不一定能够生效。
  
-如何升级LiveSplit的空洞骑士插件？一般情况下，打开LiveSplit时就会提示更新。如果没有提示更新，可以向其他人寻求`LiveSplit.HollowKnight.dll`文件，并覆盖到LiveSplit的安装目录下的`Components`文件夹中即可。
+如何升级LiveSplit的空洞骑士插件？一般情况下，打开LiveSplit时就会提示更新。如果没有提示更新，可以直接点，并覆盖到LiveSplit的安装目录下的`Components`文件夹中即可。
 
 ## 如何使用
 
@@ -34,9 +34,18 @@
 
 ## 编译说明
 
-**在Windows下可直接运行`build.bat`编译。**
+**根据自己的操作系统，直接运行`build.bat`或`build.sh`即可进行编译。**
 
-如果想要自己使用`go build`进行编译，建议参考`build.bat`
+如果想要自己使用`go build`进行编译，需要提前下载两个文件：
+
+```shell
+curl -O https://raw.githubusercontent.com/LiveSplit/LiveSplit.AutoSplitters/master/LiveSplit.AutoSplitters.xml
+curl -O https://raw.githubusercontent.com/ShootMe/LiveSplit.HollowKnight/master/Components/LiveSplit.HollowKnight.dll
+
+# -ldflags中，-s是去掉符号表，-w是去掉调试信息，均可减小所生成二进制文件的体积
+# -H=windowsgui是打开Windows窗口时隐藏控制台的黑框框。
+GOOS=windows GOARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o hksplitmaker.exe
+```
 
 ## 如何优化翻译
 
