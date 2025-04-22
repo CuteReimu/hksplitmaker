@@ -81,6 +81,27 @@ func (t *Trie) PutIfAbsent(key, value string) bool {
 	return true
 }
 
+func (t *Trie) ReplaceAll(str string) string {
+	s := []rune(str)
+	var s2 []rune
+	for len(s) > 0 {
+		if !(len(s2) == 0 || symbols[s2[len(s2)-1]]) {
+			s2 = append(s2, s[0])
+			s = s[1:]
+			continue
+		}
+		key, value := t.getLongest(string(s))
+		if len(key) > 0 {
+			s2 = append(s2, []rune(value)...)
+			s = s[len([]rune(key)):]
+		} else {
+			s2 = append(s2, s[0])
+			s = s[1:]
+		}
+	}
+	return string(s2)
+}
+
 func (t *Trie) getLongest(s string) (string, string) {
 	var node, node2 *trieNode
 	var key, key2 string
@@ -104,27 +125,6 @@ func (t *Trie) getLongest(s string) (string, string) {
 		return key2, node2.value
 	}
 	return "", ""
-}
-
-func (t *Trie) ReplaceAll(str string) string {
-	s := []rune(str)
-	var s2 []rune
-	for len(s) > 0 {
-		if !(len(s2) == 0 || symbols[s2[len(s2)-1]]) {
-			s2 = append(s2, s[0])
-			s = s[1:]
-			continue
-		}
-		key, value := t.getLongest(string(s))
-		if len(key) > 0 {
-			s2 = append(s2, []rune(value)...)
-			s = s[len([]rune(key)):]
-		} else {
-			s2 = append(s2, s[0])
-			s = s[1:]
-		}
-	}
-	return string(s2)
 }
 
 var symbols = map[rune]bool{

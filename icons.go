@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/base64"
+	"errors"
 	"github.com/lxn/walk"
 	"io"
 	"path"
@@ -44,7 +45,7 @@ func init() {
 			iconDict[result[1]] = result[2]
 		}
 	}
-	if err == io.EOF {
+	if errors.Is(err, io.EOF) {
 		err = nil
 	}
 	if err != nil {

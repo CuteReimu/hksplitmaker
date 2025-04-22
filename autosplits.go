@@ -81,7 +81,7 @@ func initSplitsFile(init bool) error {
 			isNameLine = true
 		}
 	}
-	if err == io.EOF {
+	if errors.Is(err, io.EOF) {
 		return nil
 	}
 	return err
