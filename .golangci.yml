@@ -1,0 +1,54 @@
+version: "2"
+linters:
+  default: all
+  disable:
+    - wsl
+    - varnamelen
+    - gocognit
+    - funlen
+    - cyclop
+    - revive
+    - nestif
+    - mnd
+    - gochecknoglobals
+    - exhaustruct
+    - wrapcheck
+    - testpackage
+    - tagliatelle
+    - nlreturn
+    - depguard
+    - dupl
+    - err113
+    - forbidigo
+    - errname
+    - forcetypeassert
+    - gochecknoinits
+    - gocritic
+    - gocyclo
+    - godot
+    - gosmopolitan
+    - lll
+    - paralleltest
+    - unparam
+    - maintidx
+    - nonamedreturns
+  settings:
+    staticcheck:
+      checks:
+        - all
+        - '-ST1000'
+        - '-ST1001'
+        - '-ST1003'
+        - '-QF1001'
+        - '-QF1003'
+    gosec:
+      excludes:
+        - G115
+        - G204
+        - G301
+        - G304
+        - G306
+        - G404
+  exclusions:
+    paths-except:
+      - hk-split-maker
