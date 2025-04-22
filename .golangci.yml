@@ -53,4 +53,4 @@ linters:
         - G404
   exclusions:
     paths-except:
-      - hk-split-maker
+      - hk-split-maker/
