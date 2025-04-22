@@ -54,3 +54,5 @@ linters:
   exclusions:
     paths-except:
       - hk-split-maker/
+run:
+  timeout: 5m
