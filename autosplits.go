@@ -24,7 +24,7 @@ var splitsSearchDict = make(map[string][]string)
 
 func initSplitsSearchDict(content string) {
 	rs := ([]rune)(content)
-	for i := 0; i < len(rs); i++ {
+	for i := range rs {
 		for j := i + 1; j <= len(rs); j++ {
 			s := string(rs[i:j])
 			v := splitsSearchDict[s]
@@ -198,7 +198,7 @@ func resetLines(count int) {
 		Layout:    VBox{},
 	}
 	lines = []*lineData{}
-	for i := 0; i < count; i++ {
+	for range count {
 		line := new(lineData)
 		composite.Children = append(composite.Children, Composite{
 			AssignTo: &line.line,

@@ -16,7 +16,7 @@ func GetUserDefinedComboBox() ComboBox {
 	if err != nil {
 		panic(err)
 	}
-	var models []string
+	models := make([]string, 0, len(files))
 	for _, file := range files {
 		fileName := file.Name()
 		models = append(models, fileName[:len(fileName)-len(".lss")])

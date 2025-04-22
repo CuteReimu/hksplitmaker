@@ -32,6 +32,8 @@ linters:
     - unparam
     - maintidx
     - nonamedreturns
+    - goconst
+    - musttag
   settings:
     staticcheck:
       checks:
