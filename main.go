@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
-	"github.com/lxn/win"
 	"os"
 	"path/filepath"
 	"sort"
 	"syscall"
+
+	"github.com/lxn/walk"
+	. "github.com/lxn/walk/declarative"
+	"github.com/lxn/win"
 )
 
 const hkSplitMakerDir = "hk-split-maker/src/asset/hollowknight/"
@@ -84,7 +85,7 @@ func main() {
 					GetUserDefinedComboBox(),
 					TextLabel{
 						TextAlignment: AlignHFarVCenter,
-						Text:          "Auto Splitter Version: 3.2.1.0",
+						Text:          "Auto Splitter Version: 3.2.3.0",
 					},
 					PushButton{
 						Text:      "更新LiveSplit",
