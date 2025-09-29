@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"os/exec"
 	"path/filepath"
 	"sort"
 	"syscall"
@@ -158,14 +159,10 @@ func main() {
 						Alignment: AlignHFarVCenter,
 						Text:      "帮助",
 						OnClicked: func() {
-							walk.MsgBox(mainWindow, "帮助", readme, walk.MsgBoxIconInformation)
-						},
-					}, PushButton{
-						MaxSize:   Size{Width: 100},
-						Alignment: AlignHFarVCenter,
-						Text:      "FAQ",
-						OnClicked: func() {
-							walk.MsgBox(mainWindow, "FAQ", faq, walk.MsgBoxIconInformation)
+							const url = "https://cutereimu.cn/daily/hollowknight/hksplitmaker-faq.html"
+							if err := exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start(); err != nil {
+								walk.MsgBox(mainWindow, "错误", "打开浏览器失败，请手动访问："+url, walk.MsgBoxIconError)
+							}
 						},
 					},
 				},
