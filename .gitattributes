@@ -1,3 +1,5 @@
 hk-split-maker/* linguist-vendored
 
 *.csv linguist-detectable
+
+*.lss diff text
