@@ -24,6 +24,8 @@ jobs:
       run: |
         touch LiveSplit.AutoSplitters.xml
         touch LiveSplit.HollowKnight.dll
+        rm -f userdefined/*
+        touch userdefined/1.lss
 
     - name: Set Go Env
       run: |
