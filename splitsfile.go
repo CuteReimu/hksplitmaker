@@ -3,11 +3,12 @@ package main
 import (
 	"encoding/xml"
 	"errors"
-	"github.com/lxn/walk"
-	"github.com/lxn/win"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/lxn/walk"
+	"github.com/lxn/win"
 )
 
 var categoryName string

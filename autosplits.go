@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"bytes"
 	"errors"
-	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
 	"io"
 	"path"
 	"regexp"
 	"slices"
+
+	"github.com/lxn/walk"
+	. "github.com/lxn/walk/declarative"
 )
 
 type splitData struct {

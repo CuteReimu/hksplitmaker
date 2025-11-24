@@ -4,11 +4,12 @@ import (
 	"bufio"
 	"encoding/base64"
 	"errors"
-	"github.com/lxn/walk"
 	"io"
 	"path"
 	"regexp"
 	"strings"
+
+	"github.com/lxn/walk"
 )
 
 var iconDict = make(map[string]string)

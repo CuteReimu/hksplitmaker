@@ -3,11 +3,12 @@ package main
 import (
 	_ "embed"
 	"encoding/json"
-	"github.com/lxn/walk"
 	"os"
 	"path"
 	"regexp"
 	"strings"
+
+	"github.com/lxn/walk"
 )
 
 type jsonCategory struct {

@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	regexp "github.com/dlclark/regexp2"
-	"github.com/lxn/walk"
 	"io"
 	"strings"
+
+	regexp "github.com/dlclark/regexp2"
+	"github.com/lxn/walk"
 )
 
 var translateDict = &Trie{}

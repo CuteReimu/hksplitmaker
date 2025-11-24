@@ -2,10 +2,11 @@ package main
 
 import (
 	_ "embed"
-	"github.com/lxn/walk"
-	"github.com/lxn/win"
 	"os"
 	"path/filepath"
+
+	"github.com/lxn/walk"
+	"github.com/lxn/win"
 )
 
 //go:embed LiveSplit.AutoSplitters.xml
