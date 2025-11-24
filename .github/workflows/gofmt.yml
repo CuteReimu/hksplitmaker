@@ -8,22 +8,40 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version: '1.22'
+          go-version: 'stable'
 
-      - name: gofmt
-        if: github.repository_owner == 'CuteReimu'
-        continue-on-error: true
+      - name: Create Fake LiveSplit Files
         run: |
-          if [ "$(gofmt -s -l -w . | wc -l)" -gt 0 ]; then
-          git config --local user.name 'github-actions[bot]'
-          git config --local user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add --all
-          git commit -m "gofmt"
-          git push
-          fi
+          touch LiveSplit.AutoSplitters.xml
+          touch LiveSplit.HollowKnight.dll
+
+      - name: Install goimports
+        run: go install golang.org/x/tools/cmd/goimports@latest
+
+      - name: Set Go Env
+        run: |
+          go env -w GOOS=windows
+          go env -w GOARCH=amd64
+
+      - name: Run goimports
+        run: goimports -w .
+
+      - name: Run gofmt
+        run: gofmt -s -l -w .
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Submit if there are changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "goimports && gofmt"
+          file_pattern: 'go.mod go.sum *.go **/*.go'
