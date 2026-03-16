@@ -93,7 +93,7 @@ type splitIdModel struct {
 	items []string
 }
 
-func (s *splitIdModel) Value(index int) interface{} {
+func (s *splitIdModel) Value(index int) any {
 	return s.items[index]
 }
 

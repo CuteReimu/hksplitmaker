@@ -17,8 +17,8 @@ type jsonCategory struct {
 	Ordered                  bool                     `json:"ordered"`
 	StartTriggeringAutosplit string                   `json:"startTriggeringAutosplit"`
 	EndTriggeringAutosplit   bool                     `json:"endTriggeringAutosplit"`
-	Names                    map[string]interface{}   `json:"names"`
-	Icons                    map[string]interface{}   `json:"icons"`
+	Names                    map[string]any           `json:"names"`
+	Icons                    map[string]any           `json:"icons"`
 	EndingSplit              *jsonCategoryEndingSplit `json:"endingSplit"`
 	GameName                 string                   `json:"gameName"`
 }
@@ -111,7 +111,7 @@ func onSelectCategory() {
 		if names, ok := j.Names[splitId]; ok {
 			if namestr, ok := names.(string); ok {
 				name = strings.ReplaceAll(namestr, "%s", dropBrackets(description))
-			} else if namearr, ok := names.([]interface{}); ok {
+			} else if namearr, ok := names.([]any); ok {
 				if _, ok := nameIndexCache[splitId]; !ok {
 					nameIndexCache[splitId] = 0
 				}
