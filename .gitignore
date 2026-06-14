@@ -1,3 +1,10 @@
+build/bin
+node_modules
+frontend/dist
+package.json.md5
+
+.vscode/
+.vs/
 .idea/
 *.xml
 

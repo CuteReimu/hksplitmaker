@@ -3,14 +3,16 @@ package main
 import (
 	"bufio"
 	"bytes"
+	_ "embed"
 	"fmt"
 	"io"
 	"strings"
 
 	regexp "github.com/dlclark/regexp2"
-	"github.com/lxn/walk"
 )
 
+//go:embed translate.csv
+var transLateData []byte
 var translateDict = &Trie{}
 var regexpSpace = regexp.MustCompile(`(?<![()\[\]{}%'"A-Za-z]) (?![()\[\]{}%'"A-Za-z])`, regexp.None)
 
@@ -19,7 +21,6 @@ func init() {
 	for {
 		line, _, err := reader.ReadLine()
 		if err != nil && err != io.EOF {
-			walk.MsgBox(nil, "错误", err.Error(), walk.MsgBoxIconError)
 			panic(err)
 		}
 		if len(line) > 0 {
@@ -30,7 +31,7 @@ func init() {
 				val = arr[1]
 			}
 			if !translateDict.PutIfAbsent(key, val) {
-				walk.MsgBox(nil, "警告", fmt.Sprint("出现重复数据：", string(line)), walk.MsgBoxIconWarning)
+				panic(fmt.Sprint("出现重复数据：", string(line)))
 			}
 		}
 		if err == io.EOF {

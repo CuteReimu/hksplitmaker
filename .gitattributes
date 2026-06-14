@@ -3,3 +3,7 @@ hk-split-maker/* linguist-vendored
 *.csv linguist-detectable
 
 *.lss diff text
+
+frontend/wailsjs/** linguist-generated eol=lf
+go.mod eol=lf
+go.sum eol=lf

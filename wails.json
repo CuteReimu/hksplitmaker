@@ -1,0 +1,17 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "空洞骑士计时器生成器",
+  "outputfilename": "空洞骑士计时器生成器",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "奇葩の灵梦",
+    "email": "cutereimu@vip.qq.com"
+  },
+  "info": {
+    "productVersion": "3.2.6.0",
+    "copyright": "Copyright (c) 2025 CuteReimu 奇葩の灵梦"
+  }
+}

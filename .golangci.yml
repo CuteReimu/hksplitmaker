@@ -3,6 +3,7 @@ linters:
   default: all
   disable:
     - wsl
+    - wsl_v5
     - varnamelen
     - gocognit
     - funlen
@@ -34,6 +35,9 @@ linters:
     - nonamedreturns
     - goconst
     - musttag
+    - noinlineerr
+    - containedctx
+    - funcorder
   settings:
     staticcheck:
       checks:
@@ -51,8 +55,5 @@ linters:
         - G304
         - G306
         - G404
-  exclusions:
-    paths-except:
-      - hk-split-maker/
 run:
   timeout: 5m

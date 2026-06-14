@@ -20,12 +20,14 @@ jobs:
         with:
           go-version: 'stable'
 
-      - name: Create Fake LiveSplit Files
+      - name: Create Fake Files
         run: |
           touch LiveSplit.AutoSplitters.xml
           touch LiveSplit.HollowKnight.dll
           rm -f userdefined/*
           touch userdefined/1.lss
+          mkdir -p frontend/dist
+          touch frontend/dist/1
 
       - name: Install goimports
         run: go install golang.org/x/tools/cmd/goimports@latest
