@@ -670,7 +670,7 @@ Monomon,莫诺蒙
 Abyss Door,深渊大门
 Abyss Lighthouse,深渊灯塔点亮
 City Gate w/ Mantis Lords defeated,击败螳螂领主后进入泪城大门
-Credits Roll,游戏结束
+Credits Roll,任意结局
 Lift Opened,电梯解锁
 Entrance,进入
 Has Fireball,获得复仇之魂后
@@ -785,3 +785,11 @@ Reroute,重制路线
 Failed Champ,失败冠军
 Start,开始
 New Game,新游戏
+1U,↑
+1D,↓
+2U,↑↑
+2D,↓↓
+3U,↑↑↑
+3D,↓↓↓
+Lantern + Sly Fragment,光蝇灯笼+斯莱碎片
+Blank Template,空模板

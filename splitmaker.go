@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"encoding/json"
+	"fmt"
 )
 
 //go:embed hk-split-maker/src/asset/hollowknight/categories/*
@@ -31,11 +32,12 @@ func GetAllFiles() (allFiles []Option) {
 }
 
 type SplitMakerConfig struct {
-	CategoryName    string          `json:"categoryName"`
-	StartTriggering string          `json:"startTriggeringAutosplit"`
-	Ids             []string        `json:"splitIds"`
-	Names           json.RawMessage `json:"names"`
-	EndTriggering   bool            `json:"endTriggeringAutosplit"`
+	CategoryName    string                   `json:"categoryName"`
+	StartTriggering string                   `json:"startTriggeringAutosplit"`
+	Ids             []string                 `json:"splitIds"`
+	Names           map[string]StringOrSlice `json:"names"`
+	Icons           map[string]StringOrSlice `json:"icons"`
+	EndTriggering   bool                     `json:"endTriggeringAutosplit"`
 	EndingSplit     *struct {
 		Name string `json:"name"`
 		Icon string `json:"icon"`
@@ -53,4 +55,22 @@ func GetSplitMakerConfig(fileName string) (*SplitMakerConfig, error) {
 		return nil, err
 	}
 	return &result, nil
+}
+
+type StringOrSlice []string
+
+func (s *StringOrSlice) UnmarshalJSON(data []byte) error {
+	var str string
+	if err := json.Unmarshal(data, &str); err == nil {
+		*s = []string{str}
+		return nil
+	}
+
+	var slice []string
+	if err := json.Unmarshal(data, &slice); err == nil {
+		*s = slice
+		return nil
+	}
+
+	return fmt.Errorf("field must be string or []string")
 }

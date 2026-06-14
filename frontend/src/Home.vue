@@ -22,7 +22,7 @@
     <el-button @click="fixLiveSplit" :loading="fixingLiveSplit">更新LiveSplit</el-button>
     <el-button @click="openHelp">查看帮助</el-button>
   </div>
-  <el-table :data="tableData" style="max-width: 960px" max-height="69vh">
+  <el-table :data="tableData" max-width="960px">
     <el-table-column label="图标" width="60px">
       <template #default="scope">
         <el-image v-if="scope.$index>0 && scope.row.icon.length>0 && enableTriggering(scope.$index)" style="width: 25px; height: 25px" :src="scope.row.icon" fit="contain"></el-image>

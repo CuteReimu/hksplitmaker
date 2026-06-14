@@ -124,19 +124,31 @@ func (a *App) GetSplits(name string) (*GetSplitsResult, error) {
 	if len(c.StartTriggering) > 0 {
 		splits[0].Event = c.StartTriggering
 	}
+	nameCache := make(map[string]int, len(c.Names))
+	iconCache := make(map[string]int, len(c.Icons))
+	re := regexp.MustCompile(`\{.*?}`)
 	for _, id := range c.Ids {
 		isSubSplit := strings.HasPrefix(id, "-")
-		id = strings.TrimLeft(id, "-")
-		id = regexp.MustCompile(`\{.*?}`).ReplaceAllString(id, "")
+		id = strings.TrimPrefix(id, "-")
+		id = re.ReplaceAllString(id, "")
 		var splitName, icon string
 		splitName = splitsDictIdToDescriptions[id]
 		if idx := strings.LastIndex(splitName, "("); idx > 0 {
 			splitName = strings.TrimSpace(splitName[:idx])
 		}
+		if nameCache[id] < len(c.Names[id]) {
+			splitName = translate(strings.ReplaceAll(c.Names[id][nameCache[id]], "%s", splitName))
+			nameCache[id]++
+		}
+		if iconCache[id] < len(c.Icons[id]) {
+			icon = getIconHtmlFormat(c.Icons[id][iconCache[id]])
+			iconCache[id]++
+		} else {
+			icon = getIconHtmlFormat(id)
+		}
 		if isSubSplit {
 			splitName = "-" + splitName
 		}
-		icon = getIconHtmlFormat(id)
 		splits = append(splits, SplitLine{Name: splitName, Event: id, Icon: icon})
 	}
 
