@@ -134,7 +134,12 @@ onMounted(() => {
 });
 
 function addLine(index: number) {
-  tableData.value.splice(index, 0, { name: '手动分割', event: 'ManualSplit', icon: '' });
+  GetIcon('ManualSplit').then(res => {
+    tableData.value.splice(index, 0, { name: '手动分割', event: 'ManualSplit', icon: res });
+  }).catch(e => {
+    LogError(e);
+    tableData.value.splice(index, 0, { name: '手动分割', event: 'ManualSplit', icon: '' });
+  })
 }
 
 function removeLine(index: number) {
