@@ -3,7 +3,7 @@ package main
 import (
 	"embed"
 	"encoding/json"
-	"fmt"
+	"errors"
 )
 
 //go:embed hk-split-maker/src/asset/hollowknight/categories/*
@@ -72,5 +72,5 @@ func (s *StringOrSlice) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 
-	return fmt.Errorf("field must be string or []string")
+	return errors.New("field must be string or []string")
 }
