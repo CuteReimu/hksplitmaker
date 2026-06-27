@@ -32,7 +32,6 @@ func main() {
 		Bind: []any{
 			app,
 		},
-		Logger: appLogger,
 	})
 
 	if err != nil {
