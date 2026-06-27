@@ -63,11 +63,10 @@ import {
   ElCheckbox,
   ElMessage,
   ElText,
-  ElIcon,
   ElImage,
   ElInput,
 } from 'element-plus';
-import { Plus, Minus, Top, Bottom, UploadFilled } from '@element-plus/icons-vue';
+import { Plus, Minus, Top, Bottom } from '@element-plus/icons-vue';
 import {ref, onMounted} from 'vue';
 import { GetOptions, GetTemplates, LoadSplitFile, GetSplits, GetIcon, SaveSplitsFile, SaveIconsZip, FixLiveSplit, GetUserDefinedFiles, OnSelectUserDefinedFile } from '../wailsjs/go/main/App';
 import {BrowserOpenURL, LogError, EventsOn, EventsEmit, OnFileDrop} from '../wailsjs/runtime';
@@ -138,26 +137,26 @@ onMounted(() => {
   }, false);
 });
 
-function addLine(index: number) {
+const addLine = (index: number) => {
   GetIcon('ManualSplit').then(res => {
     tableData.value.splice(index, 0, { name: '手动分割', event: 'ManualSplit', icon: res });
   }).catch(e => {
     LogError(e);
     tableData.value.splice(index, 0, { name: '手动分割', event: 'ManualSplit', icon: '' });
   })
-}
+};
 
-function removeLine(index: number) {
+const removeLine = (index: number) => {
   tableData.value.splice(index, 1);
-}
+};
 
-function swapLine(index1: number, index2: number) {
+const swapLine = (index1: number, index2: number) => {
   const temp = tableData.value[index1];
   tableData.value[index1] = tableData.value[index2];
   tableData.value[index2] = temp;
-}
+};
 
-function submit() {
+const submit = () => {
   disableSubmit.value = true;
   SaveSplitsFile(
     tableData.value as any,
@@ -170,9 +169,9 @@ function submit() {
   }).finally(() => {
     disableSubmit.value = false;
   });
-}
+};
 
-function downloadIcons() {
+const downloadIcons = () => {
   disableSubmit.value = true;
   SaveIconsZip().catch(e => {
     LogError(e);
@@ -180,11 +179,11 @@ function downloadIcons() {
   }).finally(() => {
     disableSubmit.value = false;
   });
-}
+};
 
 const coloEnd = ["BronzeEnd", "SilverEnd", "GoldEnd"];
 
-function selectTemplate(value: string) {
+const selectTemplate = (value: string) => {
   otherTemplate.value = '';
   GetSplits(value).then(res => {
     startTriggering.value = res.startTriggering;
@@ -197,9 +196,9 @@ function selectTemplate(value: string) {
     LogError(e);
     ElMessage({ message: String(e), type: 'error', plain: true });
   });
-}
+};
 
-function selectOtherTemplate(value: string) {
+const selectOtherTemplate = (value: string) => {
   currentTemplate.value = '';
   OnSelectUserDefinedFile(value).then(res => {
     startTriggering.value = res.startTriggering;
@@ -209,17 +208,17 @@ function selectOtherTemplate(value: string) {
     LogError(e);
     ElMessage({ message: String(e), type: 'error', plain: true });
   });
-}
+};
 
-function openGithub() {
+const openGithub = () => {
   BrowserOpenURL('https://github.com/CuteReimu/hksplitmaker');
-}
+};
 
-function openHelp() {
+const openHelp = () => {
   BrowserOpenURL('https://cutereimu.cn/daily/hollowknight/hksplitmaker-faq.html');
-}
+};
 
-function onEventChange(idx: number) {
+const onEventChange = (idx: number) => {
   if (idx === 0) {
     return;
   }
@@ -235,9 +234,9 @@ function onEventChange(idx: number) {
     LogError(e);
     ElMessage({ message: String(e), type: 'error', plain: true });
   });
-}
+};
 
-function fillIcons() {
+const fillIcons = () => {
   const p = [];
   for (const idx in tableData.value) {
     const row = tableData.value[idx];
@@ -251,20 +250,20 @@ function fillIcons() {
     LogError(e);
     ElMessage({ message: String(e), type: 'error', plain: true });
   })
-}
+};
 
-function resetIcons() {
+const resetIcons = () => {
   for (const idx in tableData.value) {
     tableData.value[idx].icon = '';
   }
-}
+};
 
-function fixLiveSplit() {
+const fixLiveSplit = () => {
   fixingLiveSplit.value = true;
   FixLiveSplit().finally(() => {
     fixingLiveSplit.value = false;
   })
-}
+};
 
 EventsOn("ElMessage", (type, message) => {
   ElMessage({ message, type, plain: true });
