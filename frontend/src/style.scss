@@ -15,14 +15,10 @@
 
 // ----- 1. 颜色系统 (Windows 经典色盘) -----
 $win-bg: #f0f0f0;           // 窗口背景色
-$win-surface: #ffffff;       // 卡片/面板背景
 $win-border: #d0d0d0;        // 边框色
-$win-border-dark: #a0a0a0;   // 深边框(用于内凹效果)
 $win-text: #000000;          // 主文字
-$win-text-gray: #404040;     // 灰色文字
 $win-hover-bg: #e5f3ff;      // 悬停背景(Windows经典浅蓝)
 $win-hover-border: #7da2ce;  // 悬停边框
-$win-pressed-bg: #cce4ff;    // 按下背景
 
 // 按钮渐变 (经典灰色)
 $win-btn-grad-start: #ffffff;
@@ -131,11 +127,6 @@ body, html {
   .el-table__row:hover > td {
     background-color: $win-hover-bg !important;
   }
-}
-
-.el-upload-dragger {
-  background-color: $win-bg !important;
-  padding: 10px;
 }
 
 .el-select__wrapper {

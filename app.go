@@ -4,7 +4,10 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/xml"
+	"errors"
+	"log/slog"
 	"os"
+	"path/filepath"
 	"regexp"
 	"slices"
 	"strings"
@@ -71,7 +74,24 @@ type GetSplitsResult struct {
 }
 
 // LoadSplitFile parses an .lss file from its XML text content
-func (a *App) LoadSplitFile(content string) (*GetSplitsResult, error) {
+func (a *App) LoadSplitFile(filePath string) (*GetSplitsResult, error) {
+	if filepath.Ext(filePath) != ".lss" {
+		return nil, errors.New("只支持*.lss文件")
+	}
+	buf, err := os.ReadFile(filePath)
+	if err != nil {
+		slog.Error("找不到文件", "filePath", filePath, "error", err)
+		_, _ = runtime.MessageDialog(a.ctx, runtime.MessageDialogOptions{
+			Type:    runtime.ErrorDialog,
+			Title:   "错误",
+			Message: "找不到文件",
+		})
+		return nil, err
+	}
+	return a.loadSplitFile(string(buf))
+}
+
+func (a *App) loadSplitFile(content string) (*GetSplitsResult, error) {
 	run := &xmlRun{}
 	if err := xml.Unmarshal([]byte(content), run); err != nil {
 		return nil, err

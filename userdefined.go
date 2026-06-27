@@ -36,7 +36,7 @@ func (a *App) OnSelectUserDefinedFile(fileName string) (*GetSplitsResult, error)
 		})
 		return nil, err
 	}
-	ret, err := a.LoadSplitFile(string(buf))
+	ret, err := a.loadSplitFile(string(buf))
 	if err != nil {
 		return nil, err
 	}
